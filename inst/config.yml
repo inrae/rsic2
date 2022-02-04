@@ -1,0 +1,13 @@
+default:
+  sic:
+    path: "*** The path of your installation of SIC should be defined ***"
+    edisic: "exe/EdiSIC.exe"
+    talweg: "exe/TALWEG.exe"
+    fluvia: "exe/FLUVIA.exe"
+    sirene: "exe/SIRENE.exe"
+    export: "exe/SicExport.exe"
+    fortran:
+      prms:
+        INTERF: "0"
+  project:
+    path: "*** The path of your XML project file should be defined ***"
