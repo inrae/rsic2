@@ -1,0 +1,16 @@
+Package: rsic2
+Type: Package
+Title: SIC2 Software Automation with R
+Version: 0.0.9000
+Authors@R: c(
+    person("David", "Dorchies", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6595-7984"), email = "david.dorchies@inrae.fr")
+    )
+Description: SIC^2 software (Simulation and Integration of Control for Canals (or Channels)) is a hydraulic simulation software adapted to the calculation of flows in irrigation canals, rivers and sewage systems (<https://sic.g-eau.fr/>). This package provides functions to automate the use of SIC2 with R.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
