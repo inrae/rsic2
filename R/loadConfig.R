@@ -30,7 +30,10 @@
 #' str(cfg)
 loadConfig <- function(sic_path = NULL, xml_path = NULL, userFile = "config.yml", pathDefaultCfg = system.file("config.yml", package = "rsic2")) {
     cfg <- config::get(file = pathDefaultCfg)
-    if (file.exists(userFile)) {cfg = config::merge(cfg,config::get(file = userFile))}
+    if (file.exists(userFile)) {
+      message("Reading user configuration from ", userFile)
+      cfg = config::merge(cfg,config::get(file = userFile))
+    }
     if (!is.null(sic_path)) cfg$sic$path <- sic_path
     if (!is.null(xml_path)) cfg$project$path <- xml_path
     if (!dir.exists(cfg$sic$path)) {

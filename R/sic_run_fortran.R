@@ -22,7 +22,7 @@ sic_run_fortran <- function(prog, params, cfg = loadConfig()) {
     shQuote(
       paste(
         file.path(cfg$sic$path, cfg$sic[[prog]]),
-        shQuote(sic$project$path, type = "cmd"),
+        shQuote(cfg$project$path, type = "cmd"),
         params
       ),
       type = "cmd2"),
