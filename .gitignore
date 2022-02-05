@@ -43,3 +43,8 @@ vignettes/*.pdf
 # Project specific
 ###############################################################################
 
+/config.yml
+/vignettes/config.yml
+/tests/testthat/config.yml
+*.INI
+*.ini
