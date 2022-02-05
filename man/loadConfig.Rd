@@ -21,25 +21,25 @@ A configuration as it is returned by \link[config:get]{config::get}.
 
 Configuration of RSIC2 as the following structure:
 \itemize{
-\item sic
+\item \code{sic}
 \itemize{
-\item path: Path of local SIC installation (should be defined by \code{sic_path} parameter or in the user config file)
-\item edisic: sub-path to EdiSIC program
-\item talweg: sub-path to TALWEG program
-\item fluvia: sub-path to FLUVIA program
-\item sirene: sub-path to SIRENE program
-\item export: sub-path to SicExport program
-\item fortran:
+\item \code{path}: Path of local SIC installation (should be defined by \code{sic_path} parameter or in the user config file)
+\item \code{edisic}: sub-path to EdiSIC program
+\item \code{talweg}: sub-path to TALWEG program
+\item \code{fluvia}: sub-path to FLUVIA program
+\item \code{sirene}: sub-path to SIRENE program
+\item \code{export}: sub-path to SicExport program
+\item \code{fortran}:
 \itemize{
-\item prms:
+\item \code{prms}:
 \itemize{
-\item INTERF: default \code{INTERF} parameter injected in command line arguments of TALWEG, FLUVIA, SIRENE
+\item \code{INTERF}: default \code{INTERF} parameter injected in command line arguments of TALWEG, FLUVIA, SIRENE
 }
 }
 }
-\item project
+\item \code{project}
 \itemize{
-\item path: Path to the XML project file (should be defined by \code{xml_path} parameter or in the user config file)
+\item \code{path}: Path to the XML project file (should be defined by \code{xml_path} parameter or in the user config file)
 }
 }
 }
@@ -47,7 +47,7 @@ Configuration of RSIC2 as the following structure:
 Read default configuration of the package and complete it with eventual user config
 }
 \examples{
-library(sic2)
+library(rsic2)
 sic_path <- tempdir(check = TRUE)
 xml_path <- R.utils::tmpfile()
 cfg <- loadConfig(sic_path, xml_path)
