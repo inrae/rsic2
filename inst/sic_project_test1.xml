@@ -1,0 +1,4376 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Reseau  Nom_Reseau = 'Nouveau Réseau 1'   Scenario_En_Cours = '0'   Version = '5.39a Build 1 (32 bits)'   Serie = '9999'   Protection = 'G'   Client = 'Inrae' >
+	<Flu  nScenario = '0' >
+		<ListeScenario  Scenario_En_Cours = '0' >
+			<DescriptionReseau  Nom = 'Nouveau Réseau 1' ></DescriptionReseau>
+			<Scenario  Nom = 'Permanent 100 m3/s'   Num = '1' >
+				<Info  CI_OK = '0'   DateCreation = '20220113122655090'   DateModification = '20220113151343850'   NumUnique = '1'   DateImportCI = '00000000000000000'   NumUniqueImport = '0'   TImport = '0' >
+					<Description></Description>
+					<Resultat></Resultat>
+				</Info>
+				<Variante  Nom = 'Crue 1000 m3/s sans digue'   Num = '1' >
+					<Info  CI_OK = '1'   DateCreation = '20220113143801570'   DateModification = '20220113145032690'   NumUnique = '2'   DateImportCI = '20220113145032150'   NumUniqueImport = '1'   TImport = '0' >
+						<Description></Description>
+						<Resultat></Resultat>
+					</Info>
+				</Variante>
+				<Variante  Nom = 'Crue 1000 m3/s avec digue'   Num = '2' >
+					<Info  CI_OK = '1'   DateCreation = '20220113143842910'   DateModification = '20220113145046820'   NumUnique = '3'   DateImportCI = '20220113145046300'   NumUniqueImport = '1'   TImport = '0' >
+						<Description></Description>
+						<Resultat></Resultat>
+					</Info>
+				</Variante>
+			</Scenario>
+		</ListeScenario>
+	</Flu>
+<ResTal bMaille="1" ZModele="   0.000000000000000E+000" Date="20220113122635" Version="538.8" TpsExec="00:01,368"><IR> 
+1	4	3	2	</IR><MatA nbrPt="5"><I> 
+2	2	2	2	1	</I><J> 
+4	3	2	-1	1	</J></MatA><MatB nbrPt="4"><I> 
+4	4	3	3	</I><J> 
+4	3	4	2	</J></MatB><MatH nbrPt="1"><I> 
+1	</I><J> 
+2	</J></MatH><MailleNdAm nbrNd="1"> 
+2	</MailleNdAm></ResTal>
+
+	<Tal>
+		<VersionTal>5.39.1.1</VersionTal>
+		<HomothetieX>1</HomothetieX>
+		<HomothetieY>1</HomothetieY>
+		<DX>100</DX>
+		<ImportEdital>0</ImportEdital>
+		<GeoUnit>1</GeoUnit>
+		<GeoRefAngle>1</GeoRefAngle>
+		<Sections_Modeles>
+			<SectionMin  Nom = 'around dyke'   Num = '1'   abscisse = '0'   Singuliere = '0'   Display = '1' >
+				<Aff>
+					<Afficher>1</Afficher>
+					<Xgeo>0</Xgeo>
+					<Ygeo>0</Ygeo>
+					<RefPoint>1</RefPoint>
+					<RefY>0</RefY>
+					<Angle>90</Angle>
+				</Aff>
+				<Tal>
+					<Profil-Init>
+						<Type>R</Type>
+						<Cote_Fond>0</Cote_Fond>
+						<Cote_Berge>100</Cote_Berge>
+						<Largeur>2000</Largeur>
+					</Profil-Init>
+				</Tal>
+			</SectionMin>
+			<SectionMin  Nom = 'Rivière'   Num = '2'   abscisse = '0'   Singuliere = '0'   Display = '1' >
+				<Aff>
+					<Afficher>1</Afficher>
+					<Xgeo>0</Xgeo>
+					<Ygeo>0</Ygeo>
+					<RefPoint>1</RefPoint>
+					<RefY>0</RefY>
+					<Angle>90</Angle>
+				</Aff>
+				<Tal>
+					<Profil-Init>
+						<Type>T</Type>
+						<Cote_Fond>0</Cote_Fond>
+						<Cote_Berge>4</Cote_Berge>
+						<Largeur>30</Largeur>
+						<Fruit>2</Fruit>
+						<LFP>0.01</LFP>
+					</Profil-Init>
+				</Tal>
+			</SectionMin>
+		</Sections_Modeles>
+	</Tal>
+	<Liste_Noeuds>
+		<Noeud  Nom = 'Amont'   Num = '1' >
+			<Tal>
+			</Tal>
+			<Aff>
+				<X>301</X>
+				<Y>55</Y>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+
+<ResTal Type="1"/>
+
+<Flu nScenario="1"><Prise Nom="Prise1" Num="1"><Actif>1</Actif><ObjectifRegulation>0</ObjectifRegulation><DebitReference>0</DebitReference><ConditionLim Nom="Condition limite" Num="1" Type="1"><DebitFixe ModeParaCalcul="4"><Loi Mode="R" Type="A">&#13;
+0	3600	7200	10800	14400	18000	21600	25200	28800	32400	36000	39600	43200	46800	50400	54000	57600	61200	64800	68400	72000	75600	79200	82800	86400&#13;
+100.0883815	100.3923141	101.5297548	105.2399265	115.766816	141.6752521	196.7671404	297.3753958	453.6499131	656.6337469	869.6281512	1034.776513	1097.355701	1034.776513	869.6281512	656.6337469	453.6499131	297.3753958	196.7671404	141.6752521	115.766816	105.2399265	101.5297548	100.3923141	100.0883815&#13;
+</Loi></DebitFixe></ConditionLim><ListeRes><Res nVar="0" nCol="448:1"/><Res nVar="1" nCol="448:1"/><Res nVar="2" nCol="448:1"/></ListeRes></Prise><ListeRes><Res nVar="0" nCol="443:1"/><Res nVar="1" nCol="443:1"/><Res nVar="2" nCol="443:1"/></ListeRes><ListeCI><CI nVar="1">26.89</CI><CI nVar="2">26.89</CI></ListeCI></Flu>
+
+		</Noeud>
+		<Noeud  Nom = 'Vallée 1'   Num = '2' >
+			<Tal>
+			</Tal>
+			<Aff>
+				<X>302</X>
+				<Y>358</Y>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+
+<ResTal Type="2"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="444:1"/><Res nVar="1" nCol="444:1"/><Res nVar="2" nCol="444:1"/></ListeRes><ListeCI><CI nVar="1">16.89</CI><CI nVar="2">16.89</CI></ListeCI></Flu>
+
+		</Noeud>
+		<Noeud  Nom = 'Aval'   Num = '3' >
+			<Tal>
+			</Tal>
+			<Aff>
+				<X>303</X>
+				<Y>539</Y>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+
+<ResTal Type="-1"/>
+
+<Flu nScenario="1"><Prise Nom="Prise1" Num="1"><TypeRegulation>1</TypeRegulation><Actif>1</Actif><ObjectifRegulation>0</ObjectifRegulation><DebitReference>0</DebitReference><ConditionLim Nom="Condition limite" Num="1" Type="3"><TLoi>&#13;
+5	6.666666666667	9	10	11.66666666667	13.33333333333	15	16.66666666667	18.33333333333	20&#13;
+0	80.78649429852	367.0342271334	554.9192259868	917.0749046582	1327.411323407	1775.410507737	2253.639518307	2756.612209938	3280.153502721&#13;
+</TLoi></ConditionLim><ListeRes><Res nVar="0" nCol="449:1"/><Res nVar="1" nCol="449:1"/><Res nVar="2" nCol="449:1"/></ListeRes></Prise><ListeRes><Res nVar="0" nCol="445:1"/><Res nVar="1" nCol="445:1"/><Res nVar="2" nCol="445:1"/></ListeRes><ListeCI><CI nVar="1">6.82401</CI><CI nVar="2">6.82401</CI></ListeCI></Flu>
+
+		</Noeud>
+		<Noeud  Nom = 'V1-droite'   Num = '4' >
+			<Tal>
+<Casier>
+15	30
+1000000	2000000
+</Casier>
+			</Tal>
+			<Aff>
+				<X>240</X>
+				<Y>356</Y>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+
+<ResTal Type="-1"/>
+
+<Flu nScenario="1"><Prise Nom="Prise1" Num="1"><TypeRegulation>1</TypeRegulation><Actif>1<Variante Num="1">0</Variante><Variante Num="2">0</Variante></Actif><ObjectifRegulation>0</ObjectifRegulation><DebitReference>0</DebitReference><ConditionLim Nom="Condition limite" Num="1" Type="2"><CoteFixe>15</CoteFixe></ConditionLim><ListeRes><Res nVar="0" nCol="450:1"/></ListeRes></Prise><Prise Nom="Prise2" Num="2"><Actif>1</Actif><ObjectifRegulation>0</ObjectifRegulation><DebitReference>0</DebitReference><ConditionLim Nom="Condition limite" Num="1" Type="1"><DebitFixe>0</DebitFixe></ConditionLim><ListeRes><Res nVar="0" nCol="451:1"/><Res nVar="1" nCol="450:1"/><Res nVar="2" nCol="450:1"/></ListeRes></Prise><Casier><EchangeSurf>0</EchangeSurf></Casier><ListeRes><Res nVar="0" nCol="446:1"/><Res nVar="1" nCol="446:1"/><Res nVar="2" nCol="446:1"/></ListeRes><ListeCI><CI nVar="1">15</CI><CI nVar="2">15</CI></ListeCI></Flu>
+
+		</Noeud>
+		<Noeud  Nom = 'V1-gauche'   Num = '5' >
+			<Tal>
+<Casier>
+15	30
+1000000	2000000
+</Casier>
+			</Tal>
+			<Aff>
+				<X>373</X>
+				<Y>359</Y>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+
+<ResTal Type="-1"/>
+
+<Flu nScenario="1"><Prise Nom="Prise1" Num="1"><TypeRegulation>1</TypeRegulation><Actif>1<Variante Num="1">0</Variante><Variante Num="2">0</Variante></Actif><ObjectifRegulation>0</ObjectifRegulation><DebitReference>0</DebitReference><ConditionLim Nom="Condition limite" Num="1" Type="2"><CoteFixe>15</CoteFixe></ConditionLim><ListeRes><Res nVar="0" nCol="452:1"/></ListeRes></Prise><Prise Nom="Prise2" Num="2"><Actif>1</Actif><ObjectifRegulation>0</ObjectifRegulation><DebitReference>0</DebitReference><ConditionLim Nom="Condition limite" Num="1" Type="1"><DebitFixe>0</DebitFixe></ConditionLim><ListeRes><Res nVar="0" nCol="453:1"/><Res nVar="1" nCol="451:1"/><Res nVar="2" nCol="451:1"/></ListeRes></Prise><Casier><EchangeSurf>0</EchangeSurf></Casier><ListeRes><Res nVar="0" nCol="447:1"/><Res nVar="1" nCol="447:1"/><Res nVar="2" nCol="447:1"/></ListeRes><ListeCI><CI nVar="1">15</CI><CI nVar="2">15</CI></ListeCI></Flu>
+
+		</Noeud>
+
+	</Liste_Noeuds>
+	<Liste_Biefs>
+		<Bief  Nom = 'Bief1'   Num = '1' >
+			<Tal>
+				<Pas>0</Pas>
+				<Sin>1</Sin>
+				<HomothetieX>0</HomothetieX>
+				<HomothetieY>0</HomothetieY>
+			</Tal>
+			<Aff>
+				<X_Millieu>302</X_Millieu>
+				<Y_Millieu>156</Y_Millieu>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+			<Top>
+				<NoeudAm>1</NoeudAm>
+				<NoeudAv>2</NoeudAv>
+			</Top>
+			<Liste_Sections>
+				<SectionMin  Nom = 'Section1'   Num = '1'   abscisse = '0'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>25</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>25</Cote_Fond>
+							<Cote_Berge>29</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="1"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="1:4"/><Res nVar="1" nCol="1:4"/><Res nVar="2" nCol="1:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section3'   Num = '2'   abscisse = '100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>24.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>24.8</Cote_Fond>
+							<Cote_Berge>28.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="2"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="5:4"/><Res nVar="1" nCol="5:4"/><Res nVar="2" nCol="5:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section4'   Num = '3'   abscisse = '200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>24.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>24.6</Cote_Fond>
+							<Cote_Berge>28.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="3"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="9:4"/><Res nVar="1" nCol="9:4"/><Res nVar="2" nCol="9:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section5'   Num = '4'   abscisse = '300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>24.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>24.4</Cote_Fond>
+							<Cote_Berge>28.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="4"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="13:4"/><Res nVar="1" nCol="13:4"/><Res nVar="2" nCol="13:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section6'   Num = '5'   abscisse = '400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>24.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>24.2</Cote_Fond>
+							<Cote_Berge>28.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="5"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="17:4"/><Res nVar="1" nCol="17:4"/><Res nVar="2" nCol="17:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section7'   Num = '6'   abscisse = '500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>24</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>24</Cote_Fond>
+							<Cote_Berge>28</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="6"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="21:4"/><Res nVar="1" nCol="21:4"/><Res nVar="2" nCol="21:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section8'   Num = '7'   abscisse = '600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>23.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>23.8</Cote_Fond>
+							<Cote_Berge>27.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="7"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="25:4"/><Res nVar="1" nCol="25:4"/><Res nVar="2" nCol="25:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section9'   Num = '8'   abscisse = '700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>23.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>23.6</Cote_Fond>
+							<Cote_Berge>27.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="8"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="29:4"/><Res nVar="1" nCol="29:4"/><Res nVar="2" nCol="29:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section10'   Num = '9'   abscisse = '800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>23.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>23.4</Cote_Fond>
+							<Cote_Berge>27.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="9"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="33:4"/><Res nVar="1" nCol="33:4"/><Res nVar="2" nCol="33:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section11'   Num = '10'   abscisse = '900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>23.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>23.2</Cote_Fond>
+							<Cote_Berge>27.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="10"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="37:4"/><Res nVar="1" nCol="37:4"/><Res nVar="2" nCol="37:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section12'   Num = '11'   abscisse = '1000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>23</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>23</Cote_Fond>
+							<Cote_Berge>27</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="11"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="41:4"/><Res nVar="1" nCol="41:4"/><Res nVar="2" nCol="41:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section13'   Num = '12'   abscisse = '1100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>22.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>22.8</Cote_Fond>
+							<Cote_Berge>26.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="12"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="45:4"/><Res nVar="1" nCol="45:4"/><Res nVar="2" nCol="45:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section14'   Num = '13'   abscisse = '1200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>22.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>22.6</Cote_Fond>
+							<Cote_Berge>26.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="13"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="49:4"/><Res nVar="1" nCol="49:4"/><Res nVar="2" nCol="49:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section15'   Num = '14'   abscisse = '1300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>22.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>22.4</Cote_Fond>
+							<Cote_Berge>26.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="14"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="53:4"/><Res nVar="1" nCol="53:4"/><Res nVar="2" nCol="53:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section16'   Num = '15'   abscisse = '1400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>22.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>22.2</Cote_Fond>
+							<Cote_Berge>26.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="15"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="57:4"/><Res nVar="1" nCol="57:4"/><Res nVar="2" nCol="57:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section17'   Num = '16'   abscisse = '1500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>22</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>22</Cote_Fond>
+							<Cote_Berge>26</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="16"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="61:4"/><Res nVar="1" nCol="61:4"/><Res nVar="2" nCol="61:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section18'   Num = '17'   abscisse = '1600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>21.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>21.8</Cote_Fond>
+							<Cote_Berge>25.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="17"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="65:4"/><Res nVar="1" nCol="65:4"/><Res nVar="2" nCol="65:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section19'   Num = '18'   abscisse = '1700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>21.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>21.6</Cote_Fond>
+							<Cote_Berge>25.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="18"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="69:4"/><Res nVar="1" nCol="69:4"/><Res nVar="2" nCol="69:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section20'   Num = '19'   abscisse = '1800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>21.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>21.4</Cote_Fond>
+							<Cote_Berge>25.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="19"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="73:4"/><Res nVar="1" nCol="73:4"/><Res nVar="2" nCol="73:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section21'   Num = '20'   abscisse = '1900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>21.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>21.2</Cote_Fond>
+							<Cote_Berge>25.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="20"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="77:4"/><Res nVar="1" nCol="77:4"/><Res nVar="2" nCol="77:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section22'   Num = '21'   abscisse = '2000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>21</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>21</Cote_Fond>
+							<Cote_Berge>25</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="21"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="81:4"/><Res nVar="1" nCol="81:4"/><Res nVar="2" nCol="81:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section23'   Num = '22'   abscisse = '2100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>20.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>20.8</Cote_Fond>
+							<Cote_Berge>24.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="22"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="85:4"/><Res nVar="1" nCol="85:4"/><Res nVar="2" nCol="85:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section24'   Num = '23'   abscisse = '2200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>20.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>20.6</Cote_Fond>
+							<Cote_Berge>24.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="23"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="89:4"/><Res nVar="1" nCol="89:4"/><Res nVar="2" nCol="89:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section25'   Num = '24'   abscisse = '2300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>20.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>20.4</Cote_Fond>
+							<Cote_Berge>24.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="24"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="93:4"/><Res nVar="1" nCol="93:4"/><Res nVar="2" nCol="93:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section26'   Num = '25'   abscisse = '2400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>20.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>20.2</Cote_Fond>
+							<Cote_Berge>24.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="25"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="97:4"/><Res nVar="1" nCol="97:4"/><Res nVar="2" nCol="97:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section27'   Num = '26'   abscisse = '2500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>20</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>20</Cote_Fond>
+							<Cote_Berge>24</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="26"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="101:4"/><Res nVar="1" nCol="101:4"/><Res nVar="2" nCol="101:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section28'   Num = '27'   abscisse = '2600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>19.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>19.8</Cote_Fond>
+							<Cote_Berge>23.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="27"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="105:4"/><Res nVar="1" nCol="105:4"/><Res nVar="2" nCol="105:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section29'   Num = '28'   abscisse = '2700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>19.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>19.6</Cote_Fond>
+							<Cote_Berge>23.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="28"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="109:4"/><Res nVar="1" nCol="109:4"/><Res nVar="2" nCol="109:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section30'   Num = '29'   abscisse = '2800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>19.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>19.4</Cote_Fond>
+							<Cote_Berge>23.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="29"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="113:4"/><Res nVar="1" nCol="113:4"/><Res nVar="2" nCol="113:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section31'   Num = '30'   abscisse = '2900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>19.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>19.2</Cote_Fond>
+							<Cote_Berge>23.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="30"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="117:4"/><Res nVar="1" nCol="117:4"/><Res nVar="2" nCol="117:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section32'   Num = '31'   abscisse = '3000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>19</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>19</Cote_Fond>
+							<Cote_Berge>23</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="31"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="121:4"/><Res nVar="1" nCol="121:4"/><Res nVar="2" nCol="121:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section33'   Num = '32'   abscisse = '3100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>18.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>18.8</Cote_Fond>
+							<Cote_Berge>22.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="32"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="125:4"/><Res nVar="1" nCol="125:4"/><Res nVar="2" nCol="125:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section34'   Num = '33'   abscisse = '3200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>18.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>18.6</Cote_Fond>
+							<Cote_Berge>22.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="33"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="129:4"/><Res nVar="1" nCol="129:4"/><Res nVar="2" nCol="129:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section35'   Num = '34'   abscisse = '3300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>18.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>18.4</Cote_Fond>
+							<Cote_Berge>22.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="34"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="133:4"/><Res nVar="1" nCol="133:4"/><Res nVar="2" nCol="133:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section36'   Num = '35'   abscisse = '3400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>18.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>18.2</Cote_Fond>
+							<Cote_Berge>22.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="35"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="137:4"/><Res nVar="1" nCol="137:4"/><Res nVar="2" nCol="137:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section37'   Num = '36'   abscisse = '3500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>18</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>18</Cote_Fond>
+							<Cote_Berge>22</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="36"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="141:4"/><Res nVar="1" nCol="141:4"/><Res nVar="2" nCol="141:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section38'   Num = '37'   abscisse = '3600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>17.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>17.8</Cote_Fond>
+							<Cote_Berge>21.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="37"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="145:4"/><Res nVar="1" nCol="145:4"/><Res nVar="2" nCol="145:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section39'   Num = '38'   abscisse = '3700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>17.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>17.6</Cote_Fond>
+							<Cote_Berge>21.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="38"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="149:4"/><Res nVar="1" nCol="149:4"/><Res nVar="2" nCol="149:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section40'   Num = '39'   abscisse = '3800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>17.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>17.4</Cote_Fond>
+							<Cote_Berge>21.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="39"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="153:4"/><Res nVar="1" nCol="153:4"/><Res nVar="2" nCol="153:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section41'   Num = '40'   abscisse = '3900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>17.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>17.2</Cote_Fond>
+							<Cote_Berge>21.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="40"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="157:4"/><Res nVar="1" nCol="157:4"/><Res nVar="2" nCol="157:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section42'   Num = '41'   abscisse = '4000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>17</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>17</Cote_Fond>
+							<Cote_Berge>21</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="41"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="161:4"/><Res nVar="1" nCol="161:4"/><Res nVar="2" nCol="161:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section43'   Num = '42'   abscisse = '4100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>16.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>16.8</Cote_Fond>
+							<Cote_Berge>20.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="42"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="165:4"/><Res nVar="1" nCol="165:4"/><Res nVar="2" nCol="165:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section44'   Num = '43'   abscisse = '4200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>16.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>16.6</Cote_Fond>
+							<Cote_Berge>20.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="43"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="169:4"/><Res nVar="1" nCol="169:4"/><Res nVar="2" nCol="169:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section45'   Num = '44'   abscisse = '4300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>16.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>16.4</Cote_Fond>
+							<Cote_Berge>20.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="44"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="173:4"/><Res nVar="1" nCol="173:4"/><Res nVar="2" nCol="173:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section46'   Num = '45'   abscisse = '4400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>16.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>16.2</Cote_Fond>
+							<Cote_Berge>20.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="45"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="177:4"/><Res nVar="1" nCol="177:4"/><Res nVar="2" nCol="177:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section47'   Num = '46'   abscisse = '4500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>16</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>16</Cote_Fond>
+							<Cote_Berge>20</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="46"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="181:4"/><Res nVar="1" nCol="181:4"/><Res nVar="2" nCol="181:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section48'   Num = '47'   abscisse = '4600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>15.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>15.8</Cote_Fond>
+							<Cote_Berge>19.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="47"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="185:4"/><Res nVar="1" nCol="185:4"/><Res nVar="2" nCol="185:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section49'   Num = '48'   abscisse = '4700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>15.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>15.6</Cote_Fond>
+							<Cote_Berge>19.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="48"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="189:4"/><Res nVar="1" nCol="189:4"/><Res nVar="2" nCol="189:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section50'   Num = '49'   abscisse = '4800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>15.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>15.4</Cote_Fond>
+							<Cote_Berge>19.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="49"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="193:4"/><Res nVar="1" nCol="193:4"/><Res nVar="2" nCol="193:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section51'   Num = '50'   abscisse = '4900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>15.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>15.2</Cote_Fond>
+							<Cote_Berge>19.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="50"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="197:4"/><Res nVar="1" nCol="197:4"/><Res nVar="2" nCol="197:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section2'   Num = '51'   abscisse = '5000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>15</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>15</Cote_Fond>
+							<Cote_Berge>19</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="51"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="201:4"/><Res nVar="1" nCol="201:4"/><Res nVar="2" nCol="201:4"/></ListeRes></Flu>
+
+				</SectionMin>
+
+			</Liste_Sections>
+
+<ResTal IUB="1" IUR="1" IS1="1" IS2="51" Smoy="   0.000000000000000E+000"><Liste_Sections_Calcul><Sections_Cal_Min Num="1" Display="           1" abscisse="   0.000000000000000E+000" Cote_Berge="       29.000000000000000" CoteDebMinMoy="       29.000000000000000" Singuliere="           0" IP1="           1" IP2="           3" KD="           2" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+25.000000000000000	29.000000000000000	529.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">26.89	100.088</CI><CI nVar="2">26.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="2" Display="           1" abscisse="      100.000000000000000" Cote_Berge="       28.800000000000001" CoteDebMinMoy="       28.800000000000001" Singuliere="           0" IP1="           4" IP2="           6" KD="           5" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+24.800000000000001	28.800000000000001	528.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">26.69	100.088</CI><CI nVar="2">26.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="3" Display="           1" abscisse="      200.000000000000000" Cote_Berge="       28.600000000000001" CoteDebMinMoy="       28.600000000000001" Singuliere="           0" IP1="           7" IP2="           9" KD="           8" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+24.600000000000001	28.600000000000001	528.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">26.49	100.088</CI><CI nVar="2">26.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="4" Display="           1" abscisse="      300.000000000000000" Cote_Berge="       28.399999999999999" CoteDebMinMoy="       28.399999999999999" Singuliere="           0" IP1="          10" IP2="          12" KD="          11" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+24.399999999999999	28.399999999999999	528.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">26.29	100.088</CI><CI nVar="2">26.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="5" Display="           1" abscisse="      400.000000000000000" Cote_Berge="       28.199999999999999" CoteDebMinMoy="       28.199999999999999" Singuliere="           0" IP1="          13" IP2="          15" KD="          14" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+24.199999999999999	28.199999999999999	528.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">26.09	100.088</CI><CI nVar="2">26.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="6" Display="           1" abscisse="      500.000000000000000" Cote_Berge="       28.000000000000000" CoteDebMinMoy="       28.000000000000000" Singuliere="           0" IP1="          16" IP2="          18" KD="          17" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+24.000000000000000	28.000000000000000	528.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">25.89	100.088</CI><CI nVar="2">25.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="7" Display="           1" abscisse="      600.000000000000000" Cote_Berge="       27.800000000000001" CoteDebMinMoy="       27.800000000000001" Singuliere="           0" IP1="          19" IP2="          21" KD="          20" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+23.800000000000001	27.800000000000001	527.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">25.69	100.088</CI><CI nVar="2">25.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="8" Display="           1" abscisse="      700.000000000000000" Cote_Berge="       27.600000000000001" CoteDebMinMoy="       27.600000000000001" Singuliere="           0" IP1="          22" IP2="          24" KD="          23" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+23.600000000000001	27.600000000000001	527.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">25.49	100.088</CI><CI nVar="2">25.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="9" Display="           1" abscisse="      800.000000000000000" Cote_Berge="       27.399999999999999" CoteDebMinMoy="       27.399999999999999" Singuliere="           0" IP1="          25" IP2="          27" KD="          26" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+23.399999999999999	27.399999999999999	527.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">25.29	100.088</CI><CI nVar="2">25.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="10" Display="           1" abscisse="      900.000000000000000" Cote_Berge="       27.199999999999999" CoteDebMinMoy="       27.199999999999999" Singuliere="           0" IP1="          28" IP2="          30" KD="          29" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+23.199999999999999	27.199999999999999	527.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">25.09	100.088</CI><CI nVar="2">25.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="11" Display="           1" abscisse="     1000.000000000000000" Cote_Berge="       27.000000000000000" CoteDebMinMoy="       27.000000000000000" Singuliere="           0" IP1="          31" IP2="          33" KD="          32" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+23.000000000000000	27.000000000000000	527.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">24.89	100.088</CI><CI nVar="2">24.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="12" Display="           1" abscisse="     1100.000000000000000" Cote_Berge="       26.800000000000001" CoteDebMinMoy="       26.800000000000001" Singuliere="           0" IP1="          34" IP2="          36" KD="          35" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+22.800000000000001	26.800000000000001	526.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">24.69	100.088</CI><CI nVar="2">24.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="13" Display="           1" abscisse="     1200.000000000000000" Cote_Berge="       26.600000000000001" CoteDebMinMoy="       26.600000000000001" Singuliere="           0" IP1="          37" IP2="          39" KD="          38" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+22.600000000000001	26.600000000000001	526.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">24.49	100.088</CI><CI nVar="2">24.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="14" Display="           1" abscisse="     1300.000000000000000" Cote_Berge="       26.399999999999999" CoteDebMinMoy="       26.399999999999999" Singuliere="           0" IP1="          40" IP2="          42" KD="          41" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+22.399999999999999	26.399999999999999	526.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">24.29	100.088</CI><CI nVar="2">24.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="15" Display="           1" abscisse="     1400.000000000000000" Cote_Berge="       26.199999999999999" CoteDebMinMoy="       26.199999999999999" Singuliere="           0" IP1="          43" IP2="          45" KD="          44" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+22.199999999999999	26.199999999999999	526.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">24.09	100.088</CI><CI nVar="2">24.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="16" Display="           1" abscisse="     1500.000000000000000" Cote_Berge="       26.000000000000000" CoteDebMinMoy="       26.000000000000000" Singuliere="           0" IP1="          46" IP2="          48" KD="          47" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+22.000000000000000	26.000000000000000	526.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">23.89	100.088</CI><CI nVar="2">23.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="17" Display="           1" abscisse="     1600.000000000000000" Cote_Berge="       25.800000000000001" CoteDebMinMoy="       25.800000000000001" Singuliere="           0" IP1="          49" IP2="          51" KD="          50" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+21.800000000000001	25.800000000000001	525.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">23.69	100.088</CI><CI nVar="2">23.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="18" Display="           1" abscisse="     1700.000000000000000" Cote_Berge="       25.600000000000001" CoteDebMinMoy="       25.600000000000001" Singuliere="           0" IP1="          52" IP2="          54" KD="          53" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+21.600000000000001	25.600000000000001	525.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">23.49	100.088</CI><CI nVar="2">23.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="19" Display="           1" abscisse="     1800.000000000000000" Cote_Berge="       25.399999999999999" CoteDebMinMoy="       25.399999999999999" Singuliere="           0" IP1="          55" IP2="          57" KD="          56" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+21.399999999999999	25.399999999999999	525.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">23.29	100.088</CI><CI nVar="2">23.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="20" Display="           1" abscisse="     1900.000000000000000" Cote_Berge="       25.199999999999999" CoteDebMinMoy="       25.199999999999999" Singuliere="           0" IP1="          58" IP2="          60" KD="          59" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+21.199999999999999	25.199999999999999	525.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">23.09	100.088</CI><CI nVar="2">23.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="21" Display="           1" abscisse="     2000.000000000000000" Cote_Berge="       25.000000000000000" CoteDebMinMoy="       25.000000000000000" Singuliere="           0" IP1="          61" IP2="          63" KD="          62" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+21.000000000000000	25.000000000000000	525.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">22.89	100.088</CI><CI nVar="2">22.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="22" Display="           1" abscisse="     2100.000000000000000" Cote_Berge="       24.800000000000001" CoteDebMinMoy="       24.800000000000001" Singuliere="           0" IP1="          64" IP2="          66" KD="          65" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+20.800000000000001	24.800000000000001	524.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">22.69	100.088</CI><CI nVar="2">22.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="23" Display="           1" abscisse="     2200.000000000000000" Cote_Berge="       24.600000000000001" CoteDebMinMoy="       24.600000000000001" Singuliere="           0" IP1="          67" IP2="          69" KD="          68" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+20.600000000000001	24.600000000000001	524.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">22.49	100.088</CI><CI nVar="2">22.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="24" Display="           1" abscisse="     2300.000000000000000" Cote_Berge="       24.399999999999999" CoteDebMinMoy="       24.399999999999999" Singuliere="           0" IP1="          70" IP2="          72" KD="          71" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+20.399999999999999	24.399999999999999	524.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">22.29	100.088</CI><CI nVar="2">22.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="25" Display="           1" abscisse="     2400.000000000000000" Cote_Berge="       24.199999999999999" CoteDebMinMoy="       24.199999999999999" Singuliere="           0" IP1="          73" IP2="          75" KD="          74" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+20.199999999999999	24.199999999999999	524.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">22.09	100.088</CI><CI nVar="2">22.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="26" Display="           1" abscisse="     2500.000000000000000" Cote_Berge="       24.000000000000000" CoteDebMinMoy="       24.000000000000000" Singuliere="           0" IP1="          76" IP2="          78" KD="          77" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+20.000000000000000	24.000000000000000	524.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">21.89	100.088</CI><CI nVar="2">21.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="27" Display="           1" abscisse="     2600.000000000000000" Cote_Berge="       23.800000000000001" CoteDebMinMoy="       23.800000000000001" Singuliere="           0" IP1="          79" IP2="          81" KD="          80" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+19.800000000000001	23.800000000000001	523.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">21.69	100.088</CI><CI nVar="2">21.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="28" Display="           1" abscisse="     2700.000000000000000" Cote_Berge="       23.600000000000001" CoteDebMinMoy="       23.600000000000001" Singuliere="           0" IP1="          82" IP2="          84" KD="          83" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+19.600000000000001	23.600000000000001	523.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">21.49	100.088</CI><CI nVar="2">21.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="29" Display="           1" abscisse="     2800.000000000000000" Cote_Berge="       23.399999999999999" CoteDebMinMoy="       23.399999999999999" Singuliere="           0" IP1="          85" IP2="          87" KD="          86" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+19.399999999999999	23.399999999999999	523.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">21.29	100.088</CI><CI nVar="2">21.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="30" Display="           1" abscisse="     2900.000000000000000" Cote_Berge="       23.199999999999999" CoteDebMinMoy="       23.199999999999999" Singuliere="           0" IP1="          88" IP2="          90" KD="          89" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+19.199999999999999	23.199999999999999	523.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">21.09	100.088</CI><CI nVar="2">21.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="31" Display="           1" abscisse="     3000.000000000000000" Cote_Berge="       23.000000000000000" CoteDebMinMoy="       23.000000000000000" Singuliere="           0" IP1="          91" IP2="          93" KD="          92" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+19.000000000000000	23.000000000000000	523.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">20.89	100.088</CI><CI nVar="2">20.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="32" Display="           1" abscisse="     3100.000000000000000" Cote_Berge="       22.800000000000001" CoteDebMinMoy="       22.800000000000001" Singuliere="           0" IP1="          94" IP2="          96" KD="          95" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+18.800000000000001	22.800000000000001	522.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">20.69	100.088</CI><CI nVar="2">20.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="33" Display="           1" abscisse="     3200.000000000000000" Cote_Berge="       22.600000000000001" CoteDebMinMoy="       22.600000000000001" Singuliere="           0" IP1="          97" IP2="          99" KD="          98" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+18.600000000000001	22.600000000000001	522.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">20.49	100.088</CI><CI nVar="2">20.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="34" Display="           1" abscisse="     3300.000000000000000" Cote_Berge="       22.399999999999999" CoteDebMinMoy="       22.399999999999999" Singuliere="           0" IP1="         100" IP2="         102" KD="         101" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+18.399999999999999	22.399999999999999	522.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">20.29	100.088</CI><CI nVar="2">20.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="35" Display="           1" abscisse="     3400.000000000000000" Cote_Berge="       22.199999999999999" CoteDebMinMoy="       22.199999999999999" Singuliere="           0" IP1="         103" IP2="         105" KD="         104" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+18.199999999999999	22.199999999999999	522.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">20.09	100.088</CI><CI nVar="2">20.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="36" Display="           1" abscisse="     3500.000000000000000" Cote_Berge="       22.000000000000000" CoteDebMinMoy="       22.000000000000000" Singuliere="           0" IP1="         106" IP2="         108" KD="         107" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+18.000000000000000	22.000000000000000	522.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">19.89	100.088</CI><CI nVar="2">19.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="37" Display="           1" abscisse="     3600.000000000000000" Cote_Berge="       21.800000000000001" CoteDebMinMoy="       21.800000000000001" Singuliere="           0" IP1="         109" IP2="         111" KD="         110" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+17.800000000000001	21.800000000000001	521.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">19.69	100.088</CI><CI nVar="2">19.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="38" Display="           1" abscisse="     3700.000000000000000" Cote_Berge="       21.600000000000001" CoteDebMinMoy="       21.600000000000001" Singuliere="           0" IP1="         112" IP2="         114" KD="         113" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+17.600000000000001	21.600000000000001	521.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">19.49	100.088</CI><CI nVar="2">19.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="39" Display="           1" abscisse="     3800.000000000000000" Cote_Berge="       21.399999999999999" CoteDebMinMoy="       21.399999999999999" Singuliere="           0" IP1="         115" IP2="         117" KD="         116" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+17.399999999999999	21.399999999999999	521.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">19.29	100.088</CI><CI nVar="2">19.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="40" Display="           1" abscisse="     3900.000000000000000" Cote_Berge="       21.199999999999999" CoteDebMinMoy="       21.199999999999999" Singuliere="           0" IP1="         118" IP2="         120" KD="         119" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+17.199999999999999	21.199999999999999	521.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">19.09	100.088</CI><CI nVar="2">19.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="41" Display="           1" abscisse="     4000.000000000000000" Cote_Berge="       21.000000000000000" CoteDebMinMoy="       21.000000000000000" Singuliere="           0" IP1="         121" IP2="         123" KD="         122" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+17.000000000000000	21.000000000000000	521.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">18.89	100.088</CI><CI nVar="2">18.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="42" Display="           1" abscisse="     4100.000000000000000" Cote_Berge="       20.800000000000001" CoteDebMinMoy="       20.800000000000001" Singuliere="           0" IP1="         124" IP2="         126" KD="         125" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+16.800000000000001	20.800000000000001	520.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">18.69	100.088</CI><CI nVar="2">18.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="43" Display="           1" abscisse="     4200.000000000000000" Cote_Berge="       20.600000000000001" CoteDebMinMoy="       20.600000000000001" Singuliere="           0" IP1="         127" IP2="         129" KD="         128" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+16.600000000000001	20.600000000000001	520.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">18.49	100.088</CI><CI nVar="2">18.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="44" Display="           1" abscisse="     4300.000000000000000" Cote_Berge="       20.399999999999999" CoteDebMinMoy="       20.399999999999999" Singuliere="           0" IP1="         130" IP2="         132" KD="         131" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+16.399999999999999	20.399999999999999	520.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">18.29	100.088</CI><CI nVar="2">18.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="45" Display="           1" abscisse="     4400.000000000000000" Cote_Berge="       20.199999999999999" CoteDebMinMoy="       20.199999999999999" Singuliere="           0" IP1="         133" IP2="         135" KD="         134" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+16.199999999999999	20.199999999999999	520.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">18.09	100.088</CI><CI nVar="2">18.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="46" Display="           1" abscisse="     4500.000000000000000" Cote_Berge="       20.000000000000000" CoteDebMinMoy="       20.000000000000000" Singuliere="           0" IP1="         136" IP2="         138" KD="         137" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+16.000000000000000	20.000000000000000	520.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">17.89	100.088</CI><CI nVar="2">17.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="47" Display="           1" abscisse="     4600.000000000000000" Cote_Berge="       19.800000000000001" CoteDebMinMoy="       19.800000000000001" Singuliere="           0" IP1="         139" IP2="         141" KD="         140" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+15.800000000000001	19.800000000000001	519.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">17.69	100.088</CI><CI nVar="2">17.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="48" Display="           1" abscisse="     4700.000000000000000" Cote_Berge="       19.600000000000001" CoteDebMinMoy="       19.600000000000001" Singuliere="           0" IP1="         142" IP2="         144" KD="         143" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000007	46.000000000000007 
+15.600000000000000	19.600000000000001	519.600000000000023 
+0.	152.000000000000057	23152.000000000003638 
+30.000000000000000	47.888543819998326	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">17.49	100.088</CI><CI nVar="2">17.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="49" Display="           1" abscisse="     4800.000000000000000" Cote_Berge="       19.399999999999999" CoteDebMinMoy="       19.399999999999999" Singuliere="           0" IP1="         145" IP2="         147" KD="         146" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	45.999999999999993	45.999999999999993 
+15.400000000000000	19.399999999999999	519.399999999999977 
+0.	151.999999999999943	23151.999999999996362 
+30.000000000000000	47.888543819998311	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">17.29	100.088</CI><CI nVar="2">17.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="50" Display="           1" abscisse="     4900.000000000000000" Cote_Berge="       19.199999999999999" CoteDebMinMoy="       19.199999999999999" Singuliere="           0" IP1="         148" IP2="         150" KD="         149" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+15.199999999999999	19.199999999999999	519.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">17.09	100.088</CI><CI nVar="2">17.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="51" Display="           1" abscisse="     5000.000000000000000" Cote_Berge="       19.000000000000000" CoteDebMinMoy="       19.000000000000000" Singuliere="           0" IP1="         151" IP2="         153" KD="         152" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+15.000000000000000	19.000000000000000	519.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.89	100.088</CI><CI nVar="2">16.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min></Liste_Sections_Calcul></ResTal>
+
+<Flu nScenario="1" DiffluenceAm="1" DiffluenceAv="1" ModeCalculAm="1" ModeCalculAv="1" coefPerteAm="0" coefPerteAv="0"><Stricklers><Portion Num="1" XD="0" XF="5000"><KMin>25</KMin><KMoy>25</KMoy></Portion></Stricklers></Flu>
+
+		</Bief>
+		<Bief  Nom = 'Bief2'   Num = '2' >
+			<Tal>
+				<Pas>0</Pas>
+				<Sin>1</Sin>
+				<HomothetieX>0</HomothetieX>
+				<HomothetieY>0</HomothetieY>
+			</Tal>
+			<Aff>
+				<X_Millieu>303</X_Millieu>
+				<Y_Millieu>406</Y_Millieu>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+			<Top>
+				<NoeudAm>2</NoeudAm>
+				<NoeudAv>3</NoeudAv>
+			</Top>
+			<Liste_Sections>
+				<SectionMin  Nom = 'Section1'   Num = '1'   abscisse = '5000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>15</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>15</Cote_Fond>
+							<Cote_Berge>19</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="52"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="205:4"/><Res nVar="1" nCol="205:4"/><Res nVar="2" nCol="205:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section3'   Num = '2'   abscisse = '5100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>14.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>14.8</Cote_Fond>
+							<Cote_Berge>18.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="53"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="209:4"/><Res nVar="1" nCol="209:4"/><Res nVar="2" nCol="209:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section4'   Num = '3'   abscisse = '5200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>14.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>14.6</Cote_Fond>
+							<Cote_Berge>18.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="54"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="213:4"/><Res nVar="1" nCol="213:4"/><Res nVar="2" nCol="213:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section5'   Num = '4'   abscisse = '5300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>14.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>14.4</Cote_Fond>
+							<Cote_Berge>18.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="55"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="217:4"/><Res nVar="1" nCol="217:4"/><Res nVar="2" nCol="217:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section6'   Num = '5'   abscisse = '5400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>14.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>14.2</Cote_Fond>
+							<Cote_Berge>18.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="56"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="221:4"/><Res nVar="1" nCol="221:4"/><Res nVar="2" nCol="221:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section7'   Num = '6'   abscisse = '5500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>14</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>14</Cote_Fond>
+							<Cote_Berge>18</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="57"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="225:4"/><Res nVar="1" nCol="225:4"/><Res nVar="2" nCol="225:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section8'   Num = '7'   abscisse = '5600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>13.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>13.8</Cote_Fond>
+							<Cote_Berge>17.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="58"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="229:4"/><Res nVar="1" nCol="229:4"/><Res nVar="2" nCol="229:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section9'   Num = '8'   abscisse = '5700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>13.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>13.6</Cote_Fond>
+							<Cote_Berge>17.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="59"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="233:4"/><Res nVar="1" nCol="233:4"/><Res nVar="2" nCol="233:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section10'   Num = '9'   abscisse = '5800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>13.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>13.4</Cote_Fond>
+							<Cote_Berge>17.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="60"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="237:4"/><Res nVar="1" nCol="237:4"/><Res nVar="2" nCol="237:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section11'   Num = '10'   abscisse = '5900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>13.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>13.2</Cote_Fond>
+							<Cote_Berge>17.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="61"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="241:4"/><Res nVar="1" nCol="241:4"/><Res nVar="2" nCol="241:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section12'   Num = '11'   abscisse = '6000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>13</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>13</Cote_Fond>
+							<Cote_Berge>17</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="62"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="245:4"/><Res nVar="1" nCol="245:4"/><Res nVar="2" nCol="245:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section13'   Num = '12'   abscisse = '6100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>12.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>12.8</Cote_Fond>
+							<Cote_Berge>16.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="63"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="249:4"/><Res nVar="1" nCol="249:4"/><Res nVar="2" nCol="249:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section14'   Num = '13'   abscisse = '6200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>12.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>12.6</Cote_Fond>
+							<Cote_Berge>16.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="64"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="253:4"/><Res nVar="1" nCol="253:4"/><Res nVar="2" nCol="253:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section15'   Num = '14'   abscisse = '6300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>12.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>12.4</Cote_Fond>
+							<Cote_Berge>16.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="65"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="257:4"/><Res nVar="1" nCol="257:4"/><Res nVar="2" nCol="257:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section16'   Num = '15'   abscisse = '6400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>12.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>12.2</Cote_Fond>
+							<Cote_Berge>16.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="66"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="261:4"/><Res nVar="1" nCol="261:4"/><Res nVar="2" nCol="261:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section17'   Num = '16'   abscisse = '6500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>12</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>12</Cote_Fond>
+							<Cote_Berge>16</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="67"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="265:4"/><Res nVar="1" nCol="265:4"/><Res nVar="2" nCol="265:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section18'   Num = '17'   abscisse = '6600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>11.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>11.8</Cote_Fond>
+							<Cote_Berge>15.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="68"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="269:4"/><Res nVar="1" nCol="269:4"/><Res nVar="2" nCol="269:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section19'   Num = '18'   abscisse = '6700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>11.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>11.6</Cote_Fond>
+							<Cote_Berge>15.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="69"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="273:4"/><Res nVar="1" nCol="273:4"/><Res nVar="2" nCol="273:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section20'   Num = '19'   abscisse = '6800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>11.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>11.4</Cote_Fond>
+							<Cote_Berge>15.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="70"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="277:4"/><Res nVar="1" nCol="277:4"/><Res nVar="2" nCol="277:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section21'   Num = '20'   abscisse = '6900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>11.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>11.2</Cote_Fond>
+							<Cote_Berge>15.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="71"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="281:4"/><Res nVar="1" nCol="281:4"/><Res nVar="2" nCol="281:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section22'   Num = '21'   abscisse = '7000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>11</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>11</Cote_Fond>
+							<Cote_Berge>15</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="72"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="285:4"/><Res nVar="1" nCol="285:4"/><Res nVar="2" nCol="285:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section23'   Num = '22'   abscisse = '7100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>10.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>10.8</Cote_Fond>
+							<Cote_Berge>14.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="73"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="289:4"/><Res nVar="1" nCol="289:4"/><Res nVar="2" nCol="289:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section24'   Num = '23'   abscisse = '7200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>10.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>10.6</Cote_Fond>
+							<Cote_Berge>14.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="74"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="293:4"/><Res nVar="1" nCol="293:4"/><Res nVar="2" nCol="293:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section25'   Num = '24'   abscisse = '7300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>10.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>10.4</Cote_Fond>
+							<Cote_Berge>14.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="75"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="297:4"/><Res nVar="1" nCol="297:4"/><Res nVar="2" nCol="297:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section26'   Num = '25'   abscisse = '7400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>10.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>10.2</Cote_Fond>
+							<Cote_Berge>14.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="76"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="301:4"/><Res nVar="1" nCol="301:4"/><Res nVar="2" nCol="301:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section27'   Num = '26'   abscisse = '7500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>10</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>10</Cote_Fond>
+							<Cote_Berge>14</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="77"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="305:4"/><Res nVar="1" nCol="305:4"/><Res nVar="2" nCol="305:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section28'   Num = '27'   abscisse = '7600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>9.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>9.8</Cote_Fond>
+							<Cote_Berge>13.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="78"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="309:4"/><Res nVar="1" nCol="309:4"/><Res nVar="2" nCol="309:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section29'   Num = '28'   abscisse = '7700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>9.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>9.6</Cote_Fond>
+							<Cote_Berge>13.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="79"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="313:4"/><Res nVar="1" nCol="313:4"/><Res nVar="2" nCol="313:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section30'   Num = '29'   abscisse = '7800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>9.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>9.4</Cote_Fond>
+							<Cote_Berge>13.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="80"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="317:4"/><Res nVar="1" nCol="317:4"/><Res nVar="2" nCol="317:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section31'   Num = '30'   abscisse = '7900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>9.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>9.2</Cote_Fond>
+							<Cote_Berge>13.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="81"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="321:4"/><Res nVar="1" nCol="321:4"/><Res nVar="2" nCol="321:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section32'   Num = '31'   abscisse = '8000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>9</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>9</Cote_Fond>
+							<Cote_Berge>13</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="82"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="325:4"/><Res nVar="1" nCol="325:4"/><Res nVar="2" nCol="325:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section33'   Num = '32'   abscisse = '8100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>8.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>8.8</Cote_Fond>
+							<Cote_Berge>12.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="83"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="329:4"/><Res nVar="1" nCol="329:4"/><Res nVar="2" nCol="329:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section34'   Num = '33'   abscisse = '8200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>8.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>8.6</Cote_Fond>
+							<Cote_Berge>12.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="84"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="333:4"/><Res nVar="1" nCol="333:4"/><Res nVar="2" nCol="333:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section35'   Num = '34'   abscisse = '8300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>8.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>8.4</Cote_Fond>
+							<Cote_Berge>12.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="85"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="337:4"/><Res nVar="1" nCol="337:4"/><Res nVar="2" nCol="337:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section36'   Num = '35'   abscisse = '8400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>8.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>8.2</Cote_Fond>
+							<Cote_Berge>12.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="86"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="341:4"/><Res nVar="1" nCol="341:4"/><Res nVar="2" nCol="341:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section37'   Num = '36'   abscisse = '8500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>8</Cote_Fond>
+							<Cote_Berge>12</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="87"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="345:4"/><Res nVar="1" nCol="345:4"/><Res nVar="2" nCol="345:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section38'   Num = '37'   abscisse = '8600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>7.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>7.8</Cote_Fond>
+							<Cote_Berge>11.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="88"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="349:4"/><Res nVar="1" nCol="349:4"/><Res nVar="2" nCol="349:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section39'   Num = '38'   abscisse = '8700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>7.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>7.6</Cote_Fond>
+							<Cote_Berge>11.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="89"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="353:4"/><Res nVar="1" nCol="353:4"/><Res nVar="2" nCol="353:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section40'   Num = '39'   abscisse = '8800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>7.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>7.4</Cote_Fond>
+							<Cote_Berge>11.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="90"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="357:4"/><Res nVar="1" nCol="357:4"/><Res nVar="2" nCol="357:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section41'   Num = '40'   abscisse = '8900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>7.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>7.2</Cote_Fond>
+							<Cote_Berge>11.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="91"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="361:4"/><Res nVar="1" nCol="361:4"/><Res nVar="2" nCol="361:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section42'   Num = '41'   abscisse = '9000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>7</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>7</Cote_Fond>
+							<Cote_Berge>11</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="92"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="365:4"/><Res nVar="1" nCol="365:4"/><Res nVar="2" nCol="365:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section43'   Num = '42'   abscisse = '9100'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>6.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>6.8</Cote_Fond>
+							<Cote_Berge>10.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="93"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="369:4"/><Res nVar="1" nCol="369:4"/><Res nVar="2" nCol="369:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section44'   Num = '43'   abscisse = '9200'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>6.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>6.6</Cote_Fond>
+							<Cote_Berge>10.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="94"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="373:4"/><Res nVar="1" nCol="373:4"/><Res nVar="2" nCol="373:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section45'   Num = '44'   abscisse = '9300'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>6.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>6.4</Cote_Fond>
+							<Cote_Berge>10.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="95"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="377:4"/><Res nVar="1" nCol="377:4"/><Res nVar="2" nCol="377:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section46'   Num = '45'   abscisse = '9400'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>6.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>6.2</Cote_Fond>
+							<Cote_Berge>10.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="96"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="381:4"/><Res nVar="1" nCol="381:4"/><Res nVar="2" nCol="381:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section47'   Num = '46'   abscisse = '9500'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>6</Cote_Fond>
+							<Cote_Berge>10</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="97"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="385:4"/><Res nVar="1" nCol="385:4"/><Res nVar="2" nCol="385:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section48'   Num = '47'   abscisse = '9600'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>5.8</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>5.8</Cote_Fond>
+							<Cote_Berge>9.8</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="98"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="389:4"/><Res nVar="1" nCol="389:4"/><Res nVar="2" nCol="389:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section49'   Num = '48'   abscisse = '9700'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>5.6</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>5.6</Cote_Fond>
+							<Cote_Berge>9.6</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="99"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="393:4"/><Res nVar="1" nCol="393:4"/><Res nVar="2" nCol="393:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section50'   Num = '49'   abscisse = '9800'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>5.4</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>5.4</Cote_Fond>
+							<Cote_Berge>9.4</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="100"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="397:4"/><Res nVar="1" nCol="397:4"/><Res nVar="2" nCol="397:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section51'   Num = '50'   abscisse = '9900'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>5.2</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>5.2</Cote_Fond>
+							<Cote_Berge>9.2</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="101"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="401:4"/><Res nVar="1" nCol="401:4"/><Res nVar="2" nCol="401:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Section2'   Num = '51'   abscisse = '10000'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>2</NumModel>
+							<NomModel>Rivière</NomModel>
+							<Cote_Fond_Model>5</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>T</Type>
+							<Cote_Fond>5</Cote_Fond>
+							<Cote_Berge>9</Cote_Berge>
+							<Largeur>30</Largeur>
+							<Fruit>2</Fruit>
+							<LFP>0.01</LFP>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="102"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="405:4"/><Res nVar="1" nCol="405:4"/><Res nVar="2" nCol="405:4"/></ListeRes></Flu>
+
+				</SectionMin>
+
+			</Liste_Sections>
+
+<ResTal IUB="-2" IUR="2" IS1="52" IS2="102" Smoy="   0.000000000000000E+000"><Liste_Sections_Calcul><Sections_Cal_Min Num="52" Display="           1" abscisse="     5000.000000000000000" Cote_Berge="       19.000000000000000" CoteDebMinMoy="       19.000000000000000" Singuliere="           0" IP1="         154" IP2="         156" KD="         155" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+15.000000000000000	19.000000000000000	519.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.89	100.088</CI><CI nVar="2">16.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="53" Display="           1" abscisse="     5100.000000000000000" Cote_Berge="       18.800000000000001" CoteDebMinMoy="       18.800000000000001" Singuliere="           0" IP1="         157" IP2="         159" KD="         158" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+14.800000000000001	18.800000000000001	518.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.69	100.088</CI><CI nVar="2">16.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="54" Display="           1" abscisse="     5200.000000000000000" Cote_Berge="       18.600000000000001" CoteDebMinMoy="       18.600000000000001" Singuliere="           0" IP1="         160" IP2="         162" KD="         161" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000007	46.000000000000007 
+14.600000000000000	18.600000000000001	518.600000000000023 
+0.	152.000000000000057	23152.000000000003638 
+30.000000000000000	47.888543819998326	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.49	100.088</CI><CI nVar="2">16.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="55" Display="           1" abscisse="     5300.000000000000000" Cote_Berge="       18.399999999999999" CoteDebMinMoy="       18.399999999999999" Singuliere="           0" IP1="         163" IP2="         165" KD="         164" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	45.999999999999993	45.999999999999993 
+14.400000000000000	18.399999999999999	518.399999999999977 
+0.	151.999999999999943	23151.999999999996362 
+30.000000000000000	47.888543819998311	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.29	100.088</CI><CI nVar="2">16.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="56" Display="           1" abscisse="     5400.000000000000000" Cote_Berge="       18.199999999999999" CoteDebMinMoy="       18.199999999999999" Singuliere="           0" IP1="         166" IP2="         168" KD="         167" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+14.199999999999999	18.199999999999999	518.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.09	100.088</CI><CI nVar="2">16.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="57" Display="           1" abscisse="     5500.000000000000000" Cote_Berge="       18.000000000000000" CoteDebMinMoy="       18.000000000000000" Singuliere="           0" IP1="         169" IP2="         171" KD="         170" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+14.000000000000000	18.000000000000000	518.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15.89	100.088</CI><CI nVar="2">15.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="58" Display="           1" abscisse="     5600.000000000000000" Cote_Berge="       17.800000000000001" CoteDebMinMoy="       17.800000000000001" Singuliere="           0" IP1="         172" IP2="         174" KD="         173" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+13.800000000000001	17.800000000000001	517.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15.69	100.088</CI><CI nVar="2">15.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="59" Display="           1" abscisse="     5700.000000000000000" Cote_Berge="       17.600000000000001" CoteDebMinMoy="       17.600000000000001" Singuliere="           0" IP1="         175" IP2="         177" KD="         176" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000007	46.000000000000007 
+13.600000000000000	17.600000000000001	517.600000000000023 
+0.	152.000000000000057	23152.000000000003638 
+30.000000000000000	47.888543819998326	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15.49	100.088</CI><CI nVar="2">15.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="60" Display="           1" abscisse="     5800.000000000000000" Cote_Berge="       17.399999999999999" CoteDebMinMoy="       17.399999999999999" Singuliere="           0" IP1="         178" IP2="         180" KD="         179" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	45.999999999999993	45.999999999999993 
+13.400000000000000	17.399999999999999	517.399999999999977 
+0.	151.999999999999943	23151.999999999996362 
+30.000000000000000	47.888543819998311	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15.29	100.088</CI><CI nVar="2">15.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="61" Display="           1" abscisse="     5900.000000000000000" Cote_Berge="       17.199999999999999" CoteDebMinMoy="       17.199999999999999" Singuliere="           0" IP1="         181" IP2="         183" KD="         182" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+13.199999999999999	17.199999999999999	517.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15.09	100.088</CI><CI nVar="2">15.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="62" Display="           1" abscisse="     6000.000000000000000" Cote_Berge="       17.000000000000000" CoteDebMinMoy="       17.000000000000000" Singuliere="           0" IP1="         184" IP2="         186" KD="         185" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+13.000000000000000	17.000000000000000	517.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">14.89	100.088</CI><CI nVar="2">14.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="63" Display="           1" abscisse="     6100.000000000000000" Cote_Berge="       16.800000000000001" CoteDebMinMoy="       16.800000000000001" Singuliere="           0" IP1="         187" IP2="         189" KD="         188" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+12.800000000000001	16.800000000000001	516.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">14.69	100.088</CI><CI nVar="2">14.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="64" Display="           1" abscisse="     6200.000000000000000" Cote_Berge="       16.600000000000001" CoteDebMinMoy="       16.600000000000001" Singuliere="           0" IP1="         190" IP2="         192" KD="         191" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000007	46.000000000000007 
+12.600000000000000	16.600000000000001	516.600000000000023 
+0.	152.000000000000057	23152.000000000003638 
+30.000000000000000	47.888543819998326	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">14.49	100.088</CI><CI nVar="2">14.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="65" Display="           1" abscisse="     6300.000000000000000" Cote_Berge="       16.399999999999999" CoteDebMinMoy="       16.399999999999999" Singuliere="           0" IP1="         193" IP2="         195" KD="         194" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	45.999999999999993	45.999999999999993 
+12.400000000000000	16.399999999999999	516.399999999999977 
+0.	151.999999999999943	23151.999999999996362 
+30.000000000000000	47.888543819998311	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">14.29	100.088</CI><CI nVar="2">14.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="66" Display="           1" abscisse="     6400.000000000000000" Cote_Berge="       16.199999999999999" CoteDebMinMoy="       16.199999999999999" Singuliere="           0" IP1="         196" IP2="         198" KD="         197" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+12.199999999999999	16.199999999999999	516.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">14.09	100.088</CI><CI nVar="2">14.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="67" Display="           1" abscisse="     6500.000000000000000" Cote_Berge="       16.000000000000000" CoteDebMinMoy="       16.000000000000000" Singuliere="           0" IP1="         199" IP2="         201" KD="         200" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+12.000000000000000	16.000000000000000	516.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">13.89	100.088</CI><CI nVar="2">13.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="68" Display="           1" abscisse="     6600.000000000000000" Cote_Berge="       15.800000000000001" CoteDebMinMoy="       15.800000000000001" Singuliere="           0" IP1="         202" IP2="         204" KD="         203" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+11.800000000000001	15.800000000000001	515.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">13.69	100.088</CI><CI nVar="2">13.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="69" Display="           1" abscisse="     6700.000000000000000" Cote_Berge="       15.600000000000000" CoteDebMinMoy="       15.600000000000000" Singuliere="           0" IP1="         205" IP2="         207" KD="         206" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+11.600000000000000	15.600000000000000	515.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">13.49	100.088</CI><CI nVar="2">13.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="70" Display="           1" abscisse="     6800.000000000000000" Cote_Berge="       15.400000000000000" CoteDebMinMoy="       15.400000000000000" Singuliere="           0" IP1="         208" IP2="         210" KD="         209" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+11.400000000000000	15.400000000000000	515.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">13.29	100.088</CI><CI nVar="2">13.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="71" Display="           1" abscisse="     6900.000000000000000" Cote_Berge="       15.199999999999999" CoteDebMinMoy="       15.199999999999999" Singuliere="           0" IP1="         211" IP2="         213" KD="         212" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+11.199999999999999	15.199999999999999	515.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">13.09	100.088</CI><CI nVar="2">13.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="72" Display="           1" abscisse="     7000.000000000000000" Cote_Berge="       15.000000000000000" CoteDebMinMoy="       15.000000000000000" Singuliere="           0" IP1="         214" IP2="         216" KD="         215" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+11.000000000000000	15.000000000000000	515.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">12.89	100.088</CI><CI nVar="2">12.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="73" Display="           1" abscisse="     7100.000000000000000" Cote_Berge="       14.800000000000001" CoteDebMinMoy="       14.800000000000001" Singuliere="           0" IP1="         217" IP2="         219" KD="         218" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+10.800000000000001	14.800000000000001	514.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">12.69	100.088</CI><CI nVar="2">12.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="74" Display="           1" abscisse="     7200.000000000000000" Cote_Berge="       14.600000000000000" CoteDebMinMoy="       14.600000000000000" Singuliere="           0" IP1="         220" IP2="         222" KD="         221" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+10.600000000000000	14.600000000000000	514.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">12.49	100.088</CI><CI nVar="2">12.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="75" Display="           1" abscisse="     7300.000000000000000" Cote_Berge="       14.400000000000000" CoteDebMinMoy="       14.400000000000000" Singuliere="           0" IP1="         223" IP2="         225" KD="         224" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+10.400000000000000	14.400000000000000	514.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">12.29	100.088</CI><CI nVar="2">12.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="76" Display="           1" abscisse="     7400.000000000000000" Cote_Berge="       14.199999999999999" CoteDebMinMoy="       14.199999999999999" Singuliere="           0" IP1="         226" IP2="         228" KD="         227" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+10.199999999999999	14.199999999999999	514.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">12.09	100.088</CI><CI nVar="2">12.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="77" Display="           1" abscisse="     7500.000000000000000" Cote_Berge="       14.000000000000000" CoteDebMinMoy="       14.000000000000000" Singuliere="           0" IP1="         229" IP2="         231" KD="         230" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+10.000000000000000	14.000000000000000	514.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">11.89	100.088</CI><CI nVar="2">11.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="78" Display="           1" abscisse="     7600.000000000000000" Cote_Berge="       13.800000000000001" CoteDebMinMoy="       13.800000000000001" Singuliere="           0" IP1="         232" IP2="         234" KD="         233" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+9.800000000000001	13.800000000000001	513.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">11.69	100.088</CI><CI nVar="2">11.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="79" Display="           1" abscisse="     7700.000000000000000" Cote_Berge="       13.600000000000000" CoteDebMinMoy="       13.600000000000000" Singuliere="           0" IP1="         235" IP2="         237" KD="         236" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+9.600000000000000	13.600000000000000	513.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">11.49	100.088</CI><CI nVar="2">11.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="80" Display="           1" abscisse="     7800.000000000000000" Cote_Berge="       13.400000000000000" CoteDebMinMoy="       13.400000000000000" Singuliere="           0" IP1="         238" IP2="         240" KD="         239" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+9.400000000000000	13.400000000000000	513.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">11.29	100.088</CI><CI nVar="2">11.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="81" Display="           1" abscisse="     7900.000000000000000" Cote_Berge="       13.199999999999999" CoteDebMinMoy="       13.199999999999999" Singuliere="           0" IP1="         241" IP2="         243" KD="         242" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+9.199999999999999	13.199999999999999	513.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">11.09	100.088</CI><CI nVar="2">11.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="82" Display="           1" abscisse="     8000.000000000000000" Cote_Berge="       13.000000000000000" CoteDebMinMoy="       13.000000000000000" Singuliere="           0" IP1="         244" IP2="         246" KD="         245" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+9.000000000000000	13.000000000000000	513.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">10.89	100.088</CI><CI nVar="2">10.89	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="83" Display="           1" abscisse="     8100.000000000000000" Cote_Berge="       12.800000000000001" CoteDebMinMoy="       12.800000000000001" Singuliere="           0" IP1="         247" IP2="         249" KD="         248" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+8.800000000000001	12.800000000000001	512.799999999999955 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">10.69	100.088</CI><CI nVar="2">10.69	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="84" Display="           1" abscisse="     8200.000000000000000" Cote_Berge="       12.600000000000000" CoteDebMinMoy="       12.600000000000000" Singuliere="           0" IP1="         250" IP2="         252" KD="         251" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+8.600000000000000	12.600000000000000	512.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">10.49	100.088</CI><CI nVar="2">10.49	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="85" Display="           1" abscisse="     8300.000000000000000" Cote_Berge="       12.400000000000000" CoteDebMinMoy="       12.400000000000000" Singuliere="           0" IP1="         253" IP2="         255" KD="         254" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+8.400000000000000	12.400000000000000	512.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">10.29	100.088</CI><CI nVar="2">10.29	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="86" Display="           1" abscisse="     8400.000000000000000" Cote_Berge="       12.199999999999999" CoteDebMinMoy="       12.199999999999999" Singuliere="           0" IP1="         256" IP2="         258" KD="         257" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+8.199999999999999	12.199999999999999	512.200000000000045 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">10.09	100.088</CI><CI nVar="2">10.09	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="87" Display="           1" abscisse="     8500.000000000000000" Cote_Berge="       12.000000000000000" CoteDebMinMoy="       12.000000000000000" Singuliere="           0" IP1="         259" IP2="         261" KD="         260" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+8.000000000000000	12.000000000000000	512.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">9.88993	100.088</CI><CI nVar="2">9.88993	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="88" Display="           1" abscisse="     8600.000000000000000" Cote_Berge="       11.800000000000001" CoteDebMinMoy="       11.800000000000001" Singuliere="           0" IP1="         262" IP2="         264" KD="         263" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+7.800000000000000	11.800000000000001	511.800000000000011 
+0.	152.000000000000028	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">9.68988	100.088</CI><CI nVar="2">9.68988	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="89" Display="           1" abscisse="     8700.000000000000000" Cote_Berge="       11.600000000000000" CoteDebMinMoy="       11.600000000000000" Singuliere="           0" IP1="         265" IP2="         267" KD="         266" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+7.600000000000000	11.600000000000000	511.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">9.4898	100.088</CI><CI nVar="2">9.4898	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="90" Display="           1" abscisse="     8800.000000000000000" Cote_Berge="       11.400000000000000" CoteDebMinMoy="       11.400000000000000" Singuliere="           0" IP1="         268" IP2="         270" KD="         269" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+7.400000000000000	11.400000000000000	511.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">9.28968	100.088</CI><CI nVar="2">9.28968	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="91" Display="           1" abscisse="     8900.000000000000000" Cote_Berge="       11.199999999999999" CoteDebMinMoy="       11.199999999999999" Singuliere="           0" IP1="         271" IP2="         273" KD="         272" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+7.200000000000000	11.199999999999999	511.199999999999989 
+0.	151.999999999999972	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">9.0895	100.088</CI><CI nVar="2">9.0895	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="92" Display="           1" abscisse="     9000.000000000000000" Cote_Berge="       11.000000000000000" CoteDebMinMoy="       11.000000000000000" Singuliere="           0" IP1="         274" IP2="         276" KD="         275" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+7.000000000000000	11.000000000000000	511.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">8.88921	100.088</CI><CI nVar="2">8.88921	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="93" Display="           1" abscisse="     9100.000000000000000" Cote_Berge="       10.800000000000001" CoteDebMinMoy="       10.800000000000001" Singuliere="           0" IP1="         277" IP2="         279" KD="         278" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+6.800000000000000	10.800000000000001	510.800000000000011 
+0.	152.000000000000028	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">8.68878	100.088</CI><CI nVar="2">8.68878	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="94" Display="           1" abscisse="     9200.000000000000000" Cote_Berge="       10.600000000000000" CoteDebMinMoy="       10.600000000000000" Singuliere="           0" IP1="         280" IP2="         282" KD="         281" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+6.600000000000000	10.600000000000000	510.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">8.48811	100.088</CI><CI nVar="2">8.48811	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="95" Display="           1" abscisse="     9300.000000000000000" Cote_Berge="       10.400000000000000" CoteDebMinMoy="       10.400000000000000" Singuliere="           0" IP1="         283" IP2="         285" KD="         284" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+6.400000000000000	10.400000000000000	510.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">8.28708	100.088</CI><CI nVar="2">8.28708	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="96" Display="           1" abscisse="     9400.000000000000000" Cote_Berge="       10.199999999999999" CoteDebMinMoy="       10.199999999999999" Singuliere="           0" IP1="         286" IP2="         288" KD="         287" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+6.200000000000000	10.199999999999999	510.199999999999989 
+0.	151.999999999999972	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">8.08548	100.088</CI><CI nVar="2">8.08548	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="97" Display="           1" abscisse="     9500.000000000000000" Cote_Berge="       10.000000000000000" CoteDebMinMoy="       10.000000000000000" Singuliere="           0" IP1="         289" IP2="         291" KD="         290" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+6.000000000000000	10.000000000000000	510.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">7.88302	100.088</CI><CI nVar="2">7.88302	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="98" Display="           1" abscisse="     9600.000000000000000" Cote_Berge="        9.800000000000001" CoteDebMinMoy="        9.800000000000001" Singuliere="           0" IP1="         292" IP2="         294" KD="         293" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+5.800000000000000	9.800000000000001	509.800000000000011 
+0.	152.000000000000028	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">7.67919	100.088</CI><CI nVar="2">7.67919	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="99" Display="           1" abscisse="     9700.000000000000000" Cote_Berge="        9.600000000000000" CoteDebMinMoy="        9.600000000000000" Singuliere="           0" IP1="         295" IP2="         297" KD="         296" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+5.600000000000000	9.600000000000000	509.600000000000023 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">7.47321	100.088</CI><CI nVar="2">7.47321	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="100" Display="           1" abscisse="     9800.000000000000000" Cote_Berge="        9.400000000000000" CoteDebMinMoy="        9.400000000000000" Singuliere="           0" IP1="         298" IP2="         300" KD="         299" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+5.400000000000000	9.400000000000000	509.399999999999977 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">7.26378	100.088</CI><CI nVar="2">7.26378	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="101" Display="           1" abscisse="     9900.000000000000000" Cote_Berge="        9.199999999999999" CoteDebMinMoy="        9.199999999999999" Singuliere="           0" IP1="         301" IP2="         303" KD="         302" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+5.200000000000000	9.199999999999999	509.199999999999989 
+0.	151.999999999999972	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">7.04872	100.088</CI><CI nVar="2">7.04872	100.088</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="102" Display="           1" abscisse="    10000.000000000000000" Cote_Berge="        9.000000000000000" CoteDebMinMoy="        9.000000000000000" Singuliere="           0" IP1="         304" IP2="         306" KD="         305" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+30.000000000000000	46.000000000000000	46.000000000000000 
+5.000000000000000	9.000000000000000	509.000000000000000 
+0.	152.000000000000000	23152.000000000000000 
+30.000000000000000	47.888543819998318	1047.888543819998404
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">6.82401	100.088</CI><CI nVar="2">6.82401	100.088</CI></ListeCI></Flu></Sections_Cal_Min></Liste_Sections_Calcul></ResTal>
+
+<Flu nScenario="1" DiffluenceAm="0.3333333333333" DiffluenceAv="1" ModeCalculAm="1" ModeCalculAv="1" coefPerteAm="0" coefPerteAv="0"><Stricklers><Portion Num="1" XD="5000" XF="10000"><KMin>25</KMin><KMoy>25</KMoy></Portion></Stricklers></Flu>
+
+		</Bief>
+		<Bief  Nom = 'Bief3'   Num = '3' >
+			<Tal>
+				<Pas>0</Pas>
+				<Sin>1</Sin>
+				<HomothetieX>0</HomothetieX>
+				<HomothetieY>0</HomothetieY>
+			</Tal>
+			<Aff>
+				<X_Millieu>272</X_Millieu>
+				<Y_Millieu>360</Y_Millieu>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+			<Top>
+				<NoeudAm>2</NoeudAm>
+				<NoeudAv>4</NoeudAv>
+			</Top>
+			<Liste_Sections>
+				<SectionMin  Nom = 'upstream dyke'   Num = '1'   abscisse = '0'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="103"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="409:4"/><Res nVar="1" nCol="409:4"/><Res nVar="2" nCol="409:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'dyke'   Num = '2'   abscisse = '0.1'   Singuliere = '1'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="104"/>
+
+<Flu nScenario="1"><TypeRegulation>1</TypeRegulation><ObjectifRegulation>0</ObjectifRegulation><Structure Niveau="1" Nom="Structure" lineaire="0"><Ouvrage Nom="1_Seuil rectangulaire" Num="1" Type="SeuilR"><Caract Surverse="0"><CoteRadier>21</CoteRadier><Largeur>0<Variante Num="2">2000</Variante></Largeur><EquationDebit>4</EquationDebit><CoefDebit>0.4</CoefDebit></Caract><Qual><K1 bAjust="1">1</K1><K2 bAjust="1">1</K2><K3 bAjust="1">1</K3><K4 bAjust="1">1</K4></Qual><ListeRes><Res nVar="0" nCol="441:1"/><Res nVar="1" nCol="441:1"/><Res nVar="2" nCol="441:1"/></ListeRes></Ouvrage></Structure><ListeRes><Res nVar="0" nCol="413:4"/><Res nVar="1" nCol="413:4"/><Res nVar="2" nCol="413:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Aval - dyke'   Num = '3'   abscisse = '0.1'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="105"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="417:4"/><Res nVar="1" nCol="417:4"/><Res nVar="2" nCol="417:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'downstream dyke'   Num = '4'   abscisse = '0.2'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="106"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="421:4"/><Res nVar="1" nCol="421:4"/><Res nVar="2" nCol="421:4"/></ListeRes></Flu>
+
+				</SectionMin>
+
+			</Liste_Sections>
+
+<ResTal IUB="-3" IUR="3" IS1="103" IS2="106" Smoy="   0.000000000000000E+000"><Liste_Sections_Calcul><Sections_Cal_Min Num="103" Display="           1" abscisse="   0.000000000000000E+000" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           0" IP1="         307" IP2="         309" KD="         308" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.89	0</CI><CI nVar="2">16.89	0</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="104" Display="           1" abscisse="   1.000000000000000E-001" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           1" IP1="         310" IP2="         312" KD="         311" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.89	0</CI><CI nVar="2">16.89	0</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="105" Display="           1" abscisse="   1.000000000000000E-001" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           0" IP1="         313" IP2="         315" KD="         314" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15	0</CI><CI nVar="2">15	0</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="106" Display="           1" abscisse="   2.000000000000000E-001" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           0" IP1="         316" IP2="         318" KD="         317" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15	0</CI><CI nVar="2">15	0</CI></ListeCI></Flu></Sections_Cal_Min></Liste_Sections_Calcul></ResTal>
+
+<Flu nScenario="1" DiffluenceAm="0.3333333333333" DiffluenceAv="1" ModeCalculAm="1" ModeCalculAv="1" coefPerteAm="0" coefPerteAv="0"><Stricklers><Portion Num="1" XD="0" XF="0.2"><KMin>25</KMin><KMoy>25</KMoy></Portion></Stricklers></Flu>
+
+		</Bief>
+		<Bief  Nom = 'Bief4'   Num = '4' >
+			<Tal>
+				<Pas>0</Pas>
+				<Sin>1</Sin>
+				<HomothetieX>0</HomothetieX>
+				<HomothetieY>0</HomothetieY>
+			</Tal>
+			<Aff>
+				<X_Millieu>334</X_Millieu>
+				<Y_Millieu>358</Y_Millieu>
+				<Xgeo>0</Xgeo>
+				<Ygeo>0</Ygeo>
+			</Aff>
+			<Top>
+				<NoeudAm>2</NoeudAm>
+				<NoeudAv>5</NoeudAv>
+			</Top>
+			<Liste_Sections>
+				<SectionMin  Nom = 'upstream dyke'   Num = '1'   abscisse = '0'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="107"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="425:4"/><Res nVar="1" nCol="425:4"/><Res nVar="2" nCol="425:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'dyke'   Num = '2'   abscisse = '0.1'   Singuliere = '1'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="108"/>
+
+<Flu nScenario="1"><TypeRegulation>1</TypeRegulation><ObjectifRegulation>0</ObjectifRegulation><Structure Niveau="1" Nom="Structure" lineaire="0"><Ouvrage Nom="1_Seuil rectangulaire" Num="1" Type="SeuilR"><Caract Surverse="0"><CoteRadier>21</CoteRadier><Largeur>0<Variante Num="2">2000</Variante></Largeur><EquationDebit>4</EquationDebit><CoefDebit>0.4</CoefDebit></Caract><Qual><K1 bAjust="1">1</K1><K2 bAjust="1">1</K2><K3 bAjust="1">1</K3><K4 bAjust="1">1</K4></Qual><ListeRes><Res nVar="0" nCol="442:1"/><Res nVar="1" nCol="442:1"/><Res nVar="2" nCol="442:1"/></ListeRes></Ouvrage></Structure><ListeRes><Res nVar="0" nCol="429:4"/><Res nVar="1" nCol="429:4"/><Res nVar="2" nCol="429:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'Aval - dyke'   Num = '3'   abscisse = '0.1'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="109"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="433:4"/><Res nVar="1" nCol="433:4"/><Res nVar="2" nCol="433:4"/></ListeRes></Flu>
+
+				</SectionMin>
+				<SectionMin  Nom = 'downstream dyke'   Num = '4'   abscisse = '0.2'   Singuliere = '0'   Display = '1' >
+					<Aff>
+						<Afficher>1</Afficher>
+						<Xgeo>0</Xgeo>
+						<Ygeo>0</Ygeo>
+						<RefPoint>1</RefPoint>
+						<RefY>0</RefY>
+						<Angle>90</Angle>
+					</Aff>
+					<Tal>
+						<Profil-Init>
+							<UtiliseModel>1</UtiliseModel>
+							<NumModel>1</NumModel>
+							<NomModel>around dyke</NomModel>
+							<Cote_Fond_Model>0</Cote_Fond_Model>
+							<HomothetieX>0</HomothetieX>
+							<HomothetieY>0</HomothetieY>
+							<DX>0</DX>
+							<Type>R</Type>
+							<Cote_Fond>0</Cote_Fond>
+							<Cote_Berge>100</Cote_Berge>
+							<Largeur>2000</Largeur>
+						</Profil-Init>
+					</Tal>
+
+<ResTal nSnCal="110"/>
+
+<Flu nScenario="1"><ListeRes><Res nVar="0" nCol="437:4"/><Res nVar="1" nCol="437:4"/><Res nVar="2" nCol="437:4"/></ListeRes></Flu>
+
+				</SectionMin>
+
+			</Liste_Sections>
+
+<ResTal IUB="-4" IUR="4" IS1="107" IS2="110" Smoy="   0.000000000000000E+000"><Liste_Sections_Calcul><Sections_Cal_Min Num="107" Display="           1" abscisse="   0.000000000000000E+000" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           0" IP1="         319" IP2="         321" KD="         320" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.89	0</CI><CI nVar="2">16.89	0</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="108" Display="           1" abscisse="   1.000000000000000E-001" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           1" IP1="         322" IP2="         324" KD="         323" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">16.89	0</CI><CI nVar="2">16.89	0</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="109" Display="           1" abscisse="   1.000000000000000E-001" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           0" IP1="         325" IP2="         327" KD="         326" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15	0</CI><CI nVar="2">15	0</CI></ListeCI></Flu></Sections_Cal_Min><Sections_Cal_Min Num="110" Display="           1" abscisse="   2.000000000000000E-001" Cote_Berge="      100.000000000000000" CoteDebMinMoy="      100.000000000000000" Singuliere="           0" IP1="         328" IP2="         330" KD="         329" LFP="   0.000000000000000E+000"><Tableau_Largeurs-Cotes> 
+2000.000000000000000	2000.000000000000000	2000.000000000000000 
+0.	100.000000000000000	600.000000000000000 
+0.	200000.000000000000000	1200000.000000000000000 
+2000.000000000000000	2200.000000000000000	3200.000000000000000
+</Tableau_Largeurs-Cotes><Flu nScenario="1"><ListeCI><CI nVar="1">15	0</CI><CI nVar="2">15	0</CI></ListeCI></Flu></Sections_Cal_Min></Liste_Sections_Calcul></ResTal>
+
+<Flu nScenario="1" DiffluenceAm="0.3333333333333" DiffluenceAv="1" ModeCalculAm="1" ModeCalculAv="1" coefPerteAm="0" coefPerteAv="0"><Stricklers><Portion Num="1" XD="0" XF="0.2"><KMin>25</KMin><KMoy>25</KMoy></Portion></Stricklers></Flu>
+
+		</Bief>
+
+	</Liste_Biefs>
+	<Liste_Branches>
+		<Branche  Nom = 'Branche1'   Num = '1' >
+			<Aff>
+				<CouleurBranche>255</CouleurBranche>
+			</Aff>
+			<Biefs>
+				<NumB>1</NumB>
+				<NumB>2</NumB>
+			</Biefs>
+		</Branche>
+		<Branche  Nom = 'Branche2'   Num = '2' >
+			<Aff>
+				<CouleurBranche>65280</CouleurBranche>
+			</Aff>
+			<Biefs>
+				<NumB>3</NumB>
+			</Biefs>
+		</Branche>
+		<Branche  Nom = 'Branche3'   Num = '3' >
+			<Aff>
+				<CouleurBranche>3381759</CouleurBranche>
+			</Aff>
+			<Biefs>
+				<NumB>4</NumB>
+			</Biefs>
+		</Branche>
+
+	</Liste_Branches>
+
+<Flu nScenario="1" Version="5.38i Build 5 (32 bits)"><EcrireFicPar>1</EcrireFicPar><SeparateurPar>	</SeparateurPar><bcommentPar>1</bcommentPar><NomFicPar>test1_1.par</NomFicPar><TypeResult>1</TypeResult><Temps><TpsDebut>0</TpsDebut><TpsFin>86400</TpsFin><TpsPas>60</TpsPas><TpsSauv>1</TpsSauv><TpsEcritDeb>0</TpsEcritDeb></Temps><Sirene><CoefRelax>0.5</CoefRelax><PrecisionNL>0.001</PrecisionNL><UnitPrecNLQ>0</UnitPrecNLQ><PrecisionNLZ>0.0001</PrecisionNLZ><UnitPrecNLZ>0</UnitPrecNLZ><PrecisionPrise>0.001</PrecisionPrise><MethodeResolution>2</MethodeResolution><MethodeInit>0</MethodeInit><FrequenceCal>1</FrequenceCal><MethodeDiscret>0</MethodeDiscret><TorentielSommaire>2</TorentielSommaire><TorrentielPermanent>0</TorrentielPermanent><TorrentielTeta>1</TorrentielTeta><TorrentielTIL>0</TorrentielTIL><TorrentielTIC>1</TorrentielTIC><TorrentielTetaMax>0.95</TorrentielTetaMax><TorrentielFrMin>0.6</TorrentielFrMin><TorrentielFrMax>0.9</TorrentielFrMax><ItMaxSys>100</ItMaxSys><ItMaxPri>20</ItMaxPri><EcritSectionCal>0</EcritSectionCal><ModeDebug>0</ModeDebug><LitMajeur>1</LitMajeur><ModeBourrin>1</ModeBourrin><ThetaPreissmann>0.6</ThetaPreissmann><PerteChargeAuto>0</PerteChargeAuto><EcritureBinaire>1</EcritureBinaire><EcritureMultithread>1</EcritureMultithread><PriseQMaxIter>100</PriseQMaxIter><PriseQPrecision>0.0001</PriseQPrecision></Sirene><Fluvia><CoefRelaxDif>0.7</CoefRelaxDif><ItMaxCalage>20</ItMaxCalage><ItMaxMaille>100</ItMaxMaille><PrecisionPrise>0.001</PrecisionPrise><ModeDebug>0</ModeDebug><PetitPasAuto>1</PetitPasAuto><CalageStrickler>0</CalageStrickler><CalageOuvrage>0</CalageOuvrage><CalageDeversoir>0</CalageDeversoir><EcritSectionCal>1</EcritSectionCal><PasUnOnly>1</PasUnOnly><InversionBiefs>0</InversionBiefs><CalculTorrentiel>1</CalculTorrentiel><PerteChargeAuto>0</PerteChargeAuto><EcritureBinaire>1</EcritureBinaire><EcritureMultithread>1</EcritureMultithread><PriseQMaxIter>100</PriseQMaxIter><PriseQPrecision>0.0001</PriseQPrecision></Fluvia><ListeDefCol><DefCol Objet="Noeud">Z</DefCol><DefCol Objet="Section">Q	Z	V	FR</DefCol><DefCol Objet="Prise">Q</DefCol><DefCol Objet="Ouvrage">Q</DefCol></ListeDefCol><ListeRes><Res nVar="0" Date="20220113145016" Prog="FLUVIA" Version="5.389" TpsDebut="0" TpsPas="60" TpsSauv="1" Binary="test1_1_0.res" BinaryCi="test1_1_0.rci" TpsFin="0." TpsExec="00:00,628"><EcritSectionCal>1</EcritSectionCal><ListeDefCol><DefCol Objet="Ouvrage">Q</DefCol><DefCol Objet="Section">Q	Z	V	FR</DefCol><DefCol Objet="Prise">Q</DefCol><DefCol Objet="Noeud">Z</DefCol><DefCol Objet="SectionCal">Z	Q</DefCol></ListeDefCol></Res><Res nVar="1" Date="20220113145034" Prog="SIRENE" Version="5.389" TpsDebut="0" TpsPas="60" TpsSauv="1" Binary="test1_1_1.res" TpsFin="86400.000000000000000" TpsExec="00:04,509"><EcritSectionCal>0</EcritSectionCal><ListeDefCol><DefCol Objet="Ouvrage">Q</DefCol><DefCol Objet="Section">Q	Z	V	FR</DefCol><DefCol Objet="Prise">Q</DefCol><DefCol Objet="Noeud">Z</DefCol><DefCol Objet="SectionCal"/></ListeDefCol></Res><Res nVar="2" Date="20220113153812" Prog="SIRENE" Version="5.389" TpsDebut="0" TpsPas="60" TpsSauv="1" Binary="test1_1_2.res" TpsFin="86400.000000000000000" TpsExec="00:04,907"><EcritSectionCal>0</EcritSectionCal><ListeDefCol><DefCol Objet="Ouvrage">Q</DefCol><DefCol Objet="Section">Q	Z	V	FR</DefCol><DefCol Objet="Prise">Q</DefCol><DefCol Objet="Noeud">Z</DefCol><DefCol Objet="SectionCal"/></ListeDefCol></Res></ListeRes></Flu>
+
+
+
+
+
+	<Aff>
+		<FondCarte  Type = '1'   Luminosite = '50'   Saturation = '50'   Teinte = '50'   Opacite = '50'   FondLonMin = '0'   FondLonMax = '0'   FondLatMin = '0'   FondLatMax = '0' >fond_test1.png</FondCarte>
+	</Aff>
+</Reseau>

@@ -2,3 +2,4 @@
 
 export(loadConfig)
 export(set_initial_conditions)
+export(sic_run_fortran)
