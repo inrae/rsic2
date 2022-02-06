@@ -11,7 +11,7 @@ sic_run_fortran(prog, params, cfg = loadConfig())
 
 \item{params}{\link{list} or \link{character}, see details}
 
-\item{cfg}{}
+\item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
 \value{
 
