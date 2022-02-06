@@ -9,10 +9,7 @@ set_initial_conditions(params, cfg = loadConfig())
 \arguments{
 \item{params}{\link{numeric}, arguments passed to Edisic for importing initial conditions. See details}
 
-\item{cfg}{}
-}
-\value{
-
+\item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
 \description{
 Import initial conditions from a scenario/variant result calculation to a new scenario/variant.
@@ -31,6 +28,6 @@ Import initial conditions from a scenario/variant result calculation to a new sc
 \dontrun{
 # Import initial conditions from the scenario #1 without variant at time 0s
 # to the variant #1 in the scenario #1
-set_initial_conditions("1 0 0 1 1")
+set_initial_conditions(c(1, 0, 0, 1, 1))
 }
 }

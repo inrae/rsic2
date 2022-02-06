@@ -7,13 +7,17 @@
 convert_sic_params(params, cfg = loadConfig())
 }
 \arguments{
-\item{params}{a \link{list} of \link{character} with each item is identified by}
+\item{params}{a \link{list} of \link{character} containing the parameters to send to the fortran program with format \code{list(param=value, ...)}}
 
-\item{cfg}{}
+\item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
 \value{
-A \link{character} with each parameter is converted to "\link{key param}=\link{value param}" and each parameter separated by a space character.
+A \link{character} with each parameter is converted to \verb{[key param]=[value param]} and each parameter separated by a space character.
 }
 \description{
 Convert a list of parameters into command line arguments
+}
+\examples{
+convert_sic_param(list(SCE = 1, VAR = 1))
+
 }
