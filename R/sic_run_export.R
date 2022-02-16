@@ -1,8 +1,11 @@
 #' Run SicExport and read the exported file
 #'
+#' @details
+#' `params` parameter is a list representing parameters available in \url{https://sic.g-eau.fr/sicexport-utilitaire-d-exportation} to set the model network location of exported results. The string parameter `/x=n /yy=ii` in the command line is here represented by `list(xxx = nnn, yy = ii)`.
+#'
 #' @param scenario [numeric], the scenario to read
 #' @param variant [numeric], the variant to read
-#' @param params [character] location parameters of the result. See \url{https://sic.g-eau.fr/sicexport-utilitaire-d-exportation} for details.
+#' @param params [list] location parameters of the result, see details.
 #' @template param_cfg
 #'
 #' @return [matrix] with the read result
@@ -13,9 +16,12 @@
 #' params <- list(SCE=1)
 #' sic_run_fortran("fluvia", params)
 #' # For exporting result in sections at time 0
-#' sic_run_export(scenario = 1, params = "/t=0")
+#' sic_run_export(scenario = 1, params = list(t = 0))
 #' }
 sic_run_export <- function(scenario, variant = 0, params, cfg = loadConfig()) {
+  if (is.list(params)) params <- unlist(params)
+  params <- paste(paste0("/", names(params)), params, sep = "=", collapse = " ")
+
   file <- tempfile("sicexport", fileext = ".tsv")
   cmd_line <-
     paste(

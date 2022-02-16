@@ -11,7 +11,7 @@ sic_run_export(scenario, variant = 0, params, cfg = loadConfig())
 
 \item{variant}{\link{numeric}, the variant to read}
 
-\item{params}{\link{character} location parameters of the result. See \url{https://sic.g-eau.fr/sicexport-utilitaire-d-exportation} for details.}
+\item{params}{\link{list} location parameters of the result, see details.}
 
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
@@ -21,11 +21,14 @@ sic_run_export(scenario, variant = 0, params, cfg = loadConfig())
 \description{
 Run SicExport and read the exported file
 }
+\details{
+\code{params} parameter is a list representing parameters available in \url{https://sic.g-eau.fr/sicexport-utilitaire-d-exportation} to set the model network location of exported results. The string parameter \verb{/x=n /yy=ii} in the command line is here represented by \code{list(xxx = nnn, yy = ii)}.
+}
 \examples{
 \dontrun{
 params <- list(SCE=1)
 sic_run_fortran("fluvia", params)
 # For exporting result in sections at time 0
-sic_run_export(1, params = "/t=0")
+sic_run_export(scenario = 1, params = list(t = 0))
 }
 }
