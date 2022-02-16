@@ -12,6 +12,10 @@ loadConfig(
 )
 }
 \arguments{
+\item{sic_path}{\link{character}, the path to an installation of SIC (see details)}
+
+\item{xml_path}{\link{character}, the path of the XML project file (see details)}
+
 \item{userFile}{location of the user config YML file}
 
 \item{pathDefaultCfg}{The location of the default configuration (located in "inst/config.yml" of the package by default)}
@@ -45,6 +49,16 @@ Configuration of RSIC2 as the following structure:
 }
 \description{
 Read default configuration of the package and complete it with eventual user config
+}
+\details{
+The path to SIC and to the XML project file can be defined in the user XML file by defining the appropriate items:\if{html}{\out{<div class="yaml">}}\preformatted{sic:
+  path: Path/To/SIC/installation
+project:
+  path: Path/To/Xml/Project/File.xml
+}\if{html}{\out{</div>}}
+
+Moreover, the \code{sic_path} can be defined with the environment variable "SICPATH". This setting is a default which is overwritten
+by the path defined in the user YAML file, which is also overwritten by the one define by the \code{sic_path} argument.
 }
 \examples{
 library(rsic2)
