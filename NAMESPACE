@@ -3,4 +3,5 @@
 export(convert_sic_params)
 export(loadConfig)
 export(set_initial_conditions)
+export(sic_run_export)
 export(sic_run_fortran)

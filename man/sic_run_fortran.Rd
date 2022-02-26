@@ -4,7 +4,7 @@
 \alias{sic_run_fortran}
 \title{Run Talweg, Fluvia or Sirene}
 \usage{
-sic_run_fortran(prog, params, cfg = loadConfig())
+sic_run_fortran(prog, params = list(), cfg = loadConfig())
 }
 \arguments{
 \item{prog}{\link{character}, the program to run. Should be one of "talweg"}
