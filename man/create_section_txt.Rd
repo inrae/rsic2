@@ -4,20 +4,24 @@
 \alias{create_section_txt}
 \title{Export a section in importation SIC format}
 \usage{
-create_section_txt(name, abscissa, type, profile, distance_majeur = FALSE)
+create_section_txt(
+  section_name,
+  abscissa,
+  section_type,
+  profile,
+  distance_majeur = FALSE
+)
 }
 \arguments{
-\item{name}{\link{character}, name of the section}
+\item{section_name}{\link{character}, name of the section}
 
 \item{abscissa}{\link{numeric}, abscissa of the section in the reach}
 
-\item{type}{1-length \link{character}, type of the section: "T" for Trapezoidal, "A" for Abscissa/Elevation, "L" for Width/Elevation}
+\item{section_type}{1-length \link{character}, type of the section: "T" for Trapezoidal, "A" for Abscissa/Elevation, "L" for Width/Elevation}
 
 \item{profile}{\link{list} or \link{matrix}, profile of the section (See details)}
 
 \item{distance_majeur}{\link{logical} or \link{numeric}, \code{FALSE} for a minor bed section}
-
-\item{as_list}{\link{logical}, if \code{TRUE}, the returns value is a list with one section by item with the name of the section as key}
 }
 \value{
 \link{character} or \link{list} depending on the \code{as_list} parameter.

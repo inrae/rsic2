@@ -2,6 +2,7 @@
 
 export(convert_sic_params)
 export(create_section_txt)
+export(create_uniform_reach_txt)
 export(loadConfig)
 export(set_initial_conditions)
 export(sic_run_export)
