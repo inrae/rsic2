@@ -1,4 +1,8 @@
-#' Convert a list of parameters into command line arguments
+#' Convert a list of parameters into command line arguments for Fortran SIC programs
+#'
+#' This function is called by [sic_run_fortran] to convert list of parameters into a [character] command line parameters.
+#'
+#' The parameter `INTERF` is set to 0 (zero) by default.
 #'
 #' @param params a [list] of [character] containing the parameters to send to the fortran program with format `list(param=value, ...)`
 #' @template param_cfg

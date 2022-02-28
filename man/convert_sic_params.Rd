@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_sic_params.R
 \name{convert_sic_params}
 \alias{convert_sic_params}
-\title{Convert a list of parameters into command line arguments}
+\title{Convert a list of parameters into command line arguments for Fortran SIC programs}
 \usage{
 convert_sic_params(params, cfg = loadConfig())
 }
@@ -15,7 +15,10 @@ convert_sic_params(params, cfg = loadConfig())
 A \link{character} with each parameter is converted to \verb{[key param]=[value param]} and each parameter separated by a space character.
 }
 \description{
-Convert a list of parameters into command line arguments
+This function is called by \link{sic_run_fortran} to convert list of parameters into a \link{character} command line parameters.
+}
+\details{
+The parameter \code{INTERF} is set to 0 (zero) by default.
 }
 \examples{
 convert_sic_param(list(SCE = 1, VAR = 1))
