@@ -6,7 +6,7 @@
 #' @param profile [list] or [matrix], profile of the section (See details)
 #' @param distance_majeur [logical] or [numeric], `FALSE` for a minor bed section
 #'
-#' @return [character] or [list] depending on the `as_list` parameter.
+#' @return [character], section description in SIC text import format.
 #' @export
 #' @examples
 #' # Trapezoidal section

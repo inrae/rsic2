@@ -33,3 +33,14 @@ Names of the list are the abscissas with trailing zeros for character sorting.
 \description{
 Generate text export geometry for an uniform reach
 }
+\examples{
+# Trapezoidal section
+profT <- list(B = 2,S = 1, ZF = 100, ZB = 100 + 2)
+
+# Generate a reach with 2 sections at x=1000 and 2000
+create_uniform_reach_txt(abscissas = c(1000, 2000),
+                         upstream_bed_elevation = 100,
+                         slope = 0.001,
+                         section_type = "T",
+                         profile = profT)
+}

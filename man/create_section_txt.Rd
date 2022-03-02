@@ -24,7 +24,7 @@ create_section_txt(
 \item{distance_majeur}{\link{logical} or \link{numeric}, \code{FALSE} for a minor bed section}
 }
 \value{
-\link{character} or \link{list} depending on the \code{as_list} parameter.
+\link{character}, section description in SIC text import format.
 }
 \description{
 Export a section in importation SIC format
