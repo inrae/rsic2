@@ -37,6 +37,7 @@ create_uniform_reach_txt <- function(abscissas,
                        profile = shifted_prof)
   })
   names(sections) <- sprintf("%08d", abscissas)
+  class(sections) <- c("ReachTxt", class(sections))
   return(sections)
 }
 

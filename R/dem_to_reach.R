@@ -56,6 +56,7 @@ dem_to_reach_txt <- function(dem, node_coords, space_step, section_width, nb_poi
     create_section_txt(section_name, abscissas[i], "A", profile, distance_majeur)
   })
   names(reach_txt) <- sprintf("%08d", abscissas)
+  class(reach_txt) <- c("ReachTxt", class(reach_txt))
   return(reach_txt)
 }
 

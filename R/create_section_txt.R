@@ -31,11 +31,13 @@ create_section_txt <- function(section_name, abscissa, section_type, profile, di
     stop("`distance_majeur` should be a `logical` or a `numeric` of length 1")
   }
   bMajorBed <- !is.logical(distance_majeur)
-  c(paste(section_name,
+  section_txt <- c(paste(section_name,
           abscissa,
           ifelse(bMajorBed, distance_majeur, ""),
           ifelse(bMajorBed, "1", "0"),
           section_type,
           sep = " $ "),
     sic_profile)
+  class(section_txt) <- c("SectionTxt", class(section_txt))
+  return(section_txt)
 }
