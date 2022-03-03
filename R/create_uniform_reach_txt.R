@@ -46,8 +46,10 @@ shift_profile <- function(section_type, profile, bed_elevation) {
   if (section_type == "T") {
     shifted_prof$ZF <- bed_elevation
     shifted_prof$ZB <- profile$ZB + bed_elevation - profile$ZF
+  } else if (section_type == "L") {
+    shifted_prof[,2] <- shifted_prof[,2] + bed_elevation - min(profile[, 2])
   } else {
-    stop("section_type ", section_type, " not allowed. Possible choices are: T")
+    stop("section_type ", section_type, " not allowed. Possible choices are: T and L")
   }
   return(shifted_prof)
 }
