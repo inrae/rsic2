@@ -16,7 +16,7 @@
 #' params <- list(SCE=1)
 #' sic_run_fortran("fluvia", params)
 #'}
-sic_run_fortran <- function(prog, params, cfg = loadConfig()) {
+sic_run_fortran <- function(prog, params = list(), cfg = loadConfig()) {
   if (is.list(params)) params <- convert_sic_params(params, cfg)
   cmd_line <- shQuote(
     paste(
