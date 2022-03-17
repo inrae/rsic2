@@ -1,6 +1,6 @@
 skip_on_ci()
 
-cfg <- loadLocalConfig()
+cfg <- cfg_tmp_project()
 
 test_that("RunExport on Fluvia run works", {
   sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)

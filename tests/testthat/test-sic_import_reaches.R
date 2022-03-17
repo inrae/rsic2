@@ -1,6 +1,6 @@
 skip_on_ci()
 
-cfg <- loadLocalConfig()
+cfg <- cfg_tmp_project()
 
 # Minor bed generation
 profT <- matrix(c(2, 6, 0, 2), ncol = 2)

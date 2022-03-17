@@ -1,6 +1,6 @@
 skip_on_ci()
 
-cfg <- loadLocalConfig()
+cfg <- cfg_tmp_project()
 
 test_that("fluvia on SCE=1 should create a binary result file", {
   sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
