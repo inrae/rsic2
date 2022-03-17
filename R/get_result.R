@@ -1,10 +1,10 @@
-#' Get resultat
+#' Get a selection of variables from a simulation result
 #'
 #' @inheritParams sic_run_export
-#' @param filter
-#' @param m
+#' @param filters [character] conditions to select columns in result table, see details
+#' @param m [matrix] of results produced by [read_bin_result_matrix]
 #'
-#' @return
+#' @return [matrix] of results with columns selected by `filters`.
 #' @export
 #' @import magrittr
 #'
@@ -50,8 +50,12 @@ get_result <- function(cfg,
 #' @return [matrix] with the simulation results
 #' @export
 #'
-#'
-read_bin_result_matrix <- function(cfg, scenario, variant) {
+#' @examples
+#' cfg <- cfg_tmp_project()
+#' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+#' m <- read_bin_result_matrix(cfg, 1)
+#' str(m)
+read_bin_result_matrix <- function(cfg, scenario, variant = 0) {
   file <- paste0(
     paste(gsub("\\.xml", "", cfg$project$path),
           scenario, variant, sep = "_"),
@@ -86,12 +90,23 @@ read_bin_result_matrix <- function(cfg, scenario, variant) {
 #'
 #' @return a [data.frame] with following columns:
 #'
+#' - "bf", "sn", "nd", "pr", "ouv": location of the result with number of respectively reach, section, node, offtake, and device.
+#' - "var": the name of the calculated variable
+#' - "col": the column number in the matrix produced by [read_bin_result_matrix]
+#'
+#' @warning
+#' Up to now, this function only handle results at sections.
+#'
 #' @export
 #' @import xml2
 #' @import magrittr
 #'
 #' @examples
-get_result_tree <- function(cfg, scenario, variant) {
+#' cfg <- cfg_tmp_project()
+#' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+#' df <- get_result_tree(cfg, 1)
+#' head(df)
+get_result_tree <- function(cfg, scenario, variant = 0) {
   x <- read_xml(cfg$project$path)
   objs = c("Ouvrage", "Section", "Prise", "Noeud")
   names(objs) <- objs
@@ -126,7 +141,7 @@ get_result_tree <- function(cfg, scenario, variant) {
 }
 
 result_tree_add <- function(df, loc, defcol, cols) {
-  loc <- utils::modifyList(list(bf = 0, sn = 0, nd = 0, pr = 0, ouv = 0),
+  loc <- modifyList(list(bf = 0, sn = 0, nd = 0, pr = 0, ouv = 0),
                            loc)
   return(rbind(df, data.frame(as.data.frame(loc), var = defcol, col = cols)))
 }

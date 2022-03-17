@@ -8,6 +8,7 @@
 #'
 #' @return [character], section description in SIC text import format.
 #' @export
+#' @import utils
 #' @examples
 #' # Trapezoidal section
 #' create_section_txt("Trapeze", 0, "T", list(B = 2, S = 1.5, ZF = 100, ZB = 102))

@@ -4,7 +4,7 @@
 \alias{read_bin_result_matrix}
 \title{Read matrix of SIC simulation result file}
 \usage{
-read_bin_result_matrix(cfg, scenario, variant)
+read_bin_result_matrix(cfg, scenario, variant = 0)
 }
 \arguments{
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
@@ -18,4 +18,10 @@ read_bin_result_matrix(cfg, scenario, variant)
 }
 \description{
 Read matrix of SIC simulation result file
+}
+\examples{
+cfg <- cfg_tmp_project()
+sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+m <- read_bin_result_matrix(cfg, 1)
+str(m)
 }

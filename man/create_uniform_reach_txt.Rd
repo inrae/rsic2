@@ -24,7 +24,7 @@ create_uniform_reach_txt(
 
 \item{profile}{\link{list} or \link{matrix}, profile of the section (See details)}
 
-\item{names}{\link{character} vector of section names}
+\item{section_names}{\link{character} vector of section names}
 }
 \value{
 A \link{list} from which each item is a section exported by \link{create_section_txt}.

@@ -4,7 +4,7 @@
 \alias{get_result_tree}
 \title{Get correspondence between network object and columns in result binary file}
 \usage{
-get_result_tree(cfg, scenario, variant)
+get_result_tree(cfg, scenario, variant = 0)
 }
 \arguments{
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
@@ -15,7 +15,18 @@ get_result_tree(cfg, scenario, variant)
 }
 \value{
 a \link{data.frame} with following columns:
+\itemize{
+\item "bf", "sn", "nd", "pr", "ouv": location of the result with number of respectively reach, section, node, offtake, and device.
+\item "var": the name of the calculated variable
+\item "col": the column number in the matrix produced by \link{read_bin_result_matrix}
+}
 }
 \description{
 Get correspondence between network object and columns in result binary file
+}
+\examples{
+cfg <- cfg_tmp_project()
+sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+df <- get_result_tree(cfg, 1)
+head(df)
 }

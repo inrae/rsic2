@@ -14,7 +14,7 @@ sic_run_fortran(prog, params = list(), cfg = loadConfig())
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
 \value{
-
+Error code returned by \link{shell}.
 }
 \description{
 Run Talweg, Fluvia or Sirene

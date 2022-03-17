@@ -7,7 +7,7 @@
 #' @details If argument `params` is a [list], arguments are injected in the command line by taking the items of the list with the conversion
 #' `[key]=[value]`. If argument `params` is a [character]
 #'
-#' @return
+#' @return Error code returned by [shell].
 #' @export
 #'
 #' @examples
@@ -27,9 +27,11 @@ sic_run_fortran <- function(prog, params = list(), cfg = loadConfig()) {
     type = "cmd2"
   )
   logger::log_debug(cmd_line)
-  shell(
+  ret <- shell(
     cmd_line,
     wait = T,
     translate = T
   )
+  file.remove("FLUVIA.INI", "SIRENE.INI")
+  return(ret)
 }

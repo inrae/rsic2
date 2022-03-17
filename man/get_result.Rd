@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_result.R
 \name{get_result}
 \alias{get_result}
-\title{Get resultat}
+\title{Get a selection of variables from a simulation result}
 \usage{
 get_result(
   cfg,
@@ -19,13 +19,15 @@ get_result(
 
 \item{variant}{\link{numeric}, the variant to read}
 
-\item{m}{}
+\item{filters}{\link{character} conditions to select columns in result table, see details}
+
+\item{m}{\link{matrix} of results produced by \link{read_bin_result_matrix}}
 }
 \value{
-
+\link{matrix} of results with columns selected by \code{filters}.
 }
 \description{
-Get resultat
+Get a selection of variables from a simulation result
 }
 \examples{
 cfg <- cfg_tmp_project()

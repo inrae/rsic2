@@ -10,9 +10,10 @@
 #' @param start 1-length [numeric], starting value for the chainage (i.e. section abscissa) along the reach
 #' @param major_bed [logical], `TRUE` for major bed, `FALSE` for minor-medium bed
 #'
-#' @return
+#' @return A *ReachTxt* object which is a [list] of *SectionTxt* objects (see [create_section_txt]).
 #' @rdname dem_to_reach
 #' @export
+#' @importFrom stats dist
 #'
 #' @examples
 #' ## Inputs preparation
@@ -60,7 +61,9 @@ dem_to_reach_txt <- function(dem, node_coords, space_step, section_width, nb_poi
   return(reach_txt)
 }
 
+
 #' @rdname dem_to_reach
+#' @param section_centers See return value of [get_section_centers]
 #' @export
 dem_to_reach <- function(dem, node_coords, section_centers, section_width, nb_points = 50) {
   lapply(seq_len(nrow(section_centers)), function(i) {
@@ -75,7 +78,7 @@ dem_to_reach <- function(dem, node_coords, section_centers, section_width, nb_po
 #' @inheritParams dem_to_reach
 #' @param section_center 2-lenght [numeric], coordinates of the section center
 #'
-#' @return
+#' @return A [matrix] with the coordinates of the x-z points in the cross-profile section referential
 #' @export
 #'
 #' @inherit dem_to_reach return examples
