@@ -21,6 +21,7 @@ This function is called by \link{sic_run_fortran} to convert list of parameters 
 The parameter \code{INTERF} is set to 0 (zero) by default.
 }
 \examples{
-convert_sic_params(list(SCE = 1, VAR = 1))
+cfg <- cfg_tmp_project()
+convert_sic_params(list(SCE = 1, VAR = 1), cfg = cfg)
 
 }

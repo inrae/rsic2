@@ -11,7 +11,8 @@
 #' @export
 #'
 #' @examples
-#' convert_sic_params(list(SCE = 1, VAR = 1))
+#' cfg <- cfg_tmp_project()
+#' convert_sic_params(list(SCE = 1, VAR = 1), cfg = cfg)
 #'
 convert_sic_params <- function(params, cfg = loadConfig()) {
   if (!"INTERF" %in% names(params)) {

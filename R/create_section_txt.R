@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' # Trapezoidal section
-#' export_section_txt("Trapeze", 0, "T", list(B = 2, S = 1.5, ZF = 100, ZB = 102))
+#' create_section_txt("Trapeze", 0, "T", list(B = 2, S = 1.5, ZF = 100, ZB = 102))
 create_section_txt <- function(section_name, abscissa, section_type, profile, distance_majeur = FALSE) {
 
   if (section_type == "T") {
