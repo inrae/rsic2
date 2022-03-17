@@ -20,4 +20,5 @@ RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
 Imports: 
     logger,
-    terra
+    terra,
+    tidyquery
