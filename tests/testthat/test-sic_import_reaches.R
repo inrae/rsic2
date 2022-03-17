@@ -23,5 +23,5 @@ reach <- merge_reaches(min_reach, maj_reach)
 reaches <- split_reach(reach, seq(0, 10000, 5000))
 
 test_that("Geometry Import works", {
-  sic_import_reaches(reaches, cfg = cfg)
+  expect_equal(sic_import_reaches(reaches, cfg = cfg), 0)
 })
