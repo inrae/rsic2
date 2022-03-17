@@ -5,3 +5,4 @@
 ^LICENSE\.md$
 [.]INI$
 ^\.gitlab-ci\.yml$
+^ci$
