@@ -26,7 +26,8 @@ If argument \code{params} is a \link{list}, arguments are injected in the comman
 \examples{
 \dontrun{
 # Run steady simulation for the scenario #1
+cfg <- cfg_tmp_project()
 params <- list(SCE=1)
-sic_run_fortran("fluvia", params)
+sic_run_fortran("fluvia", params, cfg = cfg)
 }
 }

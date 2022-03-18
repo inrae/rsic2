@@ -44,7 +44,7 @@ maj_reach <- dem_to_reach_txt(dem, node_coords, space_step, section_width, major
 reach <- merge_reaches(min_reach, maj_reach)
 reaches <- split_reach(reach, seq(0, 10000, 5000))
 
-\donrun{
+\dontrun{
 # Import with EdiSic
 cfg <- cfg_tmp_project()
 sic_import_reaches(reaches, cfg = cfg)

@@ -25,8 +25,10 @@ a \link{data.frame} with following columns:
 Get correspondence between network object and columns in result binary file
 }
 \examples{
+\dontrun{
 cfg <- cfg_tmp_project()
 sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
 df <- get_result_tree(cfg, 1)
 head(df)
+}
 }

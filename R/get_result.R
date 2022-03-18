@@ -9,9 +9,11 @@
 #' @import magrittr
 #'
 #' @examples
+#' \dontrun{
 #' cfg <- cfg_tmp_project()
 #' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
 #' get_result(cfg, 1, filters = c("bf==4", "var=='Z'"))
+#' }
 get_result <- function(cfg,
                        scenario,
                        variant = 0,
@@ -51,10 +53,12 @@ get_result <- function(cfg,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' cfg <- cfg_tmp_project()
 #' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
 #' m <- read_bin_result_matrix(cfg, 1)
 #' str(m)
+#' }
 read_bin_result_matrix <- function(cfg, scenario, variant = 0) {
   file <- paste0(
     paste(gsub("\\.xml", "", cfg$project$path),
@@ -102,10 +106,12 @@ read_bin_result_matrix <- function(cfg, scenario, variant = 0) {
 #' @import magrittr
 #'
 #' @examples
+#' \dontrun{
 #' cfg <- cfg_tmp_project()
 #' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
 #' df <- get_result_tree(cfg, 1)
 #' head(df)
+#' }
 get_result_tree <- function(cfg, scenario, variant = 0) {
   x <- read_xml(cfg$project$path)
   objs = c("Ouvrage", "Section", "Prise", "Noeud")

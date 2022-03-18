@@ -21,7 +21,9 @@ The updated configuration with the temporary project directory
 Set a configuration with a temporary project directory
 }
 \examples{
+\dontrun{
 cfg <- cfg_tmp_project()
 cfg$project$xml_path
+}
 
 }

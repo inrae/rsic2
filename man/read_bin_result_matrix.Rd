@@ -20,8 +20,10 @@ read_bin_result_matrix(cfg, scenario, variant = 0)
 Read matrix of SIC simulation result file
 }
 \examples{
+\dontrun{
 cfg <- cfg_tmp_project()
 sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
 m <- read_bin_result_matrix(cfg, 1)
 str(m)
+}
 }

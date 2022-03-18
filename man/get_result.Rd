@@ -30,7 +30,9 @@ get_result(
 Get a selection of variables from a simulation result
 }
 \examples{
+\dontrun{
 cfg <- cfg_tmp_project()
 sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
 get_result(cfg, 1, filters = c("bf==4", "var=='Z'"))
+}
 }
