@@ -1,0 +1,32 @@
+stages:
+  - check
+
+variables:
+  R_CI: "$CI_PROJECT_DIR/ci"
+  R_LIBS_USER: "$R_CI/lib"
+
+default:
+  tags: [docker]
+  image: rocker/verse:devel
+
+cache:
+  paths:
+    - $R_CI
+
+before_script:
+  - mkdir -p $R_LIBS_USER
+  - echo "R_LIBS='$R_LIBS_USER'" > .Renviron
+  - sudo apt-get update && sudo apt-get install -y libudunits2-dev proj-bin libgdal-dev libgeos-dev
+  - R -q -e 'remotes::install_deps(dependencies = TRUE)'
+
+check:
+  stage: check
+  script:
+  - tlmgr update --self && tlmgr install ec epstopdf-pkg
+  - R -q -e 'remotes::update_packages("rcmdcheck")'
+  - R -q -e 'rcmdcheck::rcmdcheck(args = "--as-cran", error_on = "error")'
+
+test_all:
+  stage: check
+  script:
+  - R -q -e 'devtools::test()'

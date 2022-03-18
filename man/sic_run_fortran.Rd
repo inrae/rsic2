@@ -14,7 +14,7 @@ sic_run_fortran(prog, params = list(), cfg = loadConfig())
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
 \value{
-
+Error code returned by \link{shell}.
 }
 \description{
 Run Talweg, Fluvia or Sirene
@@ -26,7 +26,8 @@ If argument \code{params} is a \link{list}, arguments are injected in the comman
 \examples{
 \dontrun{
 # Run steady simulation for the scenario #1
+cfg <- cfg_tmp_project()
 params <- list(SCE=1)
-sic_run_fortran("fluvia", params)
+sic_run_fortran("fluvia", params, cfg = cfg)
 }
 }

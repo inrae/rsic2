@@ -3,7 +3,7 @@
 #' @param abscissas [numeric] vector of section abscissas
 #' @param upstream_bed_elevation [numeric], upstream bed elevation (m)
 #' @param slope [numeric], bed slope of the reach (m/m)
-#' @param names [character] vector of section names
+#' @param section_names [character] vector of section names
 #' @inheritParams create_section_txt
 #'
 #' @return A [list] from which each item is a section exported by [create_section_txt].

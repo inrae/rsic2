@@ -18,7 +18,7 @@ dem_to_section(dem, node_coords, section_center, section_width, nb_points = 50)
 \item{nb_points}{1-length \link{numeric}, number of points to describe cross-section geometries}
 }
 \value{
-
+A \link{matrix} with the coordinates of the x-z points in the cross-profile section referential
 }
 \description{
 Create a section cross profile from a DEM

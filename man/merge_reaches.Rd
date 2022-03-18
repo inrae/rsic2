@@ -2,18 +2,18 @@
 % Please edit documentation in R/merge_reaches.R
 \name{merge_reaches}
 \alias{merge_reaches}
-\title{Merge several ReachTxt objects into one}
+\title{Merge several \emph{ReachTxt} objects into one}
 \usage{
 merge_reaches(...)
 }
 \arguments{
-\item{...}{ReachTxt objects}
+\item{...}{\emph{ReachTxt} objects}
 }
 \value{
-
+a \emph{ReachTxt} object (See \link{create_uniform_reach_txt} and \link{dem_to_reach}) containing the merged reaches.
 }
 \description{
-Merge several ReachTxt objects into one
+Merge several \emph{ReachTxt} objects into one
 }
 \examples{
 # Minor bed generation

@@ -1,8 +1,8 @@
-#' Merge several ReachTxt objects into one
+#' Merge several *ReachTxt* objects into one
 #'
-#' @param ... ReachTxt objects
+#' @param ... *ReachTxt* objects
 #'
-#' @return
+#' @return a *ReachTxt* object (See [create_uniform_reach_txt] and [dem_to_reach]) containing the merged reaches.
 #' @export
 #'
 #' @examples

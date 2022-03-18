@@ -31,9 +31,11 @@ dem_to_reach(dem, node_coords, section_centers, section_width, nb_points = 50)
 \item{start}{1-length \link{numeric}, starting value for the chainage (i.e. section abscissa) along the reach}
 
 \item{major_bed}{\link{logical}, \code{TRUE} for major bed, \code{FALSE} for minor-medium bed}
+
+\item{section_centers}{See return value of \link{get_section_centers}}
 }
 \value{
-
+A \emph{ReachTxt} object which is a \link{list} of \emph{SectionTxt} objects (see \link{create_section_txt}).
 }
 \description{
 The coordinate system of \code{dem} should be a metric orthonormal coordinate system.
