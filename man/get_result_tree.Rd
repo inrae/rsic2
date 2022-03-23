@@ -9,9 +9,9 @@ get_result_tree(cfg, scenario, variant = 0)
 \arguments{
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 
-\item{scenario}{\link{numeric}, the scenario to read}
+\item{scenario}{\link{numeric}, the scenario to use}
 
-\item{variant}{\link{numeric}, the variant to read}
+\item{variant}{\link{numeric}, the variant to use (0 by default means no variant)}
 }
 \value{
 a \link{data.frame} with following columns:
@@ -24,10 +24,15 @@ a \link{data.frame} with following columns:
 \description{
 Get correspondence between network object and columns in result binary file
 }
+\section{Warning}{
+
+Up to now, this function only handle results at sections.
+}
+
 \examples{
 \dontrun{
 cfg <- cfg_tmp_project()
-sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+sic_run_steady(cfg, scenario = 1)
 df <- get_result_tree(cfg, 1)
 head(df)
 }

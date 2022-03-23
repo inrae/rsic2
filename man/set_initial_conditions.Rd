@@ -4,18 +4,21 @@
 \alias{set_initial_conditions}
 \title{Import initial conditions}
 \usage{
-set_initial_conditions(params, cfg = loadConfig())
+set_initial_conditions(iniParams, cfg = loadConfig())
 }
 \arguments{
-\item{params}{\link{numeric}, arguments passed to Edisic for importing initial conditions. See details}
+\item{iniParams}{\link{numeric}, arguments passed to Edisic for importing initial conditions. See details}
 
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
+}
+\value{
+Error code returned by \link{shell}.
 }
 \description{
 Import initial conditions from a scenario/variant result calculation to a new scenario/variant.
 }
 \details{
-\code{params} \link{numeric} vector of length 5. Each number correspond to:
+\code{iniParams} \link{numeric} vector of length 5. Each number correspond to:
 \enumerate{
 \item number of the scenario from which import initial conditions
 \item number of the variant from which import initial conditions (Use "0" for no variant)
@@ -26,8 +29,23 @@ Import initial conditions from a scenario/variant result calculation to a new sc
 }
 \examples{
 \dontrun{
-# Import initial conditions from the scenario #1 without variant at time 0s
-# to the variant #1 in the scenario #1
-set_initial_conditions(c(1, 0, 0, 1, 1))
+# Set up the configuration model
+cfg <- cfg_tmp_project()
+
+# Generate the mesh of the model
+sic_run_mesh(cfg)
+
+# Run steady simulation for the scenario #1
+sic_run_steady(cfg, scenario = 1)
+
+# Import initial condition from scenario 1
+# to scenario 1, variant 1 for unsteady flow simulation
+set_initial_conditions(c(1, 0, 0, 1, 1), cfg = cfg)
+
+# Run unsteady flow simulation
+sic_run_unsteady(cfg, scenario = 1, variant = 1)
+
+# Or initiate and run the same unsteady flow simulation in one call
+sic_run_unsteady(cfg, iniParams = c(1, 0, 0, 1, 1))
 }
 }

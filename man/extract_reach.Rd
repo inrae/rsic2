@@ -15,5 +15,22 @@ extract_reach(reach, x_limits)
 A ReachTxt object containing the selected sections.
 }
 \description{
-Select portion of a reach between two chainages
+This function is used by \link{split_reach} for selecting sections of each reach.
+}
+\examples{
+# Create a 10km long trapezoidal uniform reach
+profT <- list(
+  B = 2,
+  S = (6 - 2) / 2 / 2,
+  ZF = 100,
+  ZB = 100 + 2
+)
+min_reach <- create_uniform_reach_txt(abscissas = seq(0, 10000, 100),
+                                      upstream_bed_elevation = 10 + 2000 * 0.002,
+                                      slope = 0.002,
+                                      section_type = "T",
+                                      profile = profT)
+# Extract sections between chainage 2000 m and 4000 m
+sel_reach <- extract_reach(min_reach, c(2000, 4000))
+
 }

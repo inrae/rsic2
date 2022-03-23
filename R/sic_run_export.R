@@ -2,9 +2,7 @@
 #'
 #' @details
 #' `params` parameter is a list representing parameters available in \url{https://sic.g-eau.fr/sicexport-utilitaire-d-exportation} to set the model network location of exported results. The string parameter `/x=n /yy=ii` in the command line is here represented by `list(xxx = nnn, yy = ii)`.
-#'
-#' @param scenario [numeric], the scenario to read
-#' @param variant [numeric], the variant to read
+#' @inheritParams sic_run_mesh
 #' @param params [list] location parameters of the result, see details.
 #' @template param_cfg
 #'
@@ -14,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' params <- list(SCE=1)
-#' sic_run_fortran("fluvia", params)
+#' sic_run_steady(cfg, scenario = 1)
 #' # For exporting result in sections at time 0
 #' sic_run_export(scenario = 1, params = list(t = 0))
 #' }

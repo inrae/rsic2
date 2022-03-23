@@ -7,9 +7,9 @@
 sic_run_export(scenario, variant = 0, params, cfg = loadConfig())
 }
 \arguments{
-\item{scenario}{\link{numeric}, the scenario to read}
+\item{scenario}{\link{numeric}, the scenario to use}
 
-\item{variant}{\link{numeric}, the variant to read}
+\item{variant}{\link{numeric}, the variant to use (0 by default means no variant)}
 
 \item{params}{\link{list} location parameters of the result, see details.}
 
@@ -27,7 +27,7 @@ Run SicExport and read the exported file
 \examples{
 \dontrun{
 params <- list(SCE=1)
-sic_run_fortran("fluvia", params)
+sic_run_steady(cfg, scenario = 1)
 # For exporting result in sections at time 0
 sic_run_export(scenario = 1, params = list(t = 0))
 }

@@ -1,7 +1,7 @@
 skip_on_ci()
 
 cfg <- cfg_tmp_project()
-sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+sic_run_steady(cfg, scenario = 1)
 
 test_that("get_result returns a matrix with correct colnames", {
   result <- get_result(cfg, 1, filters = c("bf=4", "var='Z'"))
