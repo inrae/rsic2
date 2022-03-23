@@ -7,6 +7,21 @@
 #' @export
 #'
 #' @examples
+#' # Create a 10km long trapezoidal uniform reach
+#' profT <- list(
+#'   B = 2,
+#'   S = (6 - 2) / 2 / 2,
+#'   ZF = 100,
+#'   ZB = 100 + 2
+#' )
+#' min_reach <- create_uniform_reach_txt(abscissas = seq(0, 10000, 100),
+#'                                       upstream_bed_elevation = 10 + 2000 * 0.002,
+#'                                       slope = 0.002,
+#'                                       section_type = "T",
+#'                                       profile = profT)
+#' # Split into reaches of 2000 m
+#' reaches <- split_reach(min_reach, seq(0, 10000, 2000))
+#'
 split_reach <- function(reach, x_limits) {
   if(length(x_limits) < 2) {
     stop("`x_limits` length must be greater or equal to 2")
@@ -16,6 +31,8 @@ split_reach <- function(reach, x_limits) {
 
 #' Select portion of a reach between two chainages
 #'
+#' This function is used by [split_reach] for selecting sections of each reach.
+#'
 #' @param reach A ReachTxt object
 #' @param x_limits 2-length [numeric], min and max chainage
 #'
@@ -23,6 +40,21 @@ split_reach <- function(reach, x_limits) {
 #' @export
 #'
 #' @examples
+#' # Create a 10km long trapezoidal uniform reach
+#' profT <- list(
+#'   B = 2,
+#'   S = (6 - 2) / 2 / 2,
+#'   ZF = 100,
+#'   ZB = 100 + 2
+#' )
+#' min_reach <- create_uniform_reach_txt(abscissas = seq(0, 10000, 100),
+#'                                       upstream_bed_elevation = 10 + 2000 * 0.002,
+#'                                       slope = 0.002,
+#'                                       section_type = "T",
+#'                                       profile = profT)
+#' # Extract sections between chainage 2000 m and 4000 m
+#' sel_reach <- extract_reach(min_reach, c(2000, 4000))
+#'
 extract_reach <- function(reach, x_limits) {
   reach_names <- names(reach)
   x_limits <- sprintf("%08d", x_limits)

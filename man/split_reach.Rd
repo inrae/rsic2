@@ -17,3 +17,20 @@ A \link{list} of ReachTxt objects
 \description{
 Split a reach into a list of reaches
 }
+\examples{
+# Create a 10km long trapezoidal uniform reach
+profT <- list(
+  B = 2,
+  S = (6 - 2) / 2 / 2,
+  ZF = 100,
+  ZB = 100 + 2
+)
+min_reach <- create_uniform_reach_txt(abscissas = seq(0, 10000, 100),
+                                      upstream_bed_elevation = 10 + 2000 * 0.002,
+                                      slope = 0.002,
+                                      section_type = "T",
+                                      profile = profT)
+# Split into reaches of 2000 m
+reaches <- split_reach(min_reach, seq(0, 10000, 2000))
+
+}

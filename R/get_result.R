@@ -1,6 +1,6 @@
 #' Get a selection of variables from a simulation result
 #'
-#' @inheritParams sic_run_export
+#' @inheritParams sic_run_mesh
 #' @param filters [character] conditions to select columns in result table, see details
 #' @param m [matrix] of results produced by [read_bin_result_matrix]
 #'
@@ -11,7 +11,7 @@
 #' @examples
 #' \dontrun{
 #' cfg <- cfg_tmp_project()
-#' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+#' sic_run_steady(cfg, scenario = 1)
 #' get_result(cfg, 1, filters = c("bf==4", "var=='Z'"))
 #' }
 get_result <- function(cfg,
@@ -47,7 +47,7 @@ get_result <- function(cfg,
 
 #' Read matrix of SIC simulation result file
 #'
-#' @inheritParams sic_run_export
+#' @inheritParams sic_run_mesh
 #'
 #' @return [matrix] with the simulation results
 #' @export
@@ -55,7 +55,7 @@ get_result <- function(cfg,
 #' @examples
 #' \dontrun{
 #' cfg <- cfg_tmp_project()
-#' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+#' sic_run_steady(cfg, scenario = 1)
 #' m <- read_bin_result_matrix(cfg, 1)
 #' str(m)
 #' }
@@ -90,7 +90,7 @@ read_bin_result_matrix <- function(cfg, scenario, variant = 0) {
 
 #' Get correspondence between network object and columns in result binary file
 #'
-#' @inheritParams sic_run_export
+#' @inheritParams sic_run_mesh
 #'
 #' @return a [data.frame] with following columns:
 #'
@@ -98,7 +98,7 @@ read_bin_result_matrix <- function(cfg, scenario, variant = 0) {
 #' - "var": the name of the calculated variable
 #' - "col": the column number in the matrix produced by [read_bin_result_matrix]
 #'
-#' @warning
+#' @section Warning:
 #' Up to now, this function only handle results at sections.
 #'
 #' @export
@@ -108,7 +108,7 @@ read_bin_result_matrix <- function(cfg, scenario, variant = 0) {
 #' @examples
 #' \dontrun{
 #' cfg <- cfg_tmp_project()
-#' sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+#' sic_run_steady(cfg, scenario = 1)
 #' df <- get_result_tree(cfg, 1)
 #' head(df)
 #' }

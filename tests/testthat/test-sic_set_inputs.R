@@ -1,10 +1,10 @@
 cfg <- cfg_tmp_project()
-locations <- SicLocations(list(list(bf = 1, sn = 1, car = "Z"),
-                               list(Nd = 1, Pr = 1, car = "Q")))
+locations <- SicLocations(list(bf = 1, sn = 1, car = "Z"),
+                          list(Nd = 1, Pr = 1, car = "Q"))
 input <- SicInput(5, locations = locations)
-input2 <- SicInput(dfTest, locations = SicLocation(list(Nd = 1, Car = "Z")))
 dfTest <- data.frame(t = seq(0, by = 600, length.out = 11),
                      v = sin(0:10))
+input2 <- SicInput(dfTest, locations = SicLocation(list(Nd = 1, Car = "Z")))
 
 test_that("SicLocation shoud return errors with incoherent parameters", {
   expect_error(SicLocation(list(bf = 1, sn = 2)),
@@ -59,7 +59,7 @@ test_that("merge.SicInputs should work", {
   expect_length(inputs, 1)
   inputs <- merge(input, input2)
   expect_length(inputs, 2)
-  expect_equal(inputs[[2]]$locations, "ND=1\tCAR=Z")
+  expect_equal(unclass(inputs[[2]]$locations), "ND=1\tCAR=Z")
 })
 
 test_that("sic_write_par should return errors with wrong parameters", {

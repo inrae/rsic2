@@ -2,30 +2,25 @@
 #'
 #' Import initial conditions from a scenario/variant result calculation to a new scenario/variant.
 #'
-#' @param params [numeric], arguments passed to Edisic for importing initial conditions. See details
+#' @param iniParams [numeric], arguments passed to Edisic for importing initial conditions. See details
 #' @template param_cfg
 #'
-#' @details `params` [numeric] vector of length 5. Each number correspond to:
+#' @details `iniParams` [numeric] vector of length 5. Each number correspond to:
 #'
 #' 1. number of the scenario from which import initial conditions
-#' 1. number of the variant from which import initial conditions (Use "0" for no variant)
-#' 1. Time in seconds of the initial conditions to import (Use "0" for a single permanent simulation with no time steps)
-#' 1. number of the scenario where the initial conditions are exported to
-#' 1. number of the variant where the initial conditions are exported to  (Use "0" for no variant)
+#' 2. number of the variant from which import initial conditions (Use "0" for no variant)
+#' 3. Time in seconds of the initial conditions to import (Use "0" for a single permanent simulation with no time steps)
+#' 4. number of the scenario where the initial conditions are exported to
+#' 5. number of the variant where the initial conditions are exported to  (Use "0" for no variant)
 #'
 #' @export
 #'
-#' @examples
-#' \dontrun{
-#' # Import initial conditions from the scenario #1 without variant at time 0s
-#' # to the variant #1 in the scenario #1
-#' set_initial_conditions(c(1, 0, 0, 1, 1))
-#' }
-set_initial_conditions <- function(params, cfg = loadConfig()) {
-  if (!is.numeric(params) || length(params) != 5) {
-    stop("`params` should be a numeric of length 5")
+#' @inherit sic_run_mesh return examples
+set_initial_conditions <- function(iniParams, cfg = loadConfig()) {
+  if (!is.numeric(iniParams) || length(iniParams) != 5) {
+    stop("`iniParams` should be a numeric of length 5")
   }
-  sArgs <- paste(params, collapse = " ")
+  sArgs <- paste(iniParams, collapse = " ")
   cmd_line <- shQuote(
     paste(
       file.path(cfg$sic$path, cfg$sic$edisic),

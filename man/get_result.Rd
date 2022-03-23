@@ -15,9 +15,9 @@ get_result(
 \arguments{
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 
-\item{scenario}{\link{numeric}, the scenario to read}
+\item{scenario}{\link{numeric}, the scenario to use}
 
-\item{variant}{\link{numeric}, the variant to read}
+\item{variant}{\link{numeric}, the variant to use (0 by default means no variant)}
 
 \item{filters}{\link{character} conditions to select columns in result table, see details}
 
@@ -32,7 +32,7 @@ Get a selection of variables from a simulation result
 \examples{
 \dontrun{
 cfg <- cfg_tmp_project()
-sic_run_fortran("fluvia", list(SCE = 1), cfg = cfg)
+sic_run_steady(cfg, scenario = 1)
 get_result(cfg, 1, filters = c("bf==4", "var=='Z'"))
 }
 }

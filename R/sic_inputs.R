@@ -14,14 +14,28 @@ sic_get_par_filename <- function(cfg, scenario) {
 
 #' Write a PAR file for SIC simulation
 #'
-#' Write inputs  in a PAR file respectively to \link{https://sic.g-eau.fr/Format-of-the-par-file}
+#' Write inputs  in a PAR file respectively to \url{https://sic.g-eau.fr/Format-of-the-par-file}.
 #'
-#' @inheritParams sic_run_fortran
+#' @inheritParams sic_run_mesh
 #'
 #' @return Nothing.
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' # Setting the model configuration
+#' cfg <- cfg_tmp_project()
+#'
+#' # How to impose an hydrograph at the upstream offtake of the model?
+#' # Define the location of the upstream boundary condition to set
+#' locations <- SicLocations(list(Nd = 1, Pr = 1, car = "Q"))
+#' # Define its time series
+#' sicInputs <- SicInput(data.frame(t = c(0, 3600, 7200), # time in seconds
+#'                                 v = c(5, 20, 5)),     # flows
+#'                       locations = locations)
+#' # Write the parameters in the PAR file
+#' sic_write_par(cfg, 1, sicInputs)
+#' }
 sic_write_par <- function(cfg, scenario, sicInputs) {
 
   if (is.null(attr(cfg, "config"))) {
@@ -77,9 +91,20 @@ sic_write_par <- function(cfg, scenario, sicInputs) {
 #' - `interpolated`: [logical], interpolation mode
 #'
 #' @rdname SicInput
+#' @family SicInput
 #' @export
 #'
 #' @examples
+#' # How to impose 5 m3/s in the upstream offtake of the model?
+#' # Define location of the boundary condition to set
+#' locations <- SicLocations(list(Nd = 1, Pr = 1, car = "Q"))
+#' # Define its value
+#' sicInputs <- SicInput(5, locations = locations)
+#'
+#' # How to impose an hydrograph at the upstream offtake of the model?
+#' sicInputs <- SicInput(data.frame(t = c(0, 3600, 7200), # time in seconds
+#'                                 v = c(5, 20, 5)),     # flows
+#'                       locations = locations)
 SicInput <- function(x, ...) {
   UseMethod("SicInput", x)
 }
@@ -139,14 +164,33 @@ SicInput.matrix <- function(x, ...) {
 
 #' Merge SicInput objects into a list
 #'
-#' @param x
-#' @param y
-#' @param ...
+#' @param x a [SicInput] object to merge
+#' @param y a [SicInput] object to merge
+#' @param ... other [SicInput] objects to merge
+#'
+#' @details The list of parameter is compliant with the `merge` S3 method
+#' available in R, so this method can either be called by typing
+#' `merge` or `merge.SicInput`.
 #'
 #' @return A `SicInputs` object which is a list of [SicInput]
 #' @export
 #'
 #' @examples
+#' # How to impose 5 m3/s in the upstream offtake of the model?
+#' # Define location of the boundary condition to set
+#' locations <- SicLocation(list(Nd = 1, Pr = 1, car = "Q"))
+#' # Define its value
+#' sicInputUpstream <- SicInput(5, locations = locations)
+#'
+#' # Opening a gate at 0.5 m
+#' sicInputGate <- SicInput(
+#'   0.5,
+#'   locations = SicLocations(list(Bf = 3, Sn = 2, Ouv = 1, Car = "Ouverture"))
+#' )
+#'
+#' # Merging all inputs
+#' sicInputs <- merge(sicInputUpstream, sicInputGate)
+#'
 merge.SicInput <- function(x, y = NULL, ...) {
   sicInputs <- list(x, y, ...)
   sicInputs[sapply(sicInputs, is.null)] <- NULL
@@ -154,15 +198,43 @@ merge.SicInput <- function(x, y = NULL, ...) {
   return(sicInputs)
 }
 
+#' Set locations of a SIC model input
+#'
+#' Do the same as [SicLocation] for eventually several locations
+#'
+#' @param ... One or several [list] describing a location (See [SicLocation])
+#'
+#' @return a *SicLocations* object which is a [list] of [SicLocation].
+#' @family SicInput
+#' @export
+#'
+#' @examples
+#' # Applying the same flow to offtakes located in nodes number 1 to 10
+#' locations <- lapply(seq(10), function(i) { list(Nd = i, Pr = 1, Car = "Q")})
+#' locations <- do.call(SicLocations, locations)
+#' sicInputOfftakes <- SicInput(-0.5, locations = locations)
 SicLocations <- function(...) {
   locations <- list(...)
   if (length(locations) == 1) locations <- locations[[1]]
+  # Handle a single location in the parameters
+  if (length(locations[[1]]) == 1) locations <- list(locations)
   if(!is.list(locations)) stop("`locations` must be a list")
   l <- sapply(locations, SicLocation)
   class(l) <- c("SicLocations", class(l))
   return(l)
 }
 
+#' Set a location of a SIC model input
+#'
+#' @param location a [list] containing the location keys (see details)
+#'
+#' @return a *SicLocation* object which is a [character] string in the same format as the locations described in the sic documentation of PAR files: \url{https://sic.g-eau.fr/Format-of-the-par-file}.
+#'
+#' @family SicInput
+#' @export
+#'
+#' @inherit SicInput return examples
+#'
 SicLocation <- function(location) {
   names(location) <- toupper(names(location))
   # Checks
