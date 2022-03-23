@@ -1,4 +1,3 @@
-cfg <- cfg_tmp_project()
 locations <- SicLocations(list(bf = 1, sn = 1, car = "Z"),
                           list(Nd = 1, Pr = 1, car = "Q"))
 input <- SicInput(5, locations = locations)
@@ -61,6 +60,9 @@ test_that("merge.SicInputs should work", {
   expect_length(inputs, 2)
   expect_equal(unclass(inputs[[2]]$locations), "ND=1\tCAR=Z")
 })
+
+skip_on_ci()
+cfg <- cfg_tmp_project()
 
 test_that("sic_write_par should return errors with wrong parameters", {
   expect_error(sic_write_par("toto", 1, input), regexp = "loadConfig")
