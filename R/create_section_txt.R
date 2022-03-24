@@ -18,7 +18,7 @@ create_section_txt <- function(section_name, abscissa, section_type, profile, di
     if (!is.list(profile) || !all(c("B", "S", "ZF", "ZB") %in% names(profile))) {
       stop("With `section_type = \"T\", `profile` should be a list with the items B, S, ZF and ZB")
     }
-    sic_profile <- c(paste(profile$B, profile$S, sep = "\t"), paste(profile$ZB, profile$ZF, sep = "\t"))
+    sic_profile <- c("0", paste(profile$B, profile$S, sep = "\t"), paste(profile$ZB, profile$ZF, sep = "\t"))
   } else if (section_type %in% c("A", "L")) {
     if (!is.matrix(profile) || ncol(profile) != 2) {
       stop("With `section_type = \"A\" or \"L\", `profile` should be a matrix with 2 columns")
