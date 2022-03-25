@@ -25,7 +25,7 @@
 #' maj_reach <- dem_to_reach_txt(dem, node_coords, space_step, section_width, major_bed = TRUE)
 #'
 #' # Merge minor and major beds and split into 2 reaches
-#' reach <- merge_reaches(min_reach, maj_reach)
+#' reach <- merge(min_reach, maj_reach)
 #' reaches <- split_reach(reach, seq(0, 10000, 5000))
 #'
 #' \dontrun{
