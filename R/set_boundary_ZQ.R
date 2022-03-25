@@ -13,10 +13,12 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' cfg <- cfg_tmp_project()
 #' z <- seq(5, 20, 1)
 #' Q <- (z-5)^1.5
 #' set_boundary_ZQ(cfg, scenario = 1, nd = 3, mZQ = matrix(c(z, Q), ncol = 2))
+#' }
 set_boundary_ZQ <- function(cfg, scenario, nd, pr = 1, mZQ) {
   x <- read_xml(cfg$project$path)
   xPath <- "/Reseau/Liste_Noeuds/Noeud[@Num=%d]/Flu[@nScenario=%d]/Prise[@Num=%d]/ConditionLim/TLoi"
