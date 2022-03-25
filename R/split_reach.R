@@ -59,6 +59,14 @@ extract_reach <- function(reach, x_limits) {
   reach_names <- names(reach)
   x_limits <- sprintf("%08d", x_limits)
   sel_reach <- reach[reach_names >= min(x_limits) & reach_names <= max(x_limits)]
+  # Change major bed distance of the last section (issue #13)
+  i_last <- length(sel_reach)
+  s_cfg <- strsplit(sel_reach[[i_last]][1], "$", fixed = TRUE)[[1]]
+  if (s_cfg[4] == " 1 ") {
+    s_cfg[3] = " 0 "
+    sel_reach[[i_last]][1] <- paste(s_cfg, collapse = "$")
+  }
+
   class(sel_reach) <- c("ReachTxt", class(sel_reach))
   return(sel_reach)
 }
