@@ -97,8 +97,12 @@ dem_to_section <- function(dem, node_coords, section_center, section_width, nb_p
       seq(x[1], x[2], length.out = nb_points)
     })
   z <- terra::extract(dem, section_points, method = "bilinear")$lyr.1
-  x_points <- sapply(seq_len(nrow(section_points)), function(i) {as.numeric(dist(section_points[c(1,i), ]))})
+  x_points <- sapply(
+    seq_len(nrow(section_points)),
+    function(i) {as.numeric(dist(section_points[c(1,i), ]))}
+  )
   m <- matrix(c(x_points, z), ncol = 2)
+  m <- m[!is.na(m[, 2]), ]
   colnames(m) <- c("x", "z")
   return(m)
 }
