@@ -55,14 +55,70 @@ sic_import_reaches <- function(reaches, import_mode = "ImportXml_UPDATE", cfg = 
     type = "cmd2"
   )
   logger::log_debug(cmd_line)
-  shell(
+  ret <- shell(
     cmd_line,
     wait = T,
     translate = T
   )
+  update_portion_abscissas(cfg)
+  return(ret)
 }
 
 write_reach_txt <- function(file, reach) {
   s <- unlist(reach)
   writeLines(s, file)
+}
+
+#' Update abscissas of Strickler portions in a SIC model
+#'
+#' @description
+#' As [sic_import_reaches] redefines abscissas in the reaches, and as the Stricklers
+#' are defined with abscissas, geometry importation can lead to an inconsistent model.
+#'
+#' So the aim of this function is to reset Strickler definitions of the whole model
+#' to a default value with one Strickler portion by reach with correct abscissas.
+#'
+#' @template param_cfg
+#' @param stricklers 2-length [numeric], Strickler coefficient to apply for minor bed and medium bed respectively
+#'
+#' @return Use for side effect on the XML project file.
+#'
+#' @family sic_import_reaches
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' cfg <- cfg_tmp_project()
+#' update_portion_abscissas(cfg, KMin = 50)
+#'
+#' # Display first Strickler definitions encountered in the XML file
+#' x <- read_xml(cfg$project$path)
+#' xml_find_first(x, "//Stricklers")
+#' }
+update_portion_abscissas <- function(cfg,
+                                     stricklers = cfg$project$stricklers) {
+  x <- read_xml(cfg$project$path)
+  x_biefs <- xml_find_all(x, "//Bief")
+  lapply(x_biefs, function(x) {
+    XD <- x %>% xml_find_first(".//Liste_Sections/SectionMin") %>% xml_attr("abscisse")
+    XF <- x %>% xml_find_last(".//Liste_Sections/SectionMin") %>% xml_attr("abscisse")
+    x_stricklers <- xml_find_all(x, ".//Stricklers")
+    lapply(x_stricklers, function(x) {
+      x_portion <- xml_find_first(x, "./Portion")
+      xml_attr(x_portion, "XD") <- XD
+      xml_attr(x_portion, "XF") <- XF
+      xml_set_text(xml_child(x_portion, "KMin"), as.character(stricklers[1]))
+      xml_set_text(xml_child(x_portion, "KMoy"), as.character(stricklers[2]))
+      # Delete other defined portions in the reach
+      other_portions <- xml_siblings(x_portion)
+      lapply(other_portions, xml_remove)
+    })
+  })
+  write_xml(x, cfg$project$path)
+}
+
+xml_find_last <- function(x, path) {
+  x_all <- xml_find_all(x, path)
+  return(x_all[length(x_all)])
 }

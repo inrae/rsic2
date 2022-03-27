@@ -15,8 +15,9 @@
 #'   path: Path/To/Xml/Project/File.xml
 #' ```
 #'
-#' Moreover, the `sic_path` can be defined with the environment variable "SICPATH". This setting is a default which is overwritten
-#' by the path defined in the user YAML file, which is also overwritten by the one define by the `sic_path` argument.
+#' Moreover, the `sic_path` can be defined with the environment variable "SICPATH".
+#' This setting is a default which is overwritten by the path defined in the user YAML file,
+#' which is also overwritten by the one define by the `sic_path` argument.
 #'
 #' @return A configuration as it is returned by [config::get].
 #'
@@ -34,6 +35,8 @@
 #'       - `INTERF`: default `INTERF` parameter injected in command line arguments of TALWEG, FLUVIA, SIRENE
 #' - `project`
 #'   - `path`: Path to the XML project file (should be defined by `xml_path` parameter or in the user config file)
+#'   - `stricklers`: A vector of 2 [numeric] values representing respectively
+#'     the default minor and medium bed Strickler coefficients to apply with [sic_import_reaches]
 #'
 #' @export
 #'
