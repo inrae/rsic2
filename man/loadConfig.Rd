@@ -45,7 +45,7 @@ Configuration of RSIC2 as the following structure:
 \itemize{
 \item \code{path}: Path to the XML project file (should be defined by \code{xml_path} parameter or in the user config file)
 \item \code{stricklers}: A vector of 2 \link{numeric} values representing respectively
-the default minor and medium bed Strickler coefficients to apply with \link{sic_import_reach}
+the default minor and medium bed Strickler coefficients to apply with \link{sic_import_reaches}
 }
 }
 }
