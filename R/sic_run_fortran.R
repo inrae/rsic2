@@ -112,7 +112,10 @@ sic_run_steady <- function(cfg, scenario, variant = 0, sicInputs = NULL, params 
 #' @export
 sic_run_unsteady <- function(cfg, scenario = iniParams[4], variant = iniParams[5], sicInputs = NULL, iniParams = NULL, params = list()) {
   if (!is.null(iniParams)) {
-    sic_run_steady(cfg, scenario = iniParams[1], variant = iniParams[1])
+    sic_run_steady(cfg,
+                   scenario = iniParams[1],
+                   variant = iniParams[2],
+                   sicInputs = sicInputs)
     set_initial_conditions(iniParams, cfg)
   }
   if (is.null(scenario)) stop("`scenario` should be defined")
