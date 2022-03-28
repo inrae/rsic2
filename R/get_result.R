@@ -4,7 +4,15 @@
 #' @param filters [character] conditions to select columns in result table, see details
 #' @param m [matrix] of results produced by [read_bin_result_matrix]
 #'
-#' @return [matrix] of results with columns selected by `filters`.
+#' @return [matrix] of results with a first column "t" with the simulation time
+#' in seconds followed by columns selected by `filters`.
+#'
+#' Column names are a concatenation of nested SIC model elements separated by
+#' the character "|" and numbered after the character ":". The variable is
+#' represented by the item "var".
+#' For example, water elevation in the first section of the first reach is:
+#' "bf:1|sn:1|var:Z".
+#'
 #' @export
 #' @import magrittr
 #'
@@ -26,6 +34,24 @@ get_result <- function(cfg,
     df_col %<>% tidyquery::query(paste("SELECT * WHERE", filters))
   }
   m <- m[, df_col$col, drop = FALSE]
+
+  # Compute time column
+  x <- read_xml(cfg$project$path)
+  xpath <-
+    sprintf("/Reseau/Flu[@nScenario=%d]/ListeRes/Res[@nVar=%d]",
+            scenario,
+            variant)
+  x_res <- xml_find_first(x, xpath)
+  attrs <- paste0("Tps", c("Debut", "Pas", "Sauv", "Fin"))
+  names(attrs) <- attrs
+  time_prms <- sapply(attrs, function(attr) {
+    as.numeric(xml_attr(x_res, attr))
+  })
+  tms <- seq(from = time_prms["TpsDebut"],
+             to = time_prms["TpsFin"],
+             by = time_prms["TpsPas"] * time_prms["TpsSauv"])
+
+  # set column names
   column_names <- sapply(seq_len(nrow(df_col)),
                    function(i) {
                      df_col$col <- NULL
@@ -40,7 +66,10 @@ get_result <- function(cfg,
                      cols[sapply(cols, is.null)] <- NULL
                      paste(cols, collapse = "|")
                    })
-  colnames(m) <- column_names
+
+  m <- cbind(tms, m)
+  colnames(m) <- c("t", column_names)
+
   return(m)
 }
 
