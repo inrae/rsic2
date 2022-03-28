@@ -49,6 +49,7 @@ get_result <- function(cfg,
   time_prms <- sapply(attrs, function(attr) {
     as.numeric(xml_attr(x_res, attr))
   })
+
   tms <- seq(from = time_prms["TpsDebut"],
              to = time_prms["TpsFin"],
              by = time_prms["TpsPas"] * time_prms["TpsSauv"])
@@ -69,7 +70,7 @@ get_result <- function(cfg,
                      paste(cols, collapse = "|")
                    })
 
-  m <- cbind(tms, m)
+  m <- cbind(tms, m[1:length(tms), ])
   colnames(m) <- c("t", column_names)
   class(m) <- c("SicResult", class(m))
 
