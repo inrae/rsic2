@@ -24,7 +24,14 @@ get_result(
 \item{m}{\link{matrix} of results produced by \link{read_bin_result_matrix}}
 }
 \value{
-\link{matrix} of results with columns selected by \code{filters}.
+\link{matrix} of results with a first column "t" with the simulation time
+in seconds followed by columns selected by \code{filters}.
+
+Column names are a concatenation of nested SIC model elements separated by
+the character "|" and numbered after the character ":". The variable is
+represented by the item "var".
+For example, water elevation in the first section of the first reach is:
+"bf:1|sn:1|var:Z".
 }
 \description{
 Get a selection of variables from a simulation result
