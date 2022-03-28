@@ -20,7 +20,7 @@ dem_to_reach(dem, node_coords, section_centers, section_width, nb_points = 50)
 \arguments{
 \item{dem}{\link[terra:SpatRaster-class]{terra::SpatRaster} object with altitude data (m).}
 
-\item{node_coords}{\link{matrix} with coordinates of starting and ending points of the line to browse}
+\item{node_coords}{a 2x2 \link{matrix} with coordinates of starting and ending points of the line to browse}
 
 \item{space_step}{1-length \link{numeric}, distance between each section (m)}
 

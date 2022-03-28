@@ -1,6 +1,8 @@
 #' Merge several *ReachTxt* objects into one
 #'
-#' @param ... *ReachTxt* objects
+#' @param x First *ReachTxt* object to merge
+#' @param y Second *ReachTxt* object to merge
+#' @param ... Other *ReachTxt* objects to merge
 #'
 #' @return a *ReachTxt* object (See [create_uniform_reach_txt] and [dem_to_reach]) containing the merged reaches.
 #' @export
@@ -28,9 +30,9 @@
 #' maj_reach <- dem_to_reach_txt(dem, node_coords, space_step, section_width, major_bed = TRUE)
 #'
 #' # Merge reaches into one
-#' reach <- merge_reaches(min_reach, maj_reach)
-merge_reaches <- function(...) {
-  reaches <- list(...)
+#' reach <- merge(min_reach, maj_reach)
+merge.ReachTxt <- function(x, y = NULL, ...) {
+  reaches <- c(list(x, y), list(...))
   lapply(reaches, function(reach) {
     if (!inherits(reach, "ReachTxt")) stop("Parameters must be of class ReachTxt")
   })

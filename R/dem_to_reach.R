@@ -3,7 +3,7 @@
 #' The coordinate system of `dem` should be a metric orthonormal coordinate system.
 #'
 #' @param dem [terra::SpatRaster] object with altitude data (m).
-#' @param node_coords [matrix] with coordinates of starting and ending points of the line to browse
+#' @param node_coords a 2x2 [matrix] with coordinates of starting and ending points of the line to browse
 #' @param space_step 1-length [numeric], distance between each section (m)
 #' @param section_width 1-length [numeric], width of the sections to create
 #' @param nb_points 1-length [numeric], number of points to describe cross-section geometries
@@ -66,6 +66,8 @@ dem_to_reach_txt <- function(dem, node_coords, space_step, section_width, nb_poi
 #' @param section_centers See return value of [get_section_centers]
 #' @export
 dem_to_reach <- function(dem, node_coords, section_centers, section_width, nb_points = 50) {
+  if (nrow(node_coords) != 2 || ncol(node_coords) != 2)
+    stop("`node_coords` should be a matrix of dimensions 2x2")
   lapply(seq_len(nrow(section_centers)), function(i) {
     section_center <- section_centers[i,]
     dem_to_section(dem, node_coords, section_center, section_width, nb_points)
@@ -95,8 +97,12 @@ dem_to_section <- function(dem, node_coords, section_center, section_width, nb_p
       seq(x[1], x[2], length.out = nb_points)
     })
   z <- terra::extract(dem, section_points, method = "bilinear")$lyr.1
-  x_points <- sapply(seq_len(nrow(section_points)), function(i) {as.numeric(dist(section_points[c(1,i), ]))})
+  x_points <- sapply(
+    seq_len(nrow(section_points)),
+    function(i) {as.numeric(dist(section_points[c(1,i), ]))}
+  )
   m <- matrix(c(x_points, z), ncol = 2)
+  m <- m[!is.na(m[, 2]), ]
   colnames(m) <- c("x", "z")
   return(m)
 }

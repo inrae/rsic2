@@ -44,6 +44,8 @@ Configuration of RSIC2 as the following structure:
 \item \code{project}
 \itemize{
 \item \code{path}: Path to the XML project file (should be defined by \code{xml_path} parameter or in the user config file)
+\item \code{stricklers}: A vector of 2 \link{numeric} values representing respectively
+the default minor and medium bed Strickler coefficients to apply with \link{sic_import_reaches}
 }
 }
 }
@@ -57,8 +59,9 @@ project:
   path: Path/To/Xml/Project/File.xml
 }\if{html}{\out{</div>}}
 
-Moreover, the \code{sic_path} can be defined with the environment variable "SICPATH". This setting is a default which is overwritten
-by the path defined in the user YAML file, which is also overwritten by the one define by the \code{sic_path} argument.
+Moreover, the \code{sic_path} can be defined with the environment variable "SICPATH".
+This setting is a default which is overwritten by the path defined in the user YAML file,
+which is also overwritten by the one define by the \code{sic_path} argument.
 }
 \examples{
 library(rsic2)

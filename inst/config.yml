@@ -11,3 +11,4 @@ default:
         INTERF: "0"
   project:
     path: "*** The path of your XML project file should be defined ***"
+    stricklers: [40, 40]
