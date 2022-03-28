@@ -2,6 +2,7 @@
 #'
 #' @inheritParams sic_run_mesh
 #' @param filters [character] conditions to select columns in result table, see details
+#' @param tidy [logical], if TRUE the result is returned after being processed by [tidy_result]
 #' @param m [matrix] of results produced by [read_bin_result_matrix]
 #'
 #' @return [matrix] of results with a first column "t" with the simulation time
@@ -26,6 +27,7 @@ get_result <- function(cfg,
                        scenario,
                        variant = 0,
                        filters = c(""),
+                       tidy = TRUE,
                        m = read_bin_result_matrix(cfg, scenario, variant)) {
 
   df_col <- get_result_tree(cfg, scenario, variant)
@@ -69,7 +71,11 @@ get_result <- function(cfg,
 
   m <- cbind(tms, m)
   colnames(m) <- c("t", column_names)
+  class(m) <- c("SicResult", class(m))
 
+  if (tidy) {
+    return(tidy_result(m))
+  }
   return(m)
 }
 
