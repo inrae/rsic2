@@ -9,6 +9,7 @@ get_result(
   scenario,
   variant = 0,
   filters = c(""),
+  tidy = TRUE,
   m = read_bin_result_matrix(cfg, scenario, variant)
 )
 }
@@ -20,6 +21,8 @@ get_result(
 \item{variant}{\link{numeric}, the variant to use (0 by default means no variant)}
 
 \item{filters}{\link{character} conditions to select columns in result table, see details}
+
+\item{tidy}{\link{logical}, if TRUE the result is returned after being processed by \link{tidy_result}}
 
 \item{m}{\link{matrix} of results produced by \link{read_bin_result_matrix}}
 }

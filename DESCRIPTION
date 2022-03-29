@@ -25,4 +25,5 @@ Imports:
     magrittr,
     terra,
     tidyquery,
+    tidyr,
     xml2
