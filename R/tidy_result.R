@@ -46,6 +46,13 @@ tidy_result <- function(res) {
     l <- lapply(strsplit(x, ":", fixed = TRUE),
                 function(obj) {
                   df <- data.frame(x = obj[2])
+                  if (obj[1] != "var") {
+                    if (obj[1] == "t") {
+                      df$x <- as.numeric(df$x)
+                    } else {
+                      df$x <- as.integer(df$x)
+                    }
+                  }
                   names(df) <- obj[1]
                   return(df)
                 })
@@ -53,7 +60,9 @@ tidy_result <- function(res) {
   })
   df_obj <- do.call(rbind, l)
   df$key <- NULL
-  cbind(df_obj, df)
+  df <- cbind(df_obj, df)
+  class(df) <- c("SicResultTidy", class(df))
+  df
 }
 
 #' @rdname tidy_result
@@ -71,5 +80,6 @@ compact_tidy_result <- function(res) {
   attr(df, "t") <- res[, 1]
   df$t <- NULL
   df$value <- NULL
+  class(df) <- c("SicResultCompact", class(df))
   df
 }

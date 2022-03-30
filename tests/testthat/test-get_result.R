@@ -25,4 +25,5 @@ test_that("get_result with tidy return a tidy result", {
   expect_s3_class(result, "data.frame")
   expect_equal(names(result), c("bf", "sn", "var", "values"))
   expect_equal(attr(result, "t"), seq(0, 86400, by = 60))
+  expect_type(result$bf, "integer")
 })
