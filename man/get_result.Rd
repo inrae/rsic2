@@ -9,7 +9,7 @@ get_result(
   scenario,
   variant = 0,
   filters = c(""),
-  tidy = TRUE,
+  fun_format = NULL,
   m = read_bin_result_matrix(cfg, scenario, variant)
 )
 }
@@ -22,12 +22,12 @@ get_result(
 
 \item{filters}{\link{character} conditions to select columns in result table, see details}
 
-\item{tidy}{\link{logical}, if TRUE the result is returned after being processed by \link{tidy_result}}
+\item{fun_format}{\link{function} to format the result (See \link{tidy_result})}
 
 \item{m}{\link{matrix} of results produced by \link{read_bin_result_matrix}}
 }
 \value{
-\link{matrix} of results with a first column "t" with the simulation time
+If \code{format =NULL}, it's a \link{matrix} of results with a first column "t" with the simulation time
 in seconds followed by columns selected by \code{filters}.
 
 Column names are a concatenation of nested SIC model elements separated by
@@ -35,6 +35,8 @@ the character "|" and numbered after the character ":". The variable is
 represented by the item "var".
 For example, water elevation in the first section of the first reach is:
 "bf:1|sn:1|var:Z".
+
+If \code{format = tidy_result} or \code{format = compact_tidy_result}, see the documentation of \link{tidy_result}.
 }
 \description{
 Get a selection of variables from a simulation result
