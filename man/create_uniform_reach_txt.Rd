@@ -27,7 +27,7 @@ create_uniform_reach_txt(
 
 \item{section_names}{\link{character} vector of section names}
 
-\item{singular}{\link{logical} \code{TRUE} for a singular section, \code{FALSE} for a regular section}
+\item{singular}{\link{numeric} vector of abscissas of singular sections (See details)}
 }
 \value{
 A \link{list} from which each item is a section exported by \link{create_section_txt}.
@@ -35,6 +35,11 @@ Names of the list are the abscissas with trailing zeros for character sorting.
 }
 \description{
 Generate text export geometry for an uniform reach
+}
+\details{
+The abscissas of the \code{singular} parameter should match with sections
+abscissas defined by \code{abscissas}. \code{singular} values that don't match are silently
+ignored.
 }
 \examples{
 # Trapezoidal section
