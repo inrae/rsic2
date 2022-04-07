@@ -4,7 +4,13 @@
 #' @param upstream_bed_elevation [numeric], upstream bed elevation (m)
 #' @param slope [numeric], bed slope of the reach (m/m)
 #' @param section_names [character] vector of section names
+#' @param singular [numeric] vector of abscissas of singular sections (See details)
 #' @inheritParams create_section_txt
+#'
+#' @details
+#' The abscissas of the `singular` parameter should match with sections
+#' abscissas defined by `abscissas`. `singular` values that don't match are silently
+#' ignored.
 #'
 #' @return A [list] from which each item is a section exported by [create_section_txt].
 #' Names of the list are the abscissas with trailing zeros for character sorting.
@@ -25,7 +31,11 @@ create_uniform_reach_txt <- function(abscissas,
                                      slope,
                                      section_type,
                                      profile,
-                                     section_names = paste0("Section x=", abscissas)) {
+                                     section_names = paste0("Section x=", abscissas),
+                                     singular = NULL) {
+  if (!is.null(singular)) {
+    stopifnot(is.vector(singular), is.numeric(singular))
+  }
 
   sections <- lapply(seq_along(abscissas), function(i) {
     x <- abscissas[i]
@@ -34,7 +44,8 @@ create_uniform_reach_txt <- function(abscissas,
     create_section_txt(section_name = section_names[i],
                        abscissa = x,
                        section_type = section_type,
-                       profile = shifted_prof)
+                       profile = shifted_prof,
+                       singular = any(abs(singular - x) < 0.001))
   })
   names(sections) <- sprintf("%08d", abscissas)
   class(sections) <- c("ReachTxt", class(sections))

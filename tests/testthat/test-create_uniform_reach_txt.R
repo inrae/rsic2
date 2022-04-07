@@ -14,10 +14,11 @@ test_that("Trapezoidal minor section", {
                              upstream_bed_elevation = 100,
                              slope = 0.001,
                              section_type = "T",
-                             profile = profT)[1:2],
+                             profile = profT,
+                             singular = 2000)[1:2],
     list(
       "00001000" = create_section_txt("Section x=1000", 1000, "T", profT),
-      "00002000" = create_section_txt("Section x=2000", 2000, "T", profT2)
+      "00002000" = create_section_txt("Section x=2000", 2000, "T", profT2, singular = TRUE)
     )
   )
 })

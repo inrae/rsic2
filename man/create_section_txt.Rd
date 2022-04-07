@@ -9,7 +9,8 @@ create_section_txt(
   abscissa,
   section_type,
   profile,
-  distance_majeur = FALSE
+  distance_majeur = FALSE,
+  singular = FALSE
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ create_section_txt(
 \item{profile}{\link{list} or \link{matrix}, profile of the section (See details)}
 
 \item{distance_majeur}{\link{logical} or \link{numeric}, \code{FALSE} for a minor bed section}
+
+\item{singular}{\link{logical} \code{TRUE} for a singular section, \code{FALSE} for a regular section}
 }
 \value{
 \link{character}, section description in SIC text import format.

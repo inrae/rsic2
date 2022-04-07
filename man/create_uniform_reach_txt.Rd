@@ -10,7 +10,8 @@ create_uniform_reach_txt(
   slope,
   section_type,
   profile,
-  section_names = paste0("Section x=", abscissas)
+  section_names = paste0("Section x=", abscissas),
+  singular = NULL
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ create_uniform_reach_txt(
 \item{profile}{\link{list} or \link{matrix}, profile of the section (See details)}
 
 \item{section_names}{\link{character} vector of section names}
+
+\item{singular}{\link{logical} \code{TRUE} for a singular section, \code{FALSE} for a regular section}
 }
 \value{
 A \link{list} from which each item is a section exported by \link{create_section_txt}.

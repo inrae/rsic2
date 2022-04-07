@@ -5,6 +5,7 @@
 #' @param section_type 1-length [character], type of the section: "T" for Trapezoidal, "A" for Abscissa/Elevation, "L" for Width/Elevation
 #' @param profile [list] or [matrix], profile of the section (See details)
 #' @param distance_majeur [logical] or [numeric], `FALSE` for a minor bed section
+#' @param singular [logical] `TRUE` for a singular section, `FALSE` for a regular section
 #'
 #' @return [character], section description in SIC text import format.
 #' @export
@@ -12,7 +13,12 @@
 #' @examples
 #' # Trapezoidal section
 #' create_section_txt("Trapeze", 0, "T", list(B = 2, S = 1.5, ZF = 100, ZB = 102))
-create_section_txt <- function(section_name, abscissa, section_type, profile, distance_majeur = FALSE) {
+create_section_txt <- function(section_name,
+                               abscissa,
+                               section_type,
+                               profile,
+                               distance_majeur = FALSE,
+                               singular = FALSE) {
 
   if (section_type == "T") {
     if (!is.list(profile) || !all(c("B", "S", "ZF", "ZB") %in% names(profile))) {
@@ -36,7 +42,7 @@ create_section_txt <- function(section_name, abscissa, section_type, profile, di
           abscissa,
           ifelse(bMajorBed, distance_majeur, ""),
           ifelse(bMajorBed, "1", "0"),
-          section_type,
+          paste0(section_type, ifelse(singular, "S", "")),
           sep = " $ "),
     sic_profile)
   class(section_txt) <- c("SectionTxt", class(section_txt))
