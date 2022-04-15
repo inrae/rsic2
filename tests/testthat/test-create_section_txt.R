@@ -5,7 +5,7 @@ profT <- list(
   ZB = 100 + 2
 )
 
-test_that("Trapezoidale minor section", {
+test_that("Trapezoidal minor section", {
   expect_equal(
     unclass(create_section_txt("toto", 1000, "T", profT, distance_majeur = FALSE)),
     c("toto $ 1000 $  $ 0 $ T", "0", "2\t1", "102\t100")
@@ -14,6 +14,13 @@ test_that("Trapezoidale minor section", {
   profT_wrong$ZB <- NULL
   expect_error(
     create_section_txt("toto", 1000, "T", profT_wrong, distance_majeur = FALSE)
+  )
+})
+
+test_that("Singular section", {
+  expect_equal(
+    unclass(create_section_txt("toto", 1000, "T", profT, distance_majeur = FALSE, singular = TRUE)),
+    c("toto $ 1000 $  $ 0 $ TS", "0", "2\t1", "102\t100")
   )
 })
 

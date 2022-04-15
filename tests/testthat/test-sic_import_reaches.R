@@ -8,7 +8,8 @@ min_reach <- create_uniform_reach_txt(abscissas = seq(0, 10000, 100),
                                       upstream_bed_elevation = 8 + 10000 * 0.002,
                                       slope = 0.002,
                                       section_type = "L",
-                                      profile = profT)
+                                      profile = profT,
+                                      singular = c(2500, 7500))
 
 # Major bed generation
 data("floodam_ead_dem")
