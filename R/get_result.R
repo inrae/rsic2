@@ -32,6 +32,8 @@ get_result <- function(cfg,
                        fun_format = NULL,
                        m = read_bin_result_matrix(cfg, scenario, variant)) {
 
+  file <- attr(m, "file")
+
   df_col <- get_result_tree(cfg, scenario, variant)
   filters <- paste(filters, collapse = " AND ")
   if (filters != "") {
@@ -78,8 +80,9 @@ get_result <- function(cfg,
   class(m) <- c("SicResult", class(m))
 
   if (!is.null(fun_format)) {
-    return(fun_format(m))
+    m <- fun_format(m)
   }
+  attr(m, "file") <- file
   return(m)
 }
 
@@ -123,7 +126,9 @@ read_bin_result_matrix <- function(cfg, scenario, variant = 0) {
             endian = "little")
   readBin(con, "raw", n = 4) # @todo check end file content
   close(con)
-  return(matrix(data, ncol = dims[2], byrow = TRUE))
+  m <- matrix(data, ncol = dims[2], byrow = TRUE)
+  attr(m, "file") <- file
+  return(m)
 }
 
 
