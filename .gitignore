@@ -50,3 +50,7 @@ vignettes/*.pdf
 *.ini
 *.log
 docs
+
+# SIC specific files
+/.devcontainer/Sic*
+fort.*
