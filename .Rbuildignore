@@ -6,3 +6,6 @@
 [.]INI$
 ^\.gitlab-ci\.yml$
 ^ci$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
