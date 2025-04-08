@@ -3,10 +3,12 @@
 ^data-raw$
 ^man-roxygen$
 ^LICENSE\.md$
-[.]INI$
+\.INI$
 ^\.gitlab-ci\.yml$
 ^ci$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
 ^README\.Rmd$
+^fort\.
+^\.devcontainer$

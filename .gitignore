@@ -54,3 +54,4 @@ docs
 # SIC specific files
 /.devcontainer/Sic*
 fort.*
+inst/doc
