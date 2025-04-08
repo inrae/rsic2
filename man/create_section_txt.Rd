@@ -32,7 +32,16 @@ create_section_txt(
 \description{
 Export a section in importation SIC format
 }
+\details{
+The parameter \code{profile} should respect the formats depending on section
+types.
+For parametrized section (rectangular, circular, trapezoidal), \code{profile}
+}
 \examples{
 # Trapezoidal section
 create_section_txt("Trapeze", 0, "T", list(B = 2, S = 1.5, ZF = 100, ZB = 102))
+# Rectangular section
+create_section_txt("Rectangle", 0, "R", list(B = 2, ZF = 100, ZB = 102))
+# Circular section
+create_section_txt("Circular", 0, "C", list(R = 0.5, ZF = 100, ZB = 102))
 }
