@@ -39,7 +39,6 @@
 #' @encoding UTF-8
 #' @author Jean-Stéphane BAILLY, \email{bailly@agroparistech.fr}
 #' @author Frédéric Grelot, \email{frederic.grelot@inrae.fr}
-
 generate_DEM = function(
   min_elevation = 10,
   D = 20,
@@ -60,13 +59,12 @@ generate_DEM = function(
   microtopo_sill = (0.02)^2,
   microtopo_range = rad / 10
 ) {
-
   # Cell design
   x <- matrix(1:rad, nrow = rad, ncol = rad, byrow = TRUE)
   y <- matrix(rad:1, nrow = rad, ncol = rad)
   # ridge shoulder location along x axis (in pixels)
   ridge_x <- (1 + sin(seq(pi / 2, 5 * pi / 2, length.out = rad))) / 2
-  ridge_x <- round(1 + (ridge_x * ((ridge_ratio * rad)-1)))
+  ridge_x <- round(1 + (ridge_x * ((ridge_ratio * rad) - 1)))
   sigm <- function(xi, lambda, bank_width) {
     1 / (1 + exp(lambda * (xi[-length(xi)] - xi[length(xi)]) / bank_width))
   }
@@ -74,7 +72,7 @@ generate_DEM = function(
   z0 <- t(apply(prov, 1, sigm, lambda = lambda, bank_width = bank_width))
 
   # Cell replication
-  z0 <- cbind(z0, z0[ , ncol(z0):1])
+  z0 <- cbind(z0, z0[, ncol(z0):1])
   z0 <- do.call(rbind, mget(paste0("z", rep(0, n_y))))
 
   # Adding local microtopo from spatial random realization
@@ -100,19 +98,20 @@ generate_DEM = function(
   # Stream concatenation
   s <- seq(0, (s_up_width / 2), by = r)
   zs <- rep(0, length(s))
-  zs[s <= s_down_width / 2] <- - s_depth
-  zs[s  > s_down_width / 2] <-
-    - s_depth +
-    2 * s_depth *
-    (s[s > s_down_width / 2] - s_down_width / 2) /
-    (s_up_width - s_down_width)
+  zs[s <= s_down_width / 2] <- -s_depth
+  zs[s > s_down_width / 2] <-
+    -s_depth +
+    2 *
+      s_depth *
+      (s[s > s_down_width / 2] - s_down_width / 2) /
+      (s_up_width - s_down_width)
   zs <- c(rev(zs[-1]), zs)
   zs <- as.matrix(do.call(rbind, mget(rep("zs", nrow(z0)))))
   zs <- zs + min_elevation
   z0 <- cbind(
-    z0[ , 1:(ncol(z0) / 2)],
+    z0[, 1:(ncol(z0) / 2)],
     zs,
-    z0[ , (1 + ncol(z0) / 2):ncol(z0)]
+    z0[, (1 + ncol(z0) / 2):ncol(z0)]
   )
 
   # Upstream-downstream slopping

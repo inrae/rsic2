@@ -57,7 +57,7 @@ sicInputs <- SicInput(data.frame(t = c(0, 3600, 7200), # time in seconds
 }
 \seealso{
 Other SicInput: 
-\code{\link{SicLocations}()},
-\code{\link{SicLocation}()}
+\code{\link{SicLocation}()},
+\code{\link{SicLocations}()}
 }
 \concept{SicInput}

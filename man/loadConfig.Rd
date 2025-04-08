@@ -53,7 +53,9 @@ the default minor and medium bed Strickler coefficients to apply with \link{sic_
 Read default configuration of the package and complete it with eventual user config
 }
 \details{
-The path to SIC and to the XML project file can be defined in the user XML file by defining the appropriate items:\if{html}{\out{<div class="sourceCode yaml">}}\preformatted{sic:
+The path to SIC and to the XML project file can be defined in the user XML file by defining the appropriate items:
+
+\if{html}{\out{<div class="sourceCode yaml">}}\preformatted{sic:
   path: Path/To/SIC/installation
 project:
   path: Path/To/Xml/Project/File.xml

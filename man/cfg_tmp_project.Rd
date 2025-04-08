@@ -18,12 +18,12 @@ cfg_tmp_project(
 The updated configuration with the temporary project directory
 }
 \description{
-Set a configuration with a temporary project directory
+Copy the XML SIC project file in a temporary folder and modify the configuration
+according the new location of the XML SIC project file.
 }
 \examples{
-\dontrun{
+# Copy the example project provided in the package into a temporary folder
 cfg <- cfg_tmp_project()
 cfg$project$xml_path
-}
 
 }
