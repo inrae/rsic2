@@ -7,6 +7,7 @@
 loadConfig(
   sic_path = NULL,
   xml_path = NULL,
+  new_project = FALSE,
   userFile = "config.yml",
   pathDefaultCfg = system.file("config.yml", package = "rsic2")
 )
