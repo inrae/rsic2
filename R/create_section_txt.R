@@ -30,6 +30,29 @@ create_section_txt <- function(
   distance_majeur = FALSE,
   singular = FALSE
 ) {
+  stopifnot(
+    is.character(section_name),
+    length(section_name) == 1,
+    is.numeric(abscissa),
+    length(abscissa) == 1,
+    is.character(section_type),
+    length(section_type) == 1
+  )
+  # Hot fix for SIC importation rectangular section is not handled
+  if (section_type == "R") {
+    check_section_type(section_type, profile, c("B"))
+    section_type = "L"
+    profile <- matrix(data = c(profile$B, profile$B, profile$ZF, profile$ZB), ncol = 2)
+  } else if (section_type == "C") {
+    check_section_type(section_type, profile, c("R"))
+    section_type = "L"
+    centre_z <- profile$ZF + profile$R
+    all_z <- profile$ZF + seq(0, profile$R * 2, length.out = 22)
+    widths <- sapply(all_z, function(z) {
+        2 * sqrt(abs(profile$R^2 - (z - centre_z)^2))
+    })
+    profile <- round(cbind(widths, all_z), 4)
+  }
   if (section_type %in% c("A", "L")) {
     if (!is.matrix(profile) || ncol(profile) != 2) {
       stop(
@@ -47,13 +70,13 @@ create_section_txt <- function(
     # Parametrized sections
     if (section_type == "R") {
       check_section_type(section_type, profile, c("B"))
-      sic_profile <- c("0", profile$B)
+      sic_profile <- c("", profile$B)
     } else if (section_type == "C") {
       check_section_type(section_type, profile, c("R"))
-      sic_profile <- c("0", profile$R)
+      sic_profile <- c("", profile$R)
     } else if (section_type %in% c("T", "D")) {
       check_section_type(section_type, profile, c("B", "S"))
-      sic_profile <- c("0", paste(profile$B, profile$S, sep = "\t"))
+      sic_profile <- c(paste(profile$B, profile$S, sep = "\t"))
     } else {
       stop(
         "section_type ",
