@@ -10,7 +10,9 @@ create_section_txt(
   section_type,
   profile,
   distance_majeur = FALSE,
-  singular = FALSE
+  singular = FALSE,
+  xgeo = NULL,
+  ygeo = NULL
 )
 }
 \arguments{

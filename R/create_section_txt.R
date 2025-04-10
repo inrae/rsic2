@@ -28,7 +28,9 @@ create_section_txt <- function(
   section_type,
   profile,
   distance_majeur = FALSE,
-  singular = FALSE
+  singular = FALSE,
+  xgeo = NULL,
+  ygeo = NULL
 ) {
   stopifnot(
     is.character(section_name),
@@ -101,6 +103,8 @@ create_section_txt <- function(
       ifelse(bMajorBed, distance_majeur, ""),
       ifelse(bMajorBed, "1", "0"),
       paste0(section_type, ifelse(singular, "S", "")),
+      ifelse(is.null(ygeo), NULL, ygeo),
+      ifelse(is.null(xgeo), NULL, xgeo),
       sep = " $ "
     ),
     sic_profile
