@@ -3,22 +3,35 @@
 \name{get_xml_node_num_by_name}
 \alias{get_xml_node_num_by_name}
 \alias{get_xml_reach_num_by_name}
-\title{Retrieve node or reach number from XML project file}
+\alias{get_xml_section_num_by_name}
+\title{Retrieve node, reach or reach and section number from XML project file}
 \usage{
 get_xml_node_num_by_name(name, xp = xml2::read_xml(cfg$project$path), cfg)
 
 get_xml_reach_num_by_name(name, xp = xml2::read_xml(cfg$project$path), cfg)
+
+get_xml_section_num_by_name(name, xp = xml2::read_xml(cfg$project$path), cfg)
 }
 \arguments{
 \item{name}{\link{character} name of the node or reach}
 
-\item{xp}{\link[xml2:xml_document]{xml2::xml_document} the XML project file. Default is the one in the configuration}
+\item{xp}{A \code{xml_document} of the XML project file. Default is the one in the configuration}
 
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
 \value{
-\link{integer} the number of the node or reach in the XML project file
+\link{integer} the number of the node, reach, or reach and section in the XML project file
 }
 \description{
-Retrieve node or reach number from XML project file
+Retrieve node, reach or reach and section number from XML project file
+}
+\details{
+In case of several XML nodes are matching the name, the first one is returned.
+Providing \code{cfg} is not necessary if \code{xp} is provided.
+}
+\examples{
+xp <- xml2::read_xml(system.file("sic_project_test1.xml", package = "rsic2"))
+get_xml_node_num_by_name("V1-droite", xp)
+get_xml_reach_num_by_name("Bief3", xp)
+get_xml_section_num_by_name("dyke", xp)
 }
