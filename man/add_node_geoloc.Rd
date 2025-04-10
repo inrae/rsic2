@@ -4,10 +4,12 @@
 \alias{add_node_geoloc}
 \title{Add coordinates on nodes in a SIC project XML file}
 \usage{
-add_node_geoloc(x, y, cfg)
+add_node_geoloc(x, y, display_xy = NULL, cfg)
 }
 \arguments{
 \item{x, y}{\link{numeric}, coordinates of the nodes in the SIC project}
+
+\item{display_xy}{\link{data.frame} with 2 rows and 3 columns \code{num}, \code{x}, and \code{y}}
 
 \item{cfg}{a \link{config} object. Configuration to use. See \link{loadConfig} for details}
 }
