@@ -1,0 +1,279 @@
+---
+title: "Import_offtakes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Import_offtakes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+# install.packages("pak")
+# pak::pak("inrae/rsic2")
+library(rsic2)
+```
+
+## SIC project definition
+
+```{r}
+cfg <- loadConfig(sic_path = "C:/DocDD/Inrae/SIC/Versions/Sic538i5", 
+                  xml_path = file.path(getwd(), "test.xml"), 
+                  new_project = TRUE)
+```
+
+
+## Data importation
+
+```{r}
+df <- openxlsx2::read_xlsx("Data_ouvrages.xlsx")
+df$id <- paste("ouvrage", df$`ID Ouvrage`)
+```
+
+Plot map
+
+```{r}
+library(leaflet)
+library(sf)
+sf_nodes <- st_as_sf(df, coords = c("X", "Y"), crs = 2154)
+sf_nodes_wgs84 <- st_transform(sf_nodes, crs = 4326)
+leaflet(sf_nodes_wgs84) %>%
+  addTiles() %>%
+  addCircleMarkers(
+    lng = ~ st_coordinates(sf_nodes_wgs84)[, 1],
+    lat = ~ st_coordinates(sf_nodes_wgs84)[, 2],
+    label = ~ df$id,
+  )
+```
+
+
+## Create reach objects between nodes
+
+We format the data frame to create the reach objects.
+
+```{r}
+df$section_type <- "R"
+df$section_type[!is.na(df$DN_mm)] <- "C"
+df$section_width <- df$`Largeur_Section (cm)` / 100
+df$section_radius <- df$DN_mm / 2000
+df$section_bottom_elevation <- df$Z
+df$section_height <- df$`Hauteur_Section (m)` / 100
+df$abscissa <- 0
+for (i in seq(2, nrow(df))) {
+  df$abscissa[i] <- df$abscissa[i-1] + sqrt((df$X[i] - df$X[i-1])^2 + (df$Y[i] - df$Y[i-1])^2)
+}
+df$regulator <- grepl("regulation", df$Type_ouv)
+```
+
+We create a function for creating a reach object from a table representing sections objects.
+
+```{r}
+create_reach_from_sections <- function(df) {
+  lapply(seq(nrow(df)), function(i) {
+    if (df$section_type[i] == "R") {
+      profile <- list(B = df$section_width[i], 
+                      ZF = df$section_bottom_elevation[i], 
+                      ZB = df$section_bottom_elevation[i] + df$section_height[i])
+    } else if (df$section_type[i] == "C") {
+      profile <- list(R = df$section_radius[i], 
+                      ZF = df$section_bottom_elevation[i], 
+                      ZB = df$section_bottom_elevation[i] + df$section_radius[i] * 2)
+    }
+    create_section_txt(section_name = df$id[i], 
+                       abscissa = df$abscissa[i], 
+                       section_type = df$section_type[i], 
+                       profile = profile, 
+                       singular = df$regulator[i], 
+                       xgeo = df$X[i],
+                       ygeo = df$Y[i])
+  })
+}
+```
+
+Remove duplicate rows.
+
+```{r}
+df <- df[which(!duplicated(df$abscissa)), ]
+```
+
+
+We generate a reach object from the table using the function we created.
+
+```{r}
+sections <- create_reach_from_sections(df)
+```
+
+And then we split this reach into multiple reaches using location of offtakes.
+
+```{r}
+rows_nodes <- which(!df$regulator)
+if (df$regulator[nrow(df)]) {
+  # The last row is a regulator: we need to add a downstream node
+  rows_nodes <- c(rows_nodes, nrow(df))
+}
+reaches <- lapply(seq_along(rows_nodes)[-1], function(i) {
+  sections[seq(rows_nodes[i-1], rows_nodes[i])]
+})
+```
+
+## Import the reaches into SIC
+
+```{r}
+sic_import_reaches(reaches, import_mode = "ImportXml_NEW", cfg = cfg)
+```
+
+Set some project parameter:
+
+```{r}
+set_project_params(list(DX = 100, 
+                        GeoUnit = 2), 
+                   cfg = cfg)
+```
+
+Add node names for facilitating searches in the network:
+
+```{r}
+# Extract rows concerning nodes from the table
+df_nodes <- df[rows_nodes, ]
+update_nodes_names(new_names = df_nodes$id,
+                   cfg = cfg)
+```
+
+Update reach connectivity to take branches into account:
+
+```{r}
+rows_to_relocate <- which(!is.na(df_nodes$Noeud_amont))
+xp <- xml2::read_xml(cfg$project$path)
+for (i in rows_to_relocate) {
+  num_upstream_node <- get_xml_node_num_by_name(paste("ouvrage", df_nodes$Noeud_amont[i]), xp = xp)
+  num_downstream_node <- get_xml_node_num_by_name(paste("ouvrage", df_nodes$`ID Ouvrage`[i]), xp = xp)
+  num_reach <- get_xml_reach_num_by_node_num(num_downstream_node, upstream = FALSE, xp = xp)
+  node <- xml2::xml_find_first(xp, sprintf("/Reseau/Liste_Biefs/Bief[%i]/Top/NoeudAm", num_reach))
+  xml2::xml_text(node) <- as.character(num_upstream_node)
+  # Copy a section adjacent to the new upstream node in place of the old one
+  section_num <- get_xml_section_num_by_name(paste("ouvrage", df_nodes$Noeud_amont[i]), xp = xp)
+  copy_xml_section(source_reach = section_num[1], 
+                   source_section = section_num[2],
+                   target_reach = num_reach,
+                   target_section = 1, 
+                   xp = xp, 
+                   write_xml = FALSE)
+  message("Replaced upstream node of reach num ", num_reach, " with the node ", num_upstream_node)
+}
+xml2::write_xml(xp, cfg$project$path)
+```
+
+We add geolocation on the nodes and compute the coordinates of the nodes in the 
+EdiSIC display  and the middle point of the reaches.
+
+```{r}
+# Manually enter coordinates of 2 nodes in EdiSic display (pixel coords)
+# to match EdiSIC background image with geoloc
+display_xy <- data.frame(num = which(df_nodes$id %in% c("ouvrage 4", "ouvrage 44")),
+                         x = c(341, 592),
+                         y = c(54, 467))
+add_node_geoloc(x = df_nodes$X, 
+                y = df_nodes$Y, 
+                display_xy = display_xy,
+                cfg = cfg)
+
+```
+
+
+Now that some reaches have been moved, we need to update the abscissas of the sections
+in each reach:
+
+```{r}
+xp <- xml2::read_xml(cfg$project$path)
+xml_reaches <- xml2::xml_find_all(xp, "/Reseau/Liste_Biefs/Bief")
+lapply(xml_reaches, function(xml_reach) {
+  xml_sections <- xml2::xml_find_all(xml_reach, "Liste_Sections/SectionMin")
+  abscissa <- 0
+  previous_coords <- NULL
+  for (i in seq_along(xml_sections)) {
+    coords <- get_xml_geoloc(xml_sections[[i]])
+    if (i > 1) {
+      abscissa <- abscissa + sqrt((coords[1] - previous_coords[1])^2 + (coords[2] - previous_coords[2])^2)
+    }
+    xml_sections[[i]] |> 
+      xml2::xml_set_attr("abscisse", as.character(abscissa))
+    previous_coords <- coords
+  }
+}) |> invisible()
+xml2::write_xml(xp, cfg$project$path)
+```
+
+
+## Run Talweg on it
+
+```{r}
+cfg$sic$fortran$prms$INTERF <- 2 # visible interface (web license key bugs with INTERF=0)
+sic_run_mesh(cfg = cfg)
+```
+
+## Import regulators
+
+```{r}
+xml_regulator <- xml2::read_xml("template_regulator.xml")
+xp <- xml2::read_xml(cfg$project$path)
+xPath_regulator <- "//SectionMin[@Nom='%s']"
+for (i in which(df$regulator)) {
+  node_width <- xml2::xml_find_first(xml_regulator, "//Largeur")
+  xml2::xml_text(node_width) <- as.character(df$`Largeur_ouv (cm)`[i] / 100)
+  node_bottom_elevation <- xml2::xml_find_first(xml_regulator, "//CoteRadier")
+  xml2::xml_text(node_bottom_elevation) <- as.character(df$Z[i])
+  node_opening <- xml2::xml_find_first(xml_regulator, "//Ouverture")
+  xml2::xml_text(node_opening) <- as.character(df$`Hauteur_ouv (m)`[i] / 100)
+  
+  node_regulator <- xml2::xml_find_first(xp, sprintf(xPath_regulator, df$id[i]))
+  xml2::xml_add_child(node_regulator, xml_regulator)
+}
+xml2::write_xml(xp, cfg$project$path)
+```
+
+
+## Import offtakes
+
+```{r}
+xp <- xml2::read_xml(cfg$project$path)
+xPath_node <- "/Reseau/Liste_Noeuds/Noeud[@Nom='%s']"
+for (i in seq(nrow(df_nodes))) {
+  xml_offtake <- xml2::read_xml("template_offtake.xml")
+  if (is.na(df_nodes$`DN (mm)`[i])) {
+    # Rectangular gate
+    node_circular_gate <- xml2::xml_find_first(xml_offtake, "//Ouvrage[@Type='VanneC']")
+    xml2::xml_remove(node_circular_gate)
+  } else {
+    # Circular gate
+    node_rectangular_gate <- xml2::xml_find_first(xml_offtake, "//Ouvrage[@Type='VanneR']")
+    xml2::xml_remove(node_rectangular_gate)
+  }
+  node_width <- xml2::xml_find_first(xml_offtake, "//Largeur")
+  if (is.na(df_nodes$`DN (mm)`[i])) {
+    # Rectangular gate
+    xml2::xml_text(node_width) <- as.character(df_nodes$`Largeur_ouv (cm)`[i] / 100)
+  } else {
+    # Circular gate
+    xml2::xml_text(node_width) <- as.character(df_nodes$`DN (mm)`[i] / 1000)
+  }
+  
+  node_bottom_elevation <- xml2::xml_find_first(xml_offtake, "//CoteRadier")
+  xml2::xml_text(node_bottom_elevation) <- as.character(df_nodes$Z[i])
+  node_opening <- xml2::xml_find_first(xml_offtake, "//Ouverture")
+  xml2::xml_text(node_opening) <- as.character(df_nodes$`Hauteur_ouv (m)`[i] / 100)
+  node_down_elevation <- xml2::xml_find_first(xml_offtake, "//CoteFixe")
+  xml2::xml_text(node_down_elevation) <- as.character(df_nodes$Z[i])
+  
+  node_offtake <- xml2::xml_find_first(xp, sprintf(xPath_node, df_nodes$id[i]))
+  xml2::xml_add_child(node_offtake, xml_offtake)
+}
+xml2::write_xml(xp, cfg$project$path)
+```
+
+
