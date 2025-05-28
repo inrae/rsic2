@@ -49,8 +49,9 @@ vignettes/*.pdf
 *.INI
 *.ini
 *.log
-docs
 
 # SIC specific files
 /.devcontainer/Sic*
 fort.*
+vignettes/*.*
+vignettes/*/*.*
