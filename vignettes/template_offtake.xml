@@ -1,0 +1,52 @@
+<Flu nScenario="1">
+    <Prise  Nom = 'Prise1'   Num = '1' >
+        <TypeRegulation>1
+        </TypeRegulation>
+        <Actif>1
+        </Actif>
+        <ObjectifRegulation>0
+        </ObjectifRegulation>
+        <DebitReference>0
+        </DebitReference>
+        <Structure  Niveau = '1'   Nom = 'Structure 1 (amont)' >
+            <Ouvrage  Nom = 'Vanne rectangulaire'   Num = '1'   Type = 'VanneR' >
+                <Caract  Surverse = '0' >
+                    <SurverseEquationDebit>4
+                    </SurverseEquationDebit>
+                    <SurverseHauteur>0
+                    </SurverseHauteur>
+                    <SurverseCoef>0.4
+                    </SurverseCoef>
+                    <CoteRadier>2.71
+                    </CoteRadier>
+                    <Largeur>2
+                    </Largeur>
+                    <EquationDebit>3
+                    </EquationDebit>
+                    <CoefDebit>0.6
+                    </CoefDebit>
+                    <Ouverture>0
+                    </Ouverture>
+                </Caract>
+            </Ouvrage>
+            <Ouvrage  Nom = 'Vanne circulaire'   Num = '1'   Type = 'VanneC' >
+                <Caract  Surverse = '0' >
+                    <CoteRadier>2.71
+                    </CoteRadier>
+                    <Largeur>0.5
+                    </Largeur>
+                    <EquationDebit>3
+                    </EquationDebit>
+                    <CoefDebit>0.6
+                    </CoefDebit>
+                    <Ouverture>0
+                    </Ouverture>
+                </Caract>
+            </Ouvrage>
+        </Structure>
+        <ConditionLim  Nom = 'Condition limite'   Num = '1'   Type = '2' >
+            <CoteFixe>2.71
+            </CoteFixe>
+        </ConditionLim>
+    </Prise>
+</Flu>

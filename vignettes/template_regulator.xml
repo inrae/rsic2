@@ -1,0 +1,24 @@
+<Flu nScenario="1">
+    <TypeRegulation>1</TypeRegulation>
+    <ObjectifRegulation>0</ObjectifRegulation>
+    <Structure Niveau="1" Nom="Structure" lineaire="0">
+        <Ouvrage Nom="1_Vanne rectangulaire" Num="1" Type="VanneR">
+            <Caract Surverse="0">
+                <SurverseEquationDebit>4</SurverseEquationDebit>
+                <SurverseHauteur>0</SurverseHauteur>
+                <SurverseCoef>0.4</SurverseCoef>
+                <CoteRadier>2.53</CoteRadier>
+                <Largeur>2</Largeur>
+                <EquationDebit>3</EquationDebit>
+                <CoefDebit>0.6</CoefDebit>
+                <Ouverture>0</Ouverture>
+            </Caract>
+            <Qual>
+                <K1 bAjust="1">1</K1>
+                <K2 bAjust="1">1</K2>
+                <K3 bAjust="1">1</K3>
+                <K4 bAjust="1">1</K4>
+            </Qual>
+        </Ouvrage>
+    </Structure>
+</Flu>
