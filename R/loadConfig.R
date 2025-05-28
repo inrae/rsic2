@@ -46,24 +46,33 @@
 #' xml_path <- R.utils::tmpfile()
 #' cfg <- loadConfig(sic_path, xml_path)
 #' str(cfg)
-loadConfig <- function(sic_path = NULL, xml_path = NULL, new_project = FALSE, userFile = "config.yml", pathDefaultCfg = system.file("config.yml", package = "rsic2")) {
-    cfg <- config::get(file = pathDefaultCfg)
-    if (Sys.getenv("SICPATH") != "" & is.null(sic_path)) {
-      cfg$sic$path <- Sys.getenv("SICPATH")
-      message("`sic_path` defined by environment variable SICPATH=", cfg$sic$path)
-    }
-    if (file.exists(userFile)) {
-      message("Reading user configuration from ", userFile)
-      cfg = config::merge(cfg,config::get(file = userFile))
-    }
-    if (!is.null(sic_path)) cfg$sic$path <- sic_path
-    if (!is.null(xml_path)) cfg$project$path <- xml_path
-    if (!dir.exists(cfg$sic$path)) {
-      stop("Path for SIC is undefined or does not exist: ", cfg$sic$path)
-    }
-    if (!new_project && !file.exists(cfg$project$path)) {
-      stop("Path for XMLproject file is undefined or the file does not exist: ", cfg$project$path)
-    }
-    cfg$project$new <- new_project
-    cfg
+loadConfig <- function(
+  sic_path = NULL,
+  xml_path = NULL,
+  new_project = FALSE,
+  userFile = "config.yml",
+  pathDefaultCfg = system.file("config.yml", package = "rsic2")
+) {
+  cfg <- config::get(file = pathDefaultCfg)
+  if (Sys.getenv("SICPATH") != "" & is.null(sic_path)) {
+    cfg$sic$path <- Sys.getenv("SICPATH")
+    message("`sic_path` defined by environment variable SICPATH=", cfg$sic$path)
+  }
+  if (file.exists(userFile)) {
+    message("Reading user configuration from ", userFile)
+    cfg = config::merge(cfg, config::get(file = userFile))
+  }
+  if (!is.null(sic_path)) cfg$sic$path <- sic_path
+  if (!is.null(xml_path)) cfg$project$path <- xml_path
+  if (!dir.exists(cfg$sic$path)) {
+    stop("Path for SIC is undefined or does not exist: ", cfg$sic$path)
+  }
+  if (!new_project && !file.exists(cfg$project$path)) {
+    stop(
+      "Path for XMLproject file is undefined or the file does not exist: ",
+      cfg$project$path
+    )
+  }
+  cfg$project$new <- new_project
+  cfg
 }

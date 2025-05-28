@@ -12,11 +12,14 @@ add_node_geoloc <- function(x, y, display_xy = NULL, cfg) {
   xPath_template <- "/Reseau/Liste_Noeuds/Noeud[%i]"
 
   if (!is.null(display_xy)) {
-    scale_x <- (display_xy[2, "x"] - display_xy[1, "x"]) / (x[display_xy[2, "num"]] - x[display_xy[1, "num"]])
-    scale_y <- (display_xy[2, "y"] - display_xy[1, "y"]) / (y[display_xy[2, "num"]] - y[display_xy[1, "num"]])
+    scale_x <- (display_xy[2, "x"] - display_xy[1, "x"]) /
+      (x[display_xy[2, "num"]] - x[display_xy[1, "num"]])
+    scale_y <- (display_xy[2, "y"] - display_xy[1, "y"]) /
+      (y[display_xy[2, "num"]] - y[display_xy[1, "num"]])
     origin <- list(
       x = list(display = display_xy[1, "x"], geo = x[display_xy[1, "num"]]),
-      y = list(display = display_xy[1, "y"], geo = y[display_xy[1, "num"]]))
+      y = list(display = display_xy[1, "y"], geo = y[display_xy[1, "num"]])
+    )
   }
   if (!is.null(display_xy)) {
     x_display <- as.integer((x - origin$x$geo) * scale_x + origin$x$display)
@@ -47,19 +50,28 @@ add_node_geoloc <- function(x, y, display_xy = NULL, cfg) {
         # Get the coordinates of the upstream and downstream nodes
         coords <- calc_middle_reach_display_coords(xp, xml_bief)
         # Set the coordinates in the XML file
-        nodeX <- xml_bief |> xml2::xml_child("Aff") |> xml2::xml_child("X_Millieu")
+        nodeX <- xml_bief |>
+          xml2::xml_child("Aff") |>
+          xml2::xml_child("X_Millieu")
         xml2::xml_text(nodeX) <- as.character(coords[1])
-        nodeY <- xml_bief |> xml2::xml_child("Aff") |> xml2::xml_child("Y_Millieu")
+        nodeY <- xml_bief |>
+          xml2::xml_child("Aff") |>
+          xml2::xml_child("Y_Millieu")
         xml2::xml_text(nodeY) <- as.character(coords[2])
-      })
+      }
+    )
   }
   xml2::write_xml(xp, cfg$project$path)
 }
 
 calc_middle_reach_display_coords <- function(xp, xml_bief) {
-  up_node_id <- xml_bief |> xml2::xml_find_first("Top/NoeudAm") |> xml2::xml_text()
+  up_node_id <- xml_bief |>
+    xml2::xml_find_first("Top/NoeudAm") |>
+    xml2::xml_text()
   up_node_coords <- get_node_display_coords(xp, up_node_id)
-  down_node_id <- xml_bief |> xml2::xml_find_first("Top/NoeudAv") |> xml2::xml_text()
+  down_node_id <- xml_bief |>
+    xml2::xml_find_first("Top/NoeudAv") |>
+    xml2::xml_text()
   down_node_coords <- get_node_display_coords(xp, down_node_id)
   x_display <- (up_node_coords[1] + down_node_coords[1]) / 2
   y_display <- (up_node_coords[2] + down_node_coords[2]) / 2

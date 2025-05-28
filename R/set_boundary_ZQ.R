@@ -23,7 +23,13 @@ set_boundary_ZQ <- function(cfg, scenario, nd, pr = 1, mZQ) {
   x <- read_xml(cfg$project$path)
   xPath <- "/Reseau/Liste_Noeuds/Noeud[@Num=%d]/Flu[@nScenario=%d]/Prise[@Num=%d]/ConditionLim/TLoi"
   xPath <- sprintf(xPath, nd, scenario, pr)
-  sZQ <- capture.output(write.table(t(mZQ), sep = "\t", quote = FALSE, col.names = FALSE, row.names = FALSE))
+  sZQ <- capture.output(write.table(
+    t(mZQ),
+    sep = "\t",
+    quote = FALSE,
+    col.names = FALSE,
+    row.names = FALSE
+  ))
   sZQ <- paste(sZQ, collapse = "\n")
   xLoi <- x %>% xml_find_first(xPath)
   xml_text(xLoi) <- sZQ

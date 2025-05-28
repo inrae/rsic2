@@ -1,27 +1,40 @@
-locations <- SicLocations(list(bf = 1, sn = 1, car = "Z"),
-                          list(Nd = 1, Pr = 1, car = "Q"))
+locations <- SicLocations(
+  list(bf = 1, sn = 1, car = "Z"),
+  list(Nd = 1, Pr = 1, car = "Q")
+)
 input <- SicInput(5, locations = locations)
-dfTest <- data.frame(t = seq(0, by = 600, length.out = 11),
-                     v = sin(0:10))
+dfTest <- data.frame(t = seq(0, by = 600, length.out = 11), v = sin(0:10))
 input2 <- SicInput(dfTest, locations = SicLocation(list(Nd = 1, Car = "Z")))
 
 test_that("SicLocation shoud return errors with incoherent parameters", {
-  expect_error(SicLocation(list(bf = 1, sn = 2)),
-               regexp = "Each location should have at least an item 'CAR'")
-  expect_error(SicLocation(list(bf = 1, nd = 2, car = "Q")),
-               regexp = "These items can't be together in a location", fixed = TRUE)
+  expect_error(
+    SicLocation(list(bf = 1, sn = 2)),
+    regexp = "Each location should have at least an item 'CAR'"
+  )
+  expect_error(
+    SicLocation(list(bf = 1, nd = 2, car = "Q")),
+    regexp = "These items can't be together in a location",
+    fixed = TRUE
+  )
 })
 
 test_that("SicLocation should works", {
   expect_s3_class(SicLocation(list(bf = 1, sn = 1, car = "Q")), "SicLocation")
-  expect_equal(unclass(SicLocation(list(bf = 1, sn = 1, car = "Q"))),
-               "BF=1\tSN=1\tCAR=Q")
+  expect_equal(
+    unclass(SicLocation(list(bf = 1, sn = 1, car = "Q"))),
+    "BF=1\tSN=1\tCAR=Q"
+  )
 })
 
 test_that("SicLocations should work", {
-  expect_s3_class(SicLocations(list(list(bf = 1, sn = 1, car = "Q"))), "SicLocations")
-  expect_equal(SicLocations(list(list(bf = 1, sn = 1, car = "Q")))[1],
-               "BF=1\tSN=1\tCAR=Q")
+  expect_s3_class(
+    SicLocations(list(list(bf = 1, sn = 1, car = "Q"))),
+    "SicLocations"
+  )
+  expect_equal(
+    SicLocations(list(list(bf = 1, sn = 1, car = "Q")))[1],
+    "BF=1\tSN=1\tCAR=Q"
+  )
 })
 
 test_that("SiCinput should work with fixed value", {
@@ -29,7 +42,6 @@ test_that("SiCinput should work with fixed value", {
   expect_s3_class(input, "SicInput")
   expect_equal(input$locations, locations)
   expect_equal(input$data, 5)
-
 })
 
 test_that("SiCinput should work with time in seconds", {
@@ -38,10 +50,15 @@ test_that("SiCinput should work with time in seconds", {
 })
 
 test_that("SiCinput should work with time in POSIXt", {
-  input <- SicInput(seq(as.POSIXct("2020-01-05 00:00:00", tz = "UTC"),
-                        by = 600, length.out = 11),
-                    dfTest$v,
-                    locations = locations)
+  input <- SicInput(
+    seq(
+      as.POSIXct("2020-01-05 00:00:00", tz = "UTC"),
+      by = 600,
+      length.out = 11
+    ),
+    dfTest$v,
+    locations = locations
+  )
   expect_equal(input$data, dfTest)
 })
 
@@ -77,5 +94,5 @@ test_that("sic_write_par should works", {
   expect_true(file.exists(file))
   s <- readLines(file)
   expect_equal(gsub("(\t)+$", "", s[2]), "L1\tBF=1\tSN=1\tCAR=Z")
-  expect_equal(gsub("(\t)+$", "",s[4]), "X1\t5")
+  expect_equal(gsub("(\t)+$", "", s[4]), "X1\t5")
 })

@@ -10,12 +10,30 @@
 #' @returns Nothing. Use for side effect on the XML project file.
 #' @export
 #'
-copy_xml_section <- function(source_reach, source_section, target_reach, target_section, xp = xml2::read_xml(cfg$project$path), write_xml = TRUE, cfg) {
+copy_xml_section <- function(
+  source_reach,
+  source_section,
+  target_reach,
+  target_section,
+  xp = xml2::read_xml(cfg$project$path),
+  write_xml = TRUE,
+  cfg
+) {
   # Get the source section
-  source_section_node <- xp %>% xml2::xml_find_first(sprintf("/Reseau/Liste_Biefs/Bief[@Num=%s]/Liste_Sections/SectionMin[@Num=%s]", as.character(source_reach), as.character(source_section)))
+  source_section_node <- xp %>%
+    xml2::xml_find_first(sprintf(
+      "/Reseau/Liste_Biefs/Bief[@Num=%s]/Liste_Sections/SectionMin[@Num=%s]",
+      as.character(source_reach),
+      as.character(source_section)
+    ))
 
   # Get the target section
-  target_section_node <- xp %>% xml2::xml_find_first(sprintf("/Reseau/Liste_Biefs/Bief[@Num=%s]/Liste_Sections/SectionMin[@Num=%s]", as.character(target_reach), as.character(target_section)))
+  target_section_node <- xp %>%
+    xml2::xml_find_first(sprintf(
+      "/Reseau/Liste_Biefs/Bief[@Num=%s]/Liste_Sections/SectionMin[@Num=%s]",
+      as.character(target_reach),
+      as.character(target_section)
+    ))
 
   xml2::xml_replace(target_section_node, source_section_node)
 

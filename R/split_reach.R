@@ -23,10 +23,13 @@
 #' reaches <- split_reach(min_reach, seq(0, 10000, 2000))
 #'
 split_reach <- function(reach, x_limits) {
-  if(length(x_limits) < 2) {
+  if (length(x_limits) < 2) {
     stop("`x_limits` length must be greater or equal to 2")
   }
-  lapply(seq_len(length(x_limits) - 1), function(i) extract_reach(reach, x_limits[i:(i+1)]))
+  lapply(
+    seq_len(length(x_limits) - 1),
+    function(i) extract_reach(reach, x_limits[i:(i + 1)])
+  )
 }
 
 #' Select portion of a reach between two chainages
@@ -58,7 +61,9 @@ split_reach <- function(reach, x_limits) {
 extract_reach <- function(reach, x_limits) {
   reach_names <- names(reach)
   x_limits <- sprintf("%08d", x_limits)
-  sel_reach <- reach[reach_names >= min(x_limits) & reach_names <= max(x_limits)]
+  sel_reach <- reach[
+    reach_names >= min(x_limits) & reach_names <= max(x_limits)
+  ]
   # Change major bed distance of the last section (issue #13)
   i_last <- length(sel_reach)
   s_cfg <- strsplit(sel_reach[[i_last]][1], "$", fixed = TRUE)[[1]]

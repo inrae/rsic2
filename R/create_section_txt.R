@@ -44,14 +44,17 @@ create_section_txt <- function(
   if (section_type == "R") {
     check_section_type(section_type, profile, c("B"))
     section_type = "L"
-    profile <- matrix(data = c(profile$B, profile$B, profile$ZF, profile$ZB), ncol = 2)
+    profile <- matrix(
+      data = c(profile$B, profile$B, profile$ZF, profile$ZB),
+      ncol = 2
+    )
   } else if (section_type == "C") {
     check_section_type(section_type, profile, c("R"))
     section_type = "L"
     centre_z <- profile$ZF + profile$R
     all_z <- profile$ZF + seq(0, profile$R * 2, length.out = 22)
     widths <- sapply(all_z, function(z) {
-        2 * sqrt(abs(profile$R^2 - (z - centre_z)^2))
+      2 * sqrt(abs(profile$R^2 - (z - centre_z)^2))
     })
     profile <- round(cbind(widths, all_z), 4)
   }

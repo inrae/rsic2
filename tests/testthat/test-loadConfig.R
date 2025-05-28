@@ -22,10 +22,12 @@ test_that("SIC and XML paths injected by parameters should be provided in cfg", 
 
 test_that("SIC and XML paths injected by user yml file should be provided in cfg", {
   tmpCfgPath <- tempfile(fileext = ".yml")
-  ymlCfg <- list(default = list(
-    sic = list(path = sic_path),
-    project = list(path = xml_path)
-  ))
+  ymlCfg <- list(
+    default = list(
+      sic = list(path = sic_path),
+      project = list(path = xml_path)
+    )
+  )
   yaml::write_yaml(ymlCfg, tmpCfgPath)
   cfg <- loadConfig(userFile = tmpCfgPath)
   expect_equal(cfg$sic$path, sic_path)

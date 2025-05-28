@@ -12,8 +12,14 @@ get_xml_geoloc <- function(xml_node) {
   )
 
   # Get the coordinates of the node
-  x_geo <- xml_node |> xml2::xml_find_first("Aff/Xgeo") |> xml2::xml_text() |> as.numeric()
-  y_geo <- xml_node |> xml2::xml_find_first("Aff/Ygeo") |> xml2::xml_text() |> as.numeric()
+  x_geo <- xml_node |>
+    xml2::xml_find_first("Aff/Xgeo") |>
+    xml2::xml_text() |>
+    as.numeric()
+  y_geo <- xml_node |>
+    xml2::xml_find_first("Aff/Ygeo") |>
+    xml2::xml_text() |>
+    as.numeric()
 
   return(c(x_geo = x_geo, y_geo = y_geo))
 }

@@ -68,7 +68,7 @@ convert_sic_params <- function(params, cfg = loadConfig()) {
     params <- c(list(INTERF = cfg$sic$fortran$prms$INTERF), params)
   }
   params <- sapply(names(params), function(key) {
-    paste(key, params[[key]], sep= "=")
+    paste(key, params[[key]], sep = "=")
   })
   paste(params, collapse = " ")
 }
@@ -94,7 +94,14 @@ sic_run_fortran <- function(cfg, prog, params) {
 }
 
 #' @noRd
-sic_run_simulation <- function(cfg, prog, scenario, variant, sicInputs, params) {
+sic_run_simulation <- function(
+  cfg,
+  prog,
+  scenario,
+  variant,
+  sicInputs,
+  params
+) {
   if (!is.null(sicInputs)) {
     sic_write_par(cfg, scenario, sicInputs)
   }
@@ -104,18 +111,33 @@ sic_run_simulation <- function(cfg, prog, scenario, variant, sicInputs, params) 
 
 #' @rdname sic_run_mesh
 #' @export
-sic_run_steady <- function(cfg, scenario, variant = 0, sicInputs = NULL, params = list()) {
+sic_run_steady <- function(
+  cfg,
+  scenario,
+  variant = 0,
+  sicInputs = NULL,
+  params = list()
+) {
   sic_run_simulation(cfg, "fluvia", scenario, variant, sicInputs, params)
 }
 
 #' @rdname sic_run_mesh
 #' @export
-sic_run_unsteady <- function(cfg, scenario = iniParams[4], variant = iniParams[5], sicInputs = NULL, iniParams = NULL, params = list()) {
+sic_run_unsteady <- function(
+  cfg,
+  scenario = iniParams[4],
+  variant = iniParams[5],
+  sicInputs = NULL,
+  iniParams = NULL,
+  params = list()
+) {
   if (!is.null(iniParams)) {
-    sic_run_steady(cfg,
-                   scenario = iniParams[1],
-                   variant = iniParams[2],
-                   sicInputs = sicInputs)
+    sic_run_steady(
+      cfg,
+      scenario = iniParams[1],
+      variant = iniParams[2],
+      sicInputs = sicInputs
+    )
     set_initial_conditions(iniParams, cfg)
   }
   if (is.null(scenario)) stop("`scenario` should be defined")

@@ -43,19 +43,18 @@ tidy_result <- function(res) {
   df <- tidyr::gather(res, key = "key", value = "value", -"t")
   keys <- strsplit(df$key, "|", fixed = TRUE)
   l <- lapply(keys, function(x) {
-    l <- lapply(strsplit(x, ":", fixed = TRUE),
-                function(obj) {
-                  df <- data.frame(x = obj[2])
-                  if (obj[1] != "var") {
-                    if (obj[1] == "t") {
-                      df$x <- as.numeric(df$x)
-                    } else {
-                      df$x <- as.integer(df$x)
-                    }
-                  }
-                  names(df) <- obj[1]
-                  return(df)
-                })
+    l <- lapply(strsplit(x, ":", fixed = TRUE), function(obj) {
+      df <- data.frame(x = obj[2])
+      if (obj[1] != "var") {
+        if (obj[1] == "t") {
+          df$x <- as.numeric(df$x)
+        } else {
+          df$x <- as.integer(df$x)
+        }
+      }
+      names(df) <- obj[1]
+      return(df)
+    })
     do.call(cbind, l)
   })
   df_obj <- do.call(rbind, l)

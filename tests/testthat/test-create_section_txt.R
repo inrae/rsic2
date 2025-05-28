@@ -7,7 +7,13 @@ profT <- list(
 
 test_that("Trapezoidal minor section", {
   expect_equal(
-    unclass(create_section_txt("toto", 1000, "T", profT, distance_majeur = FALSE)),
+    unclass(create_section_txt(
+      "toto",
+      1000,
+      "T",
+      profT,
+      distance_majeur = FALSE
+    )),
     c("toto $ 1000 $  $ 0 $ T", "0", "2\t1", "102\t100")
   )
   profT_wrong <- profT
@@ -19,7 +25,14 @@ test_that("Trapezoidal minor section", {
 
 test_that("Singular section", {
   expect_equal(
-    unclass(create_section_txt("toto", 1000, "T", profT, distance_majeur = FALSE, singular = TRUE)),
+    unclass(create_section_txt(
+      "toto",
+      1000,
+      "T",
+      profT,
+      distance_majeur = FALSE,
+      singular = TRUE
+    )),
     c("toto $ 1000 $  $ 0 $ TS", "0", "2\t1", "102\t100")
   )
 })
@@ -30,7 +43,13 @@ test_that("X/Z minor section", {
   )
   profA <- matrix(c(0, 2, 4, 6, 102, 100, 100, 102), ncol = 2)
   expect_equal(
-    unclass(create_section_txt("toto", 1000, "A", profA, distance_majeur = FALSE)),
+    unclass(create_section_txt(
+      "toto",
+      1000,
+      "A",
+      profA,
+      distance_majeur = FALSE
+    )),
     c("toto $ 1000 $  $ 0 $ A", "0\t102", "2\t100", "4\t100", "6\t102")
   )
 })

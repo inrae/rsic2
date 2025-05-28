@@ -9,6 +9,11 @@ maj_section_width <- as.numeric(extent$xmax - extent$xmin)
 nb_sections <- ceiling(10000 / 25) + 1
 section_centers <- get_section_centers(node_coords, nb_sections)
 
-test_that("dem_to_reach works",{
-  reach <- dem_to_reach(dem, node_coords, section_centers, section_width = maj_section_width)
+test_that("dem_to_reach works", {
+  reach <- dem_to_reach(
+    dem,
+    node_coords,
+    section_centers,
+    section_width = maj_section_width
+  )
 })

@@ -28,5 +28,4 @@ update_nodes_names <- function(new_names, cfg) {
   }
 
   xml2::write_xml(xp, cfg$project$path)
-
 }

@@ -40,21 +40,48 @@
 #' reach_txt <- dem_to_reach_txt(dem, node_coords, space_step, section_width, major_bed = TRUE)
 #' reach_txt[[5]]
 #'
-dem_to_reach_txt <- function(dem, node_coords, space_step, section_width, nb_points = 50, start = 0, major_bed = FALSE) {
-  reach_length <- as.numeric(dist(node_coords[1:2,]))
+dem_to_reach_txt <- function(
+  dem,
+  node_coords,
+  space_step,
+  section_width,
+  nb_points = 50,
+  start = 0,
+  major_bed = FALSE
+) {
+  reach_length <- as.numeric(dist(node_coords[1:2, ]))
   nb_sections <- ceiling(reach_length / space_step) + 1
   section_centers <- get_section_centers(node_coords, nb_sections)
-  abscissas <- start + sapply(seq_len(nrow(section_centers)), function(i) {as.numeric(dist(section_centers[c(1,i), ]))})
-  reach <- dem_to_reach(dem, node_coords, section_centers, section_width, nb_points)
+  abscissas <- start +
+    sapply(seq_len(nrow(section_centers)), function(i) {
+      as.numeric(dist(section_centers[c(1, i), ]))
+    })
+  reach <- dem_to_reach(
+    dem,
+    node_coords,
+    section_centers,
+    section_width,
+    nb_points
+  )
   reach_txt <- lapply(seq_along(reach), function(i) {
-    section_name <- paste0(ifelse(major_bed, "Major", "Minor"), " x=", abscissas[i])
+    section_name <- paste0(
+      ifelse(major_bed, "Major", "Minor"),
+      " x=",
+      abscissas[i]
+    )
     profile <- reach[[i]]
     if (major_bed != FALSE) {
       distance_majeur <- abscissas[i] - abscissas[max(i - 1, 1)]
     } else {
       distance_majeur <- FALSE
     }
-    create_section_txt(section_name, abscissas[i], "A", profile, distance_majeur)
+    create_section_txt(
+      section_name,
+      abscissas[i],
+      "A",
+      profile,
+      distance_majeur
+    )
   })
   names(reach_txt) <- sprintf("%08d", abscissas)
   class(reach_txt) <- c("ReachTxt", class(reach_txt))
@@ -65,11 +92,17 @@ dem_to_reach_txt <- function(dem, node_coords, space_step, section_width, nb_poi
 #' @rdname dem_to_reach
 #' @param section_centers See return value of [get_section_centers]
 #' @export
-dem_to_reach <- function(dem, node_coords, section_centers, section_width, nb_points = 50) {
+dem_to_reach <- function(
+  dem,
+  node_coords,
+  section_centers,
+  section_width,
+  nb_points = 50
+) {
   if (nrow(node_coords) != 2 || ncol(node_coords) != 2)
     stop("`node_coords` should be a matrix of dimensions 2x2")
   lapply(seq_len(nrow(section_centers)), function(i) {
-    section_center <- section_centers[i,]
+    section_center <- section_centers[i, ]
     dem_to_section(dem, node_coords, section_center, section_width, nb_points)
   })
 }
@@ -84,7 +117,13 @@ dem_to_reach <- function(dem, node_coords, section_centers, section_width, nb_po
 #' @export
 #'
 #' @inherit dem_to_reach return examples
-dem_to_section <- function(dem, node_coords, section_center, section_width, nb_points = 50) {
+dem_to_section <- function(
+  dem,
+  node_coords,
+  section_center,
+  section_width,
+  nb_points = 50
+) {
   if (length(section_center) != 2) {
     stop("`section_center` should be of lenght 2")
   }
@@ -99,7 +138,9 @@ dem_to_section <- function(dem, node_coords, section_center, section_width, nb_p
   z <- terra::extract(dem, section_points, method = "bilinear")$lyr.1
   x_points <- sapply(
     seq_len(nrow(section_points)),
-    function(i) {as.numeric(dist(section_points[c(1,i), ]))}
+    function(i) {
+      as.numeric(dist(section_points[c(1, i), ]))
+    }
   )
   m <- matrix(c(x_points, z), ncol = 2)
   m <- m[!is.na(m[, 2]), ]
@@ -107,11 +148,19 @@ dem_to_section <- function(dem, node_coords, section_center, section_width, nb_p
   return(m)
 }
 
-get_section_bound <- function(node_coords, section_center, section_width, direction = 1) {
-  theta_reach <- atan2(diff(node_coords[,2]), diff(node_coords[,1]))
+get_section_bound <- function(
+  node_coords,
+  section_center,
+  section_width,
+  direction = 1
+) {
+  theta_reach <- atan2(diff(node_coords[, 2]), diff(node_coords[, 1]))
   theta <- theta_reach + direction * pi / 2
   r <- section_width / 2
-  c(x = section_center[1] + r * cos(theta), y = section_center[2] + r * sin(theta))
+  c(
+    x = section_center[1] + r * cos(theta),
+    y = section_center[2] + r * sin(theta)
+  )
 }
 
 #' Get coordinates of section centers

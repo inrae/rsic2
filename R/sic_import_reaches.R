@@ -33,7 +33,11 @@
 #' cfg <- cfg_tmp_project()
 #' sic_import_reaches(reaches, cfg = cfg)
 #' }
-sic_import_reaches <- function(reaches, import_mode = "ImportXml_UPDATE", cfg = loadConfig()) {
+sic_import_reaches <- function(
+  reaches,
+  import_mode = "ImportXml_UPDATE",
+  cfg = loadConfig()
+) {
   # Create reach files
   import_path <- dirname(cfg$project$path)
   reach_files <- sapply(seq_along(reaches), function(i) {
@@ -96,13 +100,16 @@ write_reach_txt <- function(file, reach) {
 #' x <- read_xml(cfg$project$path)
 #' xml_find_first(x, "//Stricklers")
 #' }
-update_portion_abscissas <- function(cfg,
-                                     stricklers = cfg$project$stricklers) {
+update_portion_abscissas <- function(cfg, stricklers = cfg$project$stricklers) {
   x <- read_xml(cfg$project$path)
   x_biefs <- xml_find_all(x, "//Bief")
   lapply(x_biefs, function(x) {
-    XD <- x %>% xml_find_first(".//Liste_Sections/SectionMin") %>% xml_attr("abscisse")
-    XF <- x %>% xml_find_last(".//Liste_Sections/SectionMin") %>% xml_attr("abscisse")
+    XD <- x %>%
+      xml_find_first(".//Liste_Sections/SectionMin") %>%
+      xml_attr("abscisse")
+    XF <- x %>%
+      xml_find_last(".//Liste_Sections/SectionMin") %>%
+      xml_attr("abscisse")
     x_stricklers <- xml_find_all(x, ".//Stricklers")
     lapply(x_stricklers, function(x) {
       x_portion <- xml_find_first(x, "./Portion")

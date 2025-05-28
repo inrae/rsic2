@@ -34,7 +34,8 @@
 merge.ReachTxt <- function(x, y = NULL, ...) {
   reaches <- c(list(x, y), list(...))
   lapply(reaches, function(reach) {
-    if (!inherits(reach, "ReachTxt")) stop("Parameters must be of class ReachTxt")
+    if (!inherits(reach, "ReachTxt"))
+      stop("Parameters must be of class ReachTxt")
   })
   if (length(reaches) == 1) return(reaches[[1]])
   merged_reach <- do.call(c, reaches)
